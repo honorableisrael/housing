@@ -1,38 +1,46 @@
-import React from 'react';
+import React from "react";
 import "./landing.css";
-import {Link} from "react-router-dom";
-import { Container } from 'react-bootstrap';
-import greypatch from '../../assets/greypatch.png';
+import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import greypatch from "../../assets/greypatch.png";
+import homesbg from "../../assets/homesbg.png";
 
 const HeroSection = () => {
-
-   return (
-     <div>
-       <section className="redesignheroSection">
-         <Container className="rg11">
-           <div>
-              <img src={greypatch} className="hero__vector homemainImage img-fluid"/>  
-           </div> 
-           <article className="rdheroSection__headline">
-             <h1 className="redesignheroSection__headline--main">
-               Profiling and Home Ownership Platform.
-             </h1>
-             <p>
-               Discover great mortgage deals from trusted lenders across the
-               country, and get expert advice on the right option for you. Best of
-               all, we are absolutely free!
-           </p>
-        <div>
-         <Link className="btn-gtstrted" to="/signin" >
-            Get Started for Free
-         </Link>
-         </div>
-        <div className="redirlnltvd">Still confused? Check our 1 min video</div>
-       </article>
-       </Container>
-    </section>
-    </div>
+  return (
+    <>
+      <div className="redesignheroSection">
+        <Container fluid={true} className="rg11">
+          <Row className="shift_left">
+            <Col md={6} className="pad_top">
+              <div>
+                <img
+                  src={greypatch}
+                  className="hero__vector homemainImage img-fluid"
+                />
+              </div>
+              <article className="rdheroSection__headline">
+                <h1 className="redesignheroSection__headline--main">
+                  Properties | Mortgage | Insurance
+                </h1>
+                <p>
+                  Housing Solution Fund provides Valuation, Sell, Buy, Mortgage,
+                  Invest property and other Real Estate services worldwide
+                </p>
+                <div>
+                  <Link className="btn-gtstrted" to="/signin">
+                    Apply for a Home
+                  </Link>
+                </div>
+              </article>
+            </Col>
+            <Col md={6} className="pad_top1">
+              <img src={homesbg} className="homebg" />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
-}
- 
+};
+
 export default HeroSection;

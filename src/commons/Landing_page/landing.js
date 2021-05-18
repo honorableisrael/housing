@@ -4,17 +4,17 @@ import Herosection from './redeherosection';
 import RedsgnStepSection from './redesignstep_section';
 import VideoSection from './redesignvideosection';
 import FooterSection from './redesignFooter';
-import PatnersSection from './redesignPartnersection';
+import FeaturedProperties from './FeaturedProperties';
 
 const Landing_page = ()=>{
     return(
         <div>
             <HomeNav/>
             <Herosection/>
-            {/* <PatnersSection/> */}
-            <RedsgnStepSection/>
-            <VideoSection/>
-            <FooterSection/>
+            <FeaturedProperties/>
+            {/* <RedsgnStepSection/> */}
+            {/* <VideoSection/> */}
+            {/* <FooterSection/> */}
         </div>
     )
 }

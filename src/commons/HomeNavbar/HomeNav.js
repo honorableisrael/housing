@@ -89,48 +89,48 @@ const HomeNav = (props) => {
           <div className="otherwrap">
             <Link to={"/"} className="flex-12a">
               {" "}
-              <span className="navlink_is_active">Home</span>
+              <span className={window.location.pathname == "/"?"navlink_is_active":"navlink_is_active1"}>Home</span>
               {window.location.pathname == "/" && (
                 <span className="boxdes"></span>
               )}
             </Link>
-            <Link to={"/"} className="flex-12a">
+            <Link to={"/properties"} className="flex-12a">
               {" "}
-              <span className="navlink_is_active1">Properties</span>
+              <span className={window.location.pathname == "/properties"?"navlink_is_active":"navlink_is_active1"}>Properties</span>
               {window.location.pathname == "/properties" && (
                 <span className="boxdes"></span>
               )}
             </Link>
             <Link to={"/"} className="flex-12a">
               {" "}
-              <span className="navlink_is_active1">Mortgage</span>
+              <span className={window.location.pathname == "/mortgage"?"navlink_is_active":"navlink_is_active1"}>Mortgage</span>
               {window.location.pathname == "/mortgage" && (
                 <span className="boxdes"></span>
               )}
             </Link>
             <Link to={"/"} className="flex-12a">
               {" "}
-              <span className="navlink_is_active1">Contact Us</span>
-              {window.location.pathname == "/mortgage" && (
+              <span className={window.location.pathname == "/contact"?"navlink_is_active":"navlink_is_active1"}>Contact Us</span>
+              {window.location.pathname == "/contact" && (
                 <span className="boxdes"></span>
               )}
             </Link>
             <Link to={"/"} className="flex-12a">
               {" "}
-              <span className="navlink_is_active1">FAQ</span>
-              {window.location.pathname == "/mortgage" && (
-              <span className="boxdes"></span>
+              <span className={window.location.pathname == "/faq"?"navlink_is_active":"navlink_is_active1"}>FAQ</span>
+              {window.location.pathname == "/faq" && (
+                <span className="boxdes"></span>
               )}
             </Link>
-            <Link to={"/"} className="flex-12a">
+            <Link to={"/"} className="flex-12a loginbtn_12">
               {" "}
-              <span className="navlink_is_active1 loginftcol">Sign In</span>
+              <span className="navlink_is_active1 loginftcol">Login</span>
               {window.location.pathname == "/mortgage" && (
-              <span className="boxdes"></span>
+                <span className="boxdes"></span>
               )}
             </Link>
-            <Link to={"/signup"}>
-              <Button className="navsignup drkgrrn navsignup1">Sign Up</Button>
+            <Link to={"/signup"} className="height_fix">
+              <Button className="navsignup drkgrrn navsignup1 ">Sign Up</Button>
             </Link>
           </div>
         )}
@@ -189,6 +189,36 @@ const HomeNav = (props) => {
       </div>
       {NavisOpen ? (
         <div className="ismobile animated slideInDown">
+          <div className="siggnup1 animated slideInRight">
+            {" "}
+            <Link to="/signin">
+              <span className="navsignup2">Home</span>
+            </Link>
+          </div>
+          <div className="siggnup1 animated slideInRight">
+            {" "}
+            <Link to="/signin">
+              <span className="navsignup2">Properties</span>
+            </Link>
+          </div>
+          <div className="siggnup1 animated slideInRight">
+            {" "}
+            <Link to="/signin">
+              <span className="navsignup2">Mortgage</span>
+            </Link>
+          </div>
+          <div className="siggnup1 animated slideInRight">
+            {" "}
+            <Link to="/signin">
+              <span className="navsignup2">Contact Us</span>
+            </Link>
+          </div>
+          <div className="siggnup1 animated slideInRight">
+            {" "}
+            <Link to="/signin">
+              <span className="navsignup2">FAQ</span>
+            </Link>
+          </div>
           <div className="siggnup1 animated slideInRight">
             {" "}
             <Link to="/signin">

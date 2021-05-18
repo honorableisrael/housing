@@ -33,7 +33,7 @@
   width: 155px !important;
 }
 a .btn{
-  width:127px !important;
+  width:103px !important;
 }
 .btn-outline-success {
   color: var(--accent-color) !important;
@@ -73,3 +73,4 @@ a .btn{
     font-weight: 500;
   }
 }
+
