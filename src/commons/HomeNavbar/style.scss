@@ -53,7 +53,7 @@ $bgmain:  var(--fade-white);
   border-radius: 8px;
 }
 .otherwrap {
-  width: 60%;
+  width: 57%;
   display: flex;
   justify-content: space-between;
   margin-top: 0.4rem;
@@ -74,12 +74,12 @@ $bgmain:  var(--fade-white);
   height: 62px;
 }
 @media (min-width: 450px) {
-  .otherwrap {
-    min-width: 380px;
-  }
+  // .otherwrap {
+  //   min-width: 380px;
+  // }
 }
 .logoarea {
-  width: 40%;
+  width: 35%;
   padding-left: 4rem;
 }
 .navwrap {

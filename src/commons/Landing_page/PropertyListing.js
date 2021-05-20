@@ -9,43 +9,16 @@ import FamilyHomes from "../../containers/Resource/familyhomes.png";
 import FederalMortgage from "../../containers/Resource/federal.png";
 import "./landing.css";
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import { Tab, Tabs, Row } from "react-bootstrap";
-import FeaturedPropertyTabContent from "./FeaturedPropertyTabContent";
-import searchimg from "../../assets/search_icon.png";
-import union from "../../assets/Union.png";
-import naira from "../../assets/naira.png";
-import sampleproperty from "../../assets/sampleproperty.png";
-import Location from "../../assets/Location.png";
-import bedsimg from "../../assets/double-bed.png";
-import shower from "../../assets/shower.png";
-import homes from "../../assets/homes.png";
+import { Col, Row } from "react-bootstrap";
 import PropertyCard from "./PropertyCard";
 
-const FeaturedProperties = () => {
+const PropertyListing = () => {
   return (
     <>
-      <Row className="secwrap">
-        <Tabs
-          defaultActiveKey="profile"
-          className="flex22"
-          id="uncontrolled-tab-example"
-        >
-          <Tab eventKey="home" title="Properties">
-            <FeaturedPropertyTabContent />
-          </Tab>
-          <Tab eventKey="profile" title="Rent to Own">
-            <FeaturedPropertyTabContent />
-          </Tab>
-        </Tabs>
-        <div className="featured_properties_wrapper">
-          <div className="featured_properties fl-a1">
-            <span>Featured Properties</span>
-            <span className="prp12">
-              <span className="property19">Properties</span>
-              <span className="property19 property19active">Rent to own</span>
-            </span>
-          </div>
+      <Row className="propertylistings">
+        <Col md={12}>
+          <div className="main_title_12">Property Listing</div>
+          <div className="main_title_123">Recent Listings</div>
           <Carousel
             additionalTransfrom={0}
             arrows={false}
@@ -98,10 +71,69 @@ const FeaturedProperties = () => {
             <PropertyCard />
             <PropertyCard />
           </Carousel>
-        </div>
+        </Col>
+        <Col md={12}>
+          <br /> <br />
+          <div className="main_title_123">Properties under $15,000,000</div>
+          <Carousel
+            additionalTransfrom={0}
+            arrows={false}
+            autoPlay={true}
+            autoPlaySpeed={4000}
+            centerMode={false}
+            containerClass="container-with-dots"
+            dotListClass=""
+            draggable
+            focusOnSelect={false}
+            infinite={true}
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderDotsOutside={false}
+            responsive={{
+              desktop: {
+                breakpoint: {
+                  max: 3000,
+                  min: 1024,
+                },
+                items: 3,
+                paritialVisibilityGutter: 40,
+              },
+              mobile: {
+                breakpoint: {
+                  max: 710,
+                  min: 0,
+                },
+                items: 1,
+                paritialVisibilityGutter: 30,
+              },
+              tablet: {
+                breakpoint: {
+                  max: 1024,
+                  min: 710,
+                },
+                items: 2,
+                paritialVisibilityGutter: 30,
+              },
+            }}
+            showDots={false}
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+            className="centerpositon"
+          >
+            <PropertyCard />
+            <PropertyCard />
+            <PropertyCard />
+            <PropertyCard />
+          </Carousel>
+        </Col>
+        <Col md={12} className="button_send12">
+          <div className="button_send">View All Properties</div>
+        </Col>
       </Row>
     </>
   );
 };
 
-export default FeaturedProperties;
+export default PropertyListing;

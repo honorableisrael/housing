@@ -19,7 +19,7 @@ const FeaturedPropertyTabContent = () => {
   return (
     <>
       <div className="flex-23">
-        <div className="flex-w2 w2a">
+        <div className="flex-w2 w2a fl33a">
           <span>
             <img src={searchimg} className="searchimg" />
           </span>
@@ -47,7 +47,7 @@ const FeaturedPropertyTabContent = () => {
             placeholder="Maximum price"
           />
         </div>
-        <div className="flex-w2 w21">
+        <div className="flex-w2 w21 hon">
           <div className="search_a">Search</div>
         </div>
       </div>

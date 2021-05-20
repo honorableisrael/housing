@@ -104,27 +104,6 @@ const Wrapper = styled.div`
   /* ////////////////////////////////////////
   ///////////// 3. Typography //////////////
   //////////////////////////////////////// */
-  /* @font-face {
-    font-family: "Neue Haas Grotesk";
-    src: url("./fonts/NHaasGrotesk-Bd.ttf") type("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Neue Haas Grotesk";
-    src: url("./fonts/NHaasGrotesk-Md.ttf") type("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Neue Haas Grotesk";
-    src: url("./fonts/NHaasGrotesk-Rg.ttf") type("truetype");
-    font-weight: normal;
-    font-style: normal;
-  } */
-
   h1,
   h2,
   h3,

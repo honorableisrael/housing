@@ -36,9 +36,14 @@
   --fade-white: #fbfbf8;
   --pure-white: #ffffff;
   --fadepuple: #6e7191;
+  --deep-purple:#9672FF;
   --fadebg:#F5FAFD;
   --fadetext:#8C97AC;
   --off-white:#E2E4E8;
+  --skyblue:#4DDFFD;
+  --light-purple:#F2B8EC;
+  --sub-titlecolor:#4e4b66;
+  --sub-col:#E0E0E0;
 }
 @font-face {
   font-family: "Airbnb Cereal App Book";
@@ -97,6 +102,7 @@ body {
   font-family: "Airbnb Cereal App Light";
   max-width: 100%;
   min-width: 100%;
+  overflow-x: hidden;
 }
 
 /* body {

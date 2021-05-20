@@ -11,7 +11,7 @@ const HeroSection = () => {
       <div className="redesignheroSection">
         <Container fluid={true} className="rg11">
           <Row className="shift_left">
-            <Col md={6} className="pad_top">
+            <Col md={6} className="pad_top move2s">
               <div>
                 <img
                   src={greypatch}
@@ -20,11 +20,15 @@ const HeroSection = () => {
               </div>
               <article className="rdheroSection__headline">
                 <h1 className="redesignheroSection__headline--main">
-                  Properties | Mortgage | Insurance
+                  Properties <span className="thinfont">|</span> Mortgage{" "}
+                  <span className="thinfont">|</span> Insurance
                 </h1>
-                <p>
-                  Housing Solution Fund provides Valuation, Sell, Buy, Mortgage,
-                  Invest property and other Real Estate services worldwide
+                <p className="solution_intro">
+                  <span className="heroheader"> Housing Solution Fund </span>{" "}
+                  <b>
+                    provides valuation, Sell, Buy, Mortgage, Invest property and
+                    other Real Estate services worldwide
+                  </b>
                 </p>
                 <div>
                   <Link className="btn-gtstrted" to="/signin">
@@ -33,7 +37,7 @@ const HeroSection = () => {
                 </div>
               </article>
             </Col>
-            <Col md={6} className="pad_top1">
+            <Col md={6} className="pad_top1 move2s">
               <img src={homesbg} className="homebg" />
             </Col>
           </Row>
