@@ -48,6 +48,9 @@ import PreviewPage from "./commons/User_Dashboard/PrintPreview";
 import Landing_page from "./commons/Landing_page/landing";
 import PreviewApplication from "./commons/User_Dashboard/PreviewApplication";
 import PreviewMortgage from "./commons/User_Dashboard/PreviewMortgage";
+import Property_Page from "./commons/Property_Page/Property_page";
+import Property_Details from "./commons/Property_Page/Property_Details";
+
 
 //check for token
 if (localStorage.token && localStorage.user) {
@@ -151,7 +154,8 @@ class Routes extends Component {
             <Route exact path="/account-settings" component={AccountSettings} />
             <Route exact path="/printpage" component={PreviewPage} />
             <Route exact path="/" component={Landing_page} />
-
+            <Route exact path="/properties" component={Property_Page} />
+            
             <Route
               exact
               path="/auth/login"
@@ -160,11 +164,11 @@ class Routes extends Component {
               }}
             />
 
-            {/* <Route
+            <Route
               exact
-              path='/auth/resetPassword'
-              component={ResetPassword}
-            /> */}
+              path='/properties/:id'
+              component={Property_Details}
+            />
             {/* <Switch>
               <PrivateRoute
                 exact

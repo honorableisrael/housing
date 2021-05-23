@@ -50,12 +50,22 @@ const RealEstateDevelopers = () => {
             </div>
             <div className="box_wraper">
               <div className="bonmp">
-                <div className="ten12">
-                  10K
-                </div>
+                <div className="ten12">10K</div>
+                <div className="listings123">Property Listing Available</div>
+              </div>
+              <div className="bonmp">
+                <div className="ten12">5000+</div>
                 <div className="listings123">
-                  Property Listing Available
+                  Visitors each month
                 </div>
+              </div>
+              <div className="bonmp">
+                <div className="ten12">1st</div>
+                <div className="listings123">Property experience</div>
+              </div>
+              <div className="bonmp">
+                <div className="ten12">#1</div>
+                <div className="listings123">Resource for property info</div>
               </div>
             </div>
           </div>

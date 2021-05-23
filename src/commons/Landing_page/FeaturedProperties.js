@@ -93,10 +93,10 @@ const FeaturedProperties = () => {
             swipeable
             className="centerpositon"
           >
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
+            <PropertyCard submit_title={"View details"}/>
+            <PropertyCard submit_title={"View details"}/>
+            <PropertyCard submit_title={"View details"}/>
+            <PropertyCard submit_title={"View details"}/>
           </Carousel>
         </div>
       </Row>

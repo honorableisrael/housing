@@ -14,7 +14,7 @@ import spiralline from "../../assets/spiralline.png";
 
 const HowItWorks = () => {
   return (
-    <Container fluid={true} className="howitworks_container">
+    <div className="howitworks_container container-fluid">
       <div className="howitworks1">
         <div className="howitworks2 howitworks22">How it Works ?</div>
         <div className="cut_through_line"></div>
@@ -95,7 +95,7 @@ const HowItWorks = () => {
           </Row>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

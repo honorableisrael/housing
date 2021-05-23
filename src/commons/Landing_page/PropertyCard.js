@@ -21,7 +21,7 @@ import bedsimg from "../../assets/double-bed.png";
 import shower from "../../assets/shower.png";
 import homes from "../../assets/homes.png";
 
-const PropertyCard = () => {
+const PropertyCard = ({submit_title}) => {
   return (
     <>
       {/* property card starts */}
@@ -59,7 +59,7 @@ const PropertyCard = () => {
               <div className="fin_info">Mortgage</div>
             </div>
             <div>
-              <div className="btndetails">See details</div>
+              <div className="btndetails">{submit_title}</div>
             </div>
           </div>
         </div>

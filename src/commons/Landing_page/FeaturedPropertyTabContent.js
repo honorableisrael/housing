@@ -23,9 +23,9 @@ const FeaturedPropertyTabContent = () => {
           <span>
             <img src={searchimg} className="searchimg" />
           </span>
-          <input
+          <input            
             type="text"
-            className="home_input "
+            className="home_input"
             placeholder="Name, State, City ..."
           />
         </div>

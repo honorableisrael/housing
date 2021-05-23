@@ -9,7 +9,7 @@ import FamilyHomes from "../../containers/Resource/familyhomes.png";
 import FederalMortgage from "../../containers/Resource/federal.png";
 import "./landing.css";
 import Carousel from "react-multi-carousel";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Pagination } from "react-bootstrap";
 import PropertyCard from "./PropertyCard";
 
 const PropertyListing = () => {
@@ -66,10 +66,10 @@ const PropertyListing = () => {
             swipeable
             className="centerpositon"
           >
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
+            <PropertyCard submit_title={"View details"} />
+            <PropertyCard submit_title={"View details"} />
+            <PropertyCard submit_title={"View details"} />
+            <PropertyCard submit_title={"View details"} />
           </Carousel>
         </Col>
         <Col md={12}>
@@ -122,14 +122,14 @@ const PropertyListing = () => {
             swipeable
             className="centerpositon"
           >
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
+            <PropertyCard submit_title={"View details"} />
+            <PropertyCard submit_title={"View details"} />
+            <PropertyCard submit_title={"View details"} />
+            <PropertyCard submit_title={"View details"} />
           </Carousel>
         </Col>
         <Col md={12} className="button_send12">
-          <div className="button_send">View All Properties</div>
+          <div className="button_send button_send34">View All Properties</div>
         </Col>
       </Row>
     </>

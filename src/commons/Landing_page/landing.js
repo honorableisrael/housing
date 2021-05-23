@@ -17,7 +17,7 @@ const Landing_page = () => {
       <HowItWorks />
       <PropertyListing />
       <RealEstateDevelopers />
-      {/* <FooterSection/> */}
+      <FooterSection/>
     </div>
   );
 };

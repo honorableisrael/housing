@@ -40,6 +40,18 @@
 @media only screen and (max-width: 800px) {
   .redesignheroSection {
     padding: 231px 0px 179px 0px;
+    padding-top: 5rem;
+  }
+  .thinfont {
+    display: none;
+  }
+  .rdheroSection__headline div,
+  .rdheroSection__headline h1,
+  .rdheroSection__headline p {
+    line-height: 1.8 !important;
+  }
+  .solution_intro {
+    width: 70%;
   }
   .hero__vector {
     position: absolute;
@@ -86,6 +98,7 @@
     height: 75%;
   }
 }
+
 iframe {
   border: none;
 }
@@ -577,7 +590,15 @@ iframe {
 .ffcet {
   justify-content: center;
 }
+@media (min-width: 1500px) {
+  .search_a {
+    width: 200px;
+  }
+}
 @media (min-width: 800px) {
+  .shift_left {
+    padding-bottom: 5rem;
+  }
   .rdstepSession1__heading {
     padding-bottom: 2rem;
   }
@@ -623,7 +644,7 @@ iframe {
     display: none;
   }
   .redesignheroSection {
-    padding: 110px 0px 179px 0px;
+    padding: 92px 0px 179px 0px;
   }
   .pad_top {
     order: 2;
@@ -708,6 +729,9 @@ iframe {
   .redesignheroSection__headline--main {
     font-size: 50px;
   }
+  .spiralwrapper {
+    display: none;
+  }
 }
 @media screen and (min-width: 1550px) {
   .homebg {
@@ -729,42 +753,6 @@ iframe {
   padding: 0px;
 }
 
-@media (max-width: 500px) {
-  .rdstepSession1__steps--item > div {
-    height: 5px;
-  }
-  .affrd {
-    height: 0px !important;
-    margin: 0px !important;
-  }
-  .rdstepcnt1 {
-  }
-  .rdstepcnt2 {
-    top: -6rem;
-  }
-  .shift_left {
-    padding-left: 0rem;
-    padding-right: 1rem;
-  }
-  .navwrap {
-    padding-left: 0px;
-  }
-  .pad_top {
-    padding-top: 1rem;
-  }
-  .pad_top1 {
-    text-align: center;
-  }
-  .homebg {
-    width: 90%;
-    height: 200px;
-    position: initial;
-    border-radius: 7px;
-  }
-  .redesignheroSection__headline--main {
-    font-size: 22px;
-  }
-}
 .secwrap {
   background-color: var(--primary-background-color);
   padding: 8rem 6rem;
@@ -808,6 +796,9 @@ iframe {
   border-color: transparent !important;
   width: 100%;
   outline: none;
+  font-weight: 600;
+  position: relative;
+  left: 0.6rem;
 }
 .home_input::placeholder {
   font-weight: 600;
@@ -851,7 +842,7 @@ iframe {
   display: inline-block;
   background: var(--light-green);
   color: var(--white-color);
-  width: 176px;
+  width: 186px;
   text-align: center;
   height: 54px;
   display: flex;
@@ -890,7 +881,7 @@ iframe {
   color: var(--heavy-blue);
   box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
   border-radius: 20px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 .property_card {
   width: 100%;
@@ -914,7 +905,6 @@ iframe {
   font-family: "Airbnb Cereal App Medium";
   letter-spacing: 0.04em;
 }
-
 .locationtext {
   font-style: normal;
   font-weight: normal;
@@ -938,7 +928,7 @@ iframe {
   padding: 0.4rem;
 }
 .cardbox_wrapper,
-.disflex {
+.disflex,.cardbox_wrapper2 {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
@@ -1145,7 +1135,7 @@ iframe {
 }
 .spiralwrapper {
   position: relative;
-  left: 6rem;
+  left: 7rem;
   bottom: 19rem;
   z-index: -1;
 }
@@ -1192,23 +1182,30 @@ iframe {
 .button_send12 {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .button_send {
   background: var(--light-green);
   width: 240px;
   text-align: center;
-  padding: 1.3rem 1rem;
+  padding: 1.3rem 1.4rem;
   font-family: "Airbnb Cereal App Medium";
   border-radius: 7px;
   color: white;
+  cursor: pointer;
   margin-bottom: 4rem;
+}
+.submitbtn {
+  background: var(--sub-green) !important;
+  width: 291px;
+  padding: 2rem;
 }
 .box_wraper {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 .box_wraper12 {
   width: fit-content;
@@ -1254,11 +1251,383 @@ iframe {
   font-size: 34px;
   color: var(--sub-titlecolor);
 }
- .listings123{
+.listings123 {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--fadepuple);
 }
-.bonmp{
-  margin-left: 2rem;
+.bonmp {
+  margin-left: 1rem;
+  width: 200px;
+}
+.footer2a {
+  padding: 5rem 1rem;
+  background: var(--heavy-blue);
+  color: var(--white-color);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  padding: 1rem;
+  padding-top: 3rem;
+  margin-top: 3rem;
+}
+.footer2a {
+  text-align: center;
+  font-family: "Airbnb Cereal App Light";
+  font-weight: 900;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.footer2 {
+  font-weight: 900;
+  font-size: 24px;
+  padding-bottom: 1rem;
+}
+.center_23 {
+  justify-content: center;
+}
+.opptuny {
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 200;
+  color: #ffffff;
+  padding-bottom: 0rem;
+}
+.footerimp {
+  height: 55px;
+  border-radius: 12px;
+  padding-left: 3.2rem;
+}
+.ipos {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Message2 {
+  position: relative;
+  top: 2.99rem;
+  left: 0.8rem;
+}
+
+.subscribe2 {
+  width: 135px;
+  border-radius: 6px;
+  font-size: 16px;
+  background: var(--light-green);
+  display: inline-block;
+  text-align: center;
+  padding: 0.6rem 0.1rem;
+  position: relative;
+  top: 3.1rem;
+  right: 0.6rem;
+}
+.pillos {
+  font-size: 14px !important;
+  text-align: left;
+}
+.footerimp123 {
+  padding-top: 4rem;
+  width: 100%;
+  display: flex;
+  padding-bottom: 2rem;
+}
+.footerimp12 {
+  display: flex;
+}
+.house123 {
+  padding-right: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.info1 {
+  width: 35%;
+  margin-right: 3rem;
+}
+.info2 {
+  width: 25%;
+  text-align: left !important;
+}
+.logoft {
+  font-weight: 100;
+}
+.infow {
+  font-size: 20px;
+  padding-bottom: 1rem;
+}
+.log22 {
+  margin-right: 0.5rem;
+}
+.sending1 {
+  font-size: 14px;
+  padding-top: 1rem;
+  font-family: "Airbnb Cereal App Light";
+  font-weight: 200;
+}
+@media (max-width: 1000px) {
+  .box210 {
+    min-width: 250px !important;
+    padding-top: 3rem;
+  }
+  .footerimp12 {
+    flex-wrap: wrap;
+  }
+  .info2 {
+    padding-top: 2rem;
+  }
+  .log22 {
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .how_234 {
+    flex-wrap: wrap;
+  }
+  .illustration {
+    display: none;
+  }
+  .move2s {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 12rem;
+    padding-top: 14rem;
+    background: linear-gradient(
+        160.05deg,
+        #000000 -1.1%,
+        rgba(196, 196, 196, 0) 96.92%,
+        rgba(0, 0, 0, 0) 96.93%
+      ),
+      url("../../assets/firstimagewithoutcontent.png");
+    background-size: cover;
+  }
+  .rdheroSection__headline > p,
+  .redesignheroSection__headline--main {
+    color: var(--white-color) !important;
+    font-weight: 300;
+  }
+  .rdheroSection__headline div,
+  .rdheroSection__headline h1,
+  .rdheroSection__headline p {
+    padding: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .shift_left {
+    padding-left: 0.5rem;
+    padding-right: 0rem;
+  }
+  .pad_top1 {
+    display: none;
+  }
+  .footer2a {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .info2 {
+    width: 29%;
+  }
+}
+.cpright {
+  text-align: center;
+  font-weight: 100;
+  font-size: 14px !important;
+  font-family: "Airbnb Cereal App Light";
+}
+
+@media (max-width: 780px) {
+  .rdheroSection__headline div,
+  .rdheroSection__headline h1,
+  .rdheroSection__headline p {
+    padding: 1rem;
+    padding-left: 0rem;
+    padding-bottom: 1rem;
+    padding-top: 0rem;
+  }
+  .rdheroSection__headline {
+    position: relative;
+    top: 12rem;
+  }
+  .rdstepSession1__steps--item > div {
+    height: 5px;
+  }
+  .solution_intro {
+    width: 80%;
+  }
+  .affrd {
+    height: 0px !important;
+    margin: 0px !important;
+  }
+  .rdstepcnt1 {
+  }
+  .rdstepcnt2 {
+    top: -6rem;
+  }
+  .shift_left {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+  .navwrap {
+    padding-left: 0px;
+  }
+  .pad_top {
+    padding-top: 1rem;
+  }
+  .pad_top1 {
+    text-align: center;
+  }
+  .homebg {
+    width: 90%;
+    height: 200px;
+    position: initial;
+    border-radius: 7px;
+  }
+  .redesignheroSection__headline--main {
+    font-size: 22px;
+  }
+  .secwrap {
+    padding: 1rem 2rem;
+    padding-top: 0rem;
+  }
+  .house123,
+  .pillos {
+    padding-right: 0px;
+    text-align: center;
+  }
+  .sending1 {
+    margin: auto;
+  }
+  .info2,
+  .info1 {
+    width: 100%;
+    margin: auto;
+    text-align: center !important;
+  }
+  .move2s {
+    min-height: 100vh;
+    padding-bottom: 1rem;
+  }
+  .propertylistings {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+  .box_wraper {
+    justify-content: center;
+  }
+  .howitworks_container {
+    padding-left: 0rem;
+    padding-top: 4rem;
+  }
+  .prp12 {
+    padding-right: 0rem;
+  }
+  .box_wraper12 {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+  .bonmp {
+    margin-bottom: 1rem;
+  }
+  .textdst {
+    display: none;
+  }
+  .cut_through_line {
+    display: none;
+  }
+  .how_234 {
+    justify-content: center;
+  }
+  .second_section12 {
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+  }
+  .howitworks_container {
+    background: none;
+    padding-right: 0rem;
+  }
+  .howitworks22 {
+    padding-left: 2rem;
+  }
+  .navsignup2,
+  .navsignup2:hover,
+  .navsignup2:active,
+  .navsignup2:focus {
+    background: none;
+  }
+  .howitworks2 {
+    padding-bottom: 0rem;
+    text-align: center;
+  }
+  .footer2 {
+    font-size: 16px;
+  }
+  .opptuny,
+  .subscribe2,
+  .infow {
+    font-size: 14px;
+  }
+  .redesignheroSection {
+    background: none;
+    padding-bottom: 0.1rem !important;
+  }
+  .pad_top {
+    min-height: 35vh;
+  }
+  .flex22 {
+    margin-top: 5rem;
+  }
+  .prp12 {
+    display: none;
+  }
+  .centerpositon ul li {
+    justify-content: center;
+    display: flex;
+    position: relative;
+    left: 0.7rem;
+  }
+  .main_title_12,
+  .main_title_123 {
+    text-align: center;
+  }
+  .secwrap {
+    margin-right: 0px;
+  }
+  .fl-a1 {
+    justify-content: center;
+  }
+  .flex-23 {
+    margin-left: auto;
+  }
+  .w21,
+  .w2a {
+    padding-left: 0rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem !important;
+  }
+  .w2a {
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+  .fl33a {
+    margin-bottom: 0em;
+  }
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    border-color: transparent;
+    font-size: 16px;
+    padding: 1rem 0rem;
+    color: var(--light-green);
+    font-weight: 600;
+    width: 147px;
+    text-align: center;
+  }
+  .nav-tabs .nav-link {
+    width: 150px;
+  }
+}
+.search_a {
+  padding-left: 0px !important;
 }

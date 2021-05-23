@@ -1705,8 +1705,8 @@ select .form-control {
   .dapadd {
     padding-right: 0px;
   }
-  .container-fluid {
-    padding-right: 0.5rem;
+  .rg11,.container-fluid {
+    padding-right: 0rem !important;
   }
 }
 @media (max-width: 1024px) {

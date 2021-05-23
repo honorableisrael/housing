@@ -191,31 +191,31 @@ const HomeNav = (props) => {
         <div className="ismobile animated slideInDown">
           <div className="siggnup1 animated slideInRight">
             {" "}
-            <Link to="/signin">
+            <Link to="/">
               <span className="navsignup2">Home</span>
             </Link>
           </div>
           <div className="siggnup1 animated slideInRight">
             {" "}
-            <Link to="/signin">
+            <Link to="/properties">
               <span className="navsignup2">Properties</span>
             </Link>
           </div>
           <div className="siggnup1 animated slideInRight">
             {" "}
-            <Link to="/signin">
+            <Link to="/mortgage">
               <span className="navsignup2">Mortgage</span>
             </Link>
           </div>
           <div className="siggnup1 animated slideInRight">
             {" "}
-            <Link to="/signin">
+            <Link to="/contact">
               <span className="navsignup2">Contact Us</span>
             </Link>
           </div>
           <div className="siggnup1 animated slideInRight">
             {" "}
-            <Link to="/signin">
+            <Link to="/faq">
               <span className="navsignup2">FAQ</span>
             </Link>
           </div>
