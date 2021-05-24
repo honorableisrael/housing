@@ -858,14 +858,14 @@ iframe {
 }
 .featured_properties {
   font-weight: bold;
-  font-size: 32px;
+  font-size: 25px;
   padding-bottom: 2rem;
   padding-top: 5rem;
   color: var(--heavy-blue);
 }
 .howitworks22 {
   font-weight: bold;
-  font-size: 32px;
+  font-size: 25px;
   padding-bottom: 2rem;
   color: var(--heavy-blue);
 }
@@ -1164,7 +1164,7 @@ iframe {
 .main_title_12,
 .main_title_123 {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 25px;
   padding-bottom: 2rem;
   padding-top: 5rem;
   font-family: "Airbnb Cereal App Medium";
