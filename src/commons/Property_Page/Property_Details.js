@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeNav from "../HomeNavbar/HomeNav";
 import PropertyCard from "../Landing_page/PropertyCard";
 import { Container, Col, Row, Pagination } from "react-bootstrap";
@@ -13,6 +13,55 @@ import "./property.css";
 import FooterSection from "../Landing_page/redesignFooter";
 
 const Property_Details = () => {
+  const [state, setState] = useState({
+    scheduled_tour: true,
+    request_info: false,
+    preferred_time: "",
+    preferred_year: "",
+    contact_type: "",
+    name: "",
+    phone: "",
+    message: "",
+    email: "",
+  });
+
+  const setNewTab = () => {
+    if (scheduled_tour) {
+      return setState({
+        ...state,
+        request_info: true,
+        scheduled_tour: false,
+      });
+    }
+    if (request_info) {
+      setState({
+        ...state,
+        request_info: false,
+        scheduled_tour: true,
+      });
+    }
+  };
+  const {
+    scheduled_tour,
+    request_info,
+    preferred_time,
+    preferred_year,
+    message,
+    contact_type,
+    name,
+    phone,
+    email,
+  } = state;
+  React.useEffect(() => {
+    const fileInput = null;
+    console.log(fileInput);
+  }, []);
+  const changeHandler = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <>
       <HomeNav />
@@ -51,8 +100,8 @@ const Property_Details = () => {
                       4 Bedrooms semi-detached duplex with BQ{" "}
                     </div>
                     <div className="ll23">
-                      <img src={Location} className="Location" /> Lekki penisula
-                      II, Lekki Lagos State, Nigeria
+                      <img src={Location} className="Location" />
+                      Lekki penisula II, Lekki Lagos State, Nigeria
                     </div>
                   </div>
                   <div>
@@ -165,8 +214,189 @@ const Property_Details = () => {
                   </div>
                 </Col>
               </Col>
-              <Col md={3} className="hjt">
-                Scedule Tour
+              <Col md={3} className="hjt mxx1">
+                <div className="bb12a">
+                  <div className="bb12">
+                    <div
+                      className={
+                        scheduled_tour ? "bb12ap" : "inactive_tab bb12ap"
+                      }
+                      onClick={setNewTab}
+                    >
+                      Schedule Tour
+                    </div>
+                    <div
+                      className={
+                        request_info ? "bb12ap" : "inactive_tab bb12ap"
+                      }
+                      onClick={setNewTab}
+                    >
+                      Request info
+                    </div>
+                  </div>
+                  {scheduled_tour && (
+                    <>
+                      <div className="preff12">
+                        <div className="reftime">Select preferred year</div>
+                        <input
+                          type="date"
+                          placeholder="Enter date"
+                          onChange={changeHandler}
+                          className="form-control reftime2"
+                          name="preferred_year"
+                          value={preferred_year}
+                        />
+                      </div>
+                      <div className="preff12">
+                        <div className="reftime ">Select preferred time</div>
+                        <input
+                          type="time"
+                          placeholder="Enter date"
+                          onChange={changeHandler}
+                          className="form-control reftime2"
+                          name="preferred_time"
+                          value={preferred_time}
+                        />
+                      </div>
+                      <Row className="bb12az">
+                        <Col md="5" className="bb12a22">
+                          <div className="reftime">Name</div>
+                          <input
+                            type="text"
+                            onChange={changeHandler}
+                            placeholder=""
+                            name="name"
+                            value={name}
+                            className="form-control reftime2 ref2d"
+                          />
+                        </Col>
+                        <Col md="5" className="bb12a22">
+                          <div className="reftime ref1d">Phone</div>
+                          <input
+                            type="text"
+                            onChange={changeHandler}
+                            placeholder=""
+                            name="phone"
+                            value={phone}
+                            className="form-control reftime2 ref1d"
+                          />
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={12} className="preff12ax">
+                          <div className="preff12">
+                            <div className="reftime">Email</div>
+                            <input
+                              type="email"
+                              placeholder=""
+                              onChange={changeHandler}
+                              style={{ width: "102%" }}
+                              name="email"
+                              value={email}
+                              className="form-control reftime2"
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={12} className="ll34">
+                          <span className="ll34z">
+                            <label for="contact_type" class="">
+                              <input
+                                type="radio"
+                                name="contact_type"
+                                onChange={changeHandler}
+                                className="contact_type"
+                              />
+                              In Person
+                              <span class="checkmark"></span>
+                            </label>
+                          </span>
+                          <span>
+                            <label for="contact_type" class="">
+                              <input
+                                type="radio"
+                                name="contact_type"
+                                onChange={changeHandler}
+                                className="contact_type"
+                              />
+                              Video Chat
+                              <span class="checkmark"></span>
+                            </label>
+                          </span>
+                        </Col>
+
+                        <Col md={12}>
+                          <div className="schedultour">
+                            <div className="schdl hf22">Schedule a Tour</div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </>
+                  )}
+                  {request_info && (
+                    <>
+                      <Row className="bb12az">
+                        <Col md="5" className="bb12a22">
+                          <div className="reftime">Name</div>
+                          <input
+                            type="text"
+                            onChange={changeHandler}
+                            placeholder=""
+                            name="name"
+                            value={name}
+                            className="form-control reftime2 ref2d"
+                          />
+                        </Col>
+                        <Col md="5" className="bb12a22">
+                          <div className="reftime ref1d">Phone</div>
+                          <input
+                            type="text"
+                            onChange={changeHandler}
+                            placeholder=""
+                            name="phone"
+                            value={phone}
+                            className="form-control reftime2 ref1d"
+                          />
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={12} className="preff12ax">
+                          <div className="preff12">
+                            <div className="reftime">Email</div>
+                            <input
+                              type="email"
+                              placeholder=""
+                              onChange={changeHandler}
+                              style={{ width: "102%" }}
+                              name="email"
+                              value={email}
+                              className="form-control reftime2"
+                            />
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={12} className="za">
+                        <div className="reftime">Message</div>
+                          <textarea
+                            value={message}
+                            name="message"
+                            onChange={changeHandler}
+                            className="form-control reftime2 xza"
+                            placeholder=""
+                          ></textarea>
+                        </Col>
+
+                        <Col md={12}>
+                          <div className="schedultour">
+                            <div className="schdl hf22">Schedule a Tour</div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </>
+                  )}
+                </div>
               </Col>
             </Row>
           </Col>

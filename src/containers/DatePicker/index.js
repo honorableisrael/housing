@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "./styles/datepicker.style.css";
-import CalendarView from './calendar-view/calendar-view';
+import CalendarView from "./calendar-view/calendar-view";
 
 const DatePicker = ({
   value,
@@ -13,10 +13,12 @@ const DatePicker = ({
   getAppendants,
   inputClassName,
   parentClassName,
-  handleDateChange
+  handleDateChange,
 }) => {
   const [showCalendarView, setShowCalendarView] = useState(false);
-  const appendants = getAppendants ? getAppendants(() => setShowCalendarView(!showCalendarView)) : [];
+  const appendants = getAppendants
+    ? getAppendants(() => setShowCalendarView(!showCalendarView))
+    : [];
   const inputProps = {};
   if (requireValue) inputProps.required = true;
   inputProps.placeholder = format ? format : "DD/MM/YYYY";
@@ -24,12 +26,8 @@ const DatePicker = ({
   const handleInputFocus = () => setShowCalendarView(true);
 
   return (
-    <div
-      className={`datepicker-wrapper${
-        parentClassName ? ` ${parentClassName}` : ""
-      }`}
-    >
-      <input
+    <div>
+      {/* <input
         type="text"
         className={inputClassName}
         value={value || ""}
@@ -51,7 +49,7 @@ const DatePicker = ({
           showCalendarView,
           setShowCalendarView
         }}
-      />
+      /> */}
     </div>
   );
 };

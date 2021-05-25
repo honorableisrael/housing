@@ -313,7 +313,7 @@
 }
 .mainrelative {
   position: relative;
-  top:1.2rem;
+  top: 1.2rem;
 }
 .Exclude {
   margin-right: 0.6rem;
@@ -368,6 +368,122 @@
   border-radius: 8px;
   color: #eb5757;
 }
-.amenities_body:last-child{
+.amenities_body:last-child {
   border-bottom: 0px solid transparent;
+}
+.bb12a {
+  box-shadow: 0px 16px 24px rgba(17, 17, 17, 0.06);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+}
+.bb12 {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0px !important;
+  padding-left: 0px;
+}
+.mxx1 {
+  max-width: 31%;
+  font-size: 16px;
+}
+.bb12ap {
+  width: 50%;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+.bb12ap {
+  padding-left: 0px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  border-bottom-color: black;
+}
+.bb12a {
+  padding-left: 0px !important;
+}
+.hbi {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #16465c;
+}
+
+.active_tab {
+  border-bottom: 2px solid #16465c;
+}
+.preff12 {
+  margin-top: 1rem;
+  padding-right: 0.6rem !important;
+  padding-left: 0.6rem !important;
+}
+.reftime {
+  color: #A0A3BD;
+  font-size: 14px;
+  padding-bottom: 0.3rem;
+}
+.bb12a22 {
+  padding-left: 0.2rem;
+  padding-top: 0.6rem;
+}
+.bb12az {
+  justify-content: space-between;
+  width: 95%;
+}
+.ref2d {
+  width: 114%;
+}
+.ref1d {
+  width: 114%;
+  position: relative;
+  right: 1rem;
+}
+.preff12ax {
+  position: relative;
+  right: 1.7rem;
+  padding-right: 0.1rem;
+}
+.hf22{
+  background: #16465c;
+  border: 1px solid #16465c;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  right: 1.3rem;
+  width: 94%;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ll34{
+  display: flex;
+  margin-top: .6rem;
+  color: #A0A3BD;
+}
+.ll34z{
+  margin-bottom: .3rem;
+  margin-right: .3rem;
+}
+.checkmark{
+  margin-right: .9rem;
+}
+.contact_type{
+  margin-right: .4rem;
+}
+.inactive_tab{
+  color: #A0A3BD;
+  border-bottom-color: #A0A3BD;
+}
+.za{
+  padding-top: 1rem;
+  position: relative;
+  right: .9rem;
+  width: 76%;  
+}
+.xza{
+  width: 95%;
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+
 }

@@ -13,7 +13,7 @@ const DatePickerHeader = ({
   currentYearRef
 }) => (
   <div className="calendar-view-header">
-    <div className="year-view">
+    {/* <div className="year-view">
       <div
         onClick={() => {
           if (showYears) return setShowYears(false);
@@ -30,7 +30,7 @@ const DatePickerHeader = ({
         {getDayOfWeek(currentDate.getDay())}, {months[month].slice(0, 3)}{" "}
         {currentDay}
       </div>
-    </div>
+    </div> */}
   </div>
 );
 

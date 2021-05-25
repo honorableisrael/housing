@@ -78,7 +78,7 @@ const CalendarView = ({
     <div
       className={`calender-view-grand-wrapper${showCalendarView ? "" : " hide"}`}
     >
-      <div className='calendar-view-wrapper' onBlur={() => setShowCalendarView(false)}
+      {/* <div className='calendar-view-wrapper' onBlur={() => setShowCalendarView(false)}
       >
         <CalendarHeader
           {...{
@@ -132,7 +132,7 @@ const CalendarView = ({
             {...{ setShowCalendarView, handleDateChange, currentDate, format }}
           />
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

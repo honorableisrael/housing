@@ -9,11 +9,11 @@ const DatePickerNavigator = ({
   handleMonthForwards
 }) => (
   <div className="header-navigator">
-    <span onClick={handleMonthBackWards}>&#8249;</span>
+    {/* <span onClick={handleMonthBackWards}>&#8249;</span>
     <div className="month-year">
       {months[month]}, {year}
     </div>
-    <span onClick={handleMonthForwards}>&#8250;</span>
+    <span onClick={handleMonthForwards}>&#8250;</span> */}
   </div>
 );
 
