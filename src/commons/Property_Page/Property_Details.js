@@ -11,6 +11,7 @@ import shower from "../../assets/shower.png";
 import homes from "../../assets/homes.png";
 import "./property.css";
 import FooterSection from "../Landing_page/redesignFooter";
+import { Link } from "react-router-dom";
 
 const Property_Details = () => {
   const [state, setState] = useState({
@@ -71,7 +72,7 @@ const Property_Details = () => {
             <div className="main_title_123 mainrelative">
               <span className="hborhood hborhood1">
                 {" "}
-                &#8592; Back to Search{" "}
+                <Link to={"/properties"}>&#8592; Back to Search </Link>
               </span>
             </div>
           </Col>
@@ -378,7 +379,7 @@ const Property_Details = () => {
                       </Row>
                       <Row>
                         <Col md={12} className="za">
-                        <div className="reftime">Message</div>
+                          <div className="reftime">Message</div>
                           <textarea
                             value={message}
                             name="message"
