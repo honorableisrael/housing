@@ -1,0 +1,152 @@
+.contact-us-page {
+    padding: 3rem 0;
+    background: #FBFBF8;
+}
+
+.contact-us-page-top-content h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: #16465C;
+    margin-bottom: 5px !important;
+    letter-spacing: 0.5px;
+}
+
+.contact-us-page-top-content p,
+.contact-us-page-social p {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 30px;
+    color: #4E4B66;
+    letter-spacing: 0.5px;
+}
+
+.contact-us-page-form-wrapper {
+    padding: 1rem 0;
+}
+
+.contact-us-page-form-wrapper .contact-us-page-ltr .form-group {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.contact-us-page-ltr input {
+    background-color: #fff;
+    border: 1px solid #dedede;
+    height: 3rem;
+    line-height: 17px;
+    padding: 0 16px;
+    width: 100%;
+    border-radius: 0;
+    font-weight: 400;
+    box-sizing: border-box;
+    color: #163e57;
+    border-radius: 12px;
+}
+
+.contact-us-page-ltr textarea {
+    height: 140px;
+    padding: 15px;
+    resize: none;
+    border-radius: 0;
+    border-radius: 12px;
+}
+
+.contact-us-page-ltr input::placeholder,
+.contact-us-page-ltr textarea::placeholder {
+    font-size: 1rem;
+    font-weight: 200;
+    color: #adadad;
+    opacity: .6;
+}
+
+.contact-us-page-ltr input:focus,
+.contact-us-page-ltr textarea:focus {
+    color: #163e57;
+    background-color: #fff;
+    border-color: #6FA73D;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.contact-us-page-ltr .contact-us-page-btn {
+    padding: 20px 30px;
+    background-color: #6FA73D;
+    border: 1px solid #6FA73D;
+    color: #ffffff;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.contact-us-page-ltr .contact-us-page-btn:hover {
+    background-color: #16465c;
+    border: 1px solid #16465c;
+}
+
+.contact-us-page-social {
+    padding: 1.5rem 0;
+}
+
+.contact-us-page-social .social-link {
+    padding: 0;
+}
+
+.contact-us-page-social ul {
+    list-style: none;
+    margin: 20px 0 0;
+    color: #5c4e2f;
+}
+
+.contact-us-page-social .social-link li {
+    display: inline-block;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: #3E3E3E;
+    padding-left: 0;
+}
+
+.social-link li a {
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    display: block;
+    padding: 0.75rem 0;
+    border-radius: 50%;
+    box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.04);
+}
+
+.social-link li a:hover {
+    color: #ffffff;
+}
+
+.social-link li a.facebook:hover {
+    background: #4267B2;
+}
+
+.social-link li a.instagram:hover {
+    background: linear-gradient(135.78deg, rgba(252, 175, 69, 0.5) 1.64%, rgba(225, 48, 108, 0.5) 25.5%, rgba(131, 58, 180, 0.5) 65.5%);
+}
+
+.social-link li a.twitter:hover {
+    background: #1da1f2;
+}
+
+.social-link li a.youtube:hover {
+    background: #f00;
+}
+
+.contact-us-page-rtl {
+    padding: 0;
+}
+
+.contact-us-page-rtl figure {
+    margin: 0;
+}
+
+.contact-us-page-rtl img {
+    margin-top: -180px;
+    height: 100%;
+    width: 100%;
+}

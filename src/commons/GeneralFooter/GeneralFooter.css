@@ -1,0 +1,189 @@
+footer {
+    background: #16465c;
+    margin: 0;
+    padding: 4rem 2rem 0;
+}
+
+.genFooterTopWrapper .footer-subscriber-form {
+    padding: 1rem 3rem 2rem;
+}
+
+.footer-subscriber-form h2 {
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 40px;
+    color: #ffffff;
+    text-transform: capitalize;
+    letter-spacing: 0.04em;
+}
+
+.footer-subscriber-form p {
+    max-width: 100% !important;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+}
+
+.footer-subscriber-form-wrapper {
+    background: #ffffff;
+    height: 3.5rem;
+    padding-bottom: 3rem;
+    border-radius: 16px;
+}
+
+.footer-subscriber-form-content {
+    padding: 0 0.6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-subscriber-form-content svg {
+    margin-top: 13px;
+    color: #16465C;
+}
+
+.footer-subscriber-form-content input[type="email"] {
+    color: #333;
+    font-size: 13px;
+    padding: 10px;
+    min-width: 380px;
+    height: 3rem;
+    outline: none;
+    margin-top: 3px;
+    border-radius: 0;
+    font-weight: 700;
+    border: none;
+    letter-spacing: 0.04em;
+    /* background-color: #f00; */
+
+}
+
+.footer-subscriber-form-content input[type="email"]:focus {
+    box-shadow: none;
+}
+
+.footer-subscriber-form-content input[type="email"]::placeholder {
+    font-size: 15px;
+    font-weight: 200;
+    color: #adadad;
+    opacity: .6;
+    padding: 0 10px
+}
+
+.footer-subscriber-form-content .subscriber-btn {
+    border: solid 1px #6FA73D;
+    background-color: #6FA73D;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 30px;
+    border-right: none;
+    margin-top: 7px;
+    letter-spacing: 0.04em;
+    border-radius: 8px;
+}
+
+.genFooterTopWrapper p {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    color: #ffffff;
+    max-width: 420px;
+}
+
+.genFooterBottomNav {
+    padding-top: 2rem;
+}
+
+.genFooterBottomNav h4,
+.genFooterSocials h4 {
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 30px;
+    color: #ffffff;
+    text-transform: capitalize;
+    letter-spacing: 0.04em;
+}
+
+.genFooterBottomNav ul {
+    padding: 0;
+    margin: 15px 0 0;
+}
+
+.genFooterBottomNav ul li {
+    list-style: none;
+    margin: 5px 0;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    text-transform: capitalize;
+    padding-left: 0;
+    letter-spacing: 0.04em;
+}
+
+.genFooterBottomNav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.genFooterBottomNav ul li a:hover {
+    color: #6FA73D;
+}
+
+.genFooterSocials ul {
+    padding: 0;
+    list-style: none;
+    margin: 10px 0 30px;
+
+}
+
+.genFooterSocials ul li {
+    display: inline-block;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.genFooterSocials li a {
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: block;
+    padding: 0.2rem 0;
+    border-radius: 50%;
+    box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.04);
+}
+
+.genFooterSocials li a:hover {
+    background: #6FA73D;
+}
+
+.genFooterSocials li a.socials {
+    color: #3E3E3E !important;
+}
+
+.genFooterSocials li a.socials:hover {
+    color: #fff !important;
+}
+
+.genFooter .genFooterBottomWrapper {
+    border-top: 1px solid rgba(135, 146, 161, 0.08);
+    padding: 1.5rem 0 0.5rem;
+    margin-top: 3rem;
+}
+
+.genFooterBottomWrapper .copyrights {
+    text-align: center;
+}
+
+.genFooterBottomWrapper p {
+    font-weight: 500;
+    font-size: 15px !important;
+    line-height: 27px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
