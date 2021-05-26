@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
 import logo from "../../assets/HSF-LOGO.png";
+import * as Icons from "react-feather";
 
 import "./HeaderV1.css";
 
@@ -12,13 +12,18 @@ const main_header_page = () => {
       className='navbar navbar-expand-md navbar-dark navbar-light custom-navbar sticky-top'
     >
       <div className='container-fluid'>
-        <a className='d-none d-xl-block' href='/'>
+        <a className='d-xl-block' href='/'>
           <img
             className='navbar-brand'
             src={logo}
-            alt='Gecenyi Oil &amp; Gas Services '
+            alt='Housing Solution Fund'
           />
         </a>
+
+        <a className='nav-link screen414' href=''>
+          <Icons.AlignRight size='22px' />
+        </a>
+
         <div className='navbar-collapse' id='navbarText'>
           <ul className='navbar-nav ml-auto d-none d-xl-block navigation'>
             <li
@@ -96,6 +101,9 @@ const main_header_page = () => {
             </li>
           </ul>
         </div>
+        <a className='nav-link screen800' href=''>
+          <Icons.AlignRight size='22px' />
+        </a>
       </div>
     </nav>
   );

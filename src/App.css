@@ -74,3 +74,11 @@ p {
   color: #453e3e;
   letter-spacing: 0.04em;
 }
+
+.theme-bg {
+  background: #fbfbf8;
+}
+
+.w30 {
+  width: 33.3%;
+}

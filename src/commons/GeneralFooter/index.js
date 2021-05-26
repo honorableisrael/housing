@@ -40,7 +40,7 @@ const footer_page = () => {
                 </form>
               </div>
             </div>
-            <div className='col-lg-5 col-md-6 col-sm-6'>
+            <div className='col-lg-5 col-md-12 col-sm-12'>
               <div className='genFooterBottomNav'>
                 <figure>
                   <img src={logofooter} alt='Infra Credit' />
@@ -53,7 +53,7 @@ const footer_page = () => {
               </div>
             </div>
 
-            <div className='col-lg-2 col-md-6 col-sm-6'>
+            <div className='col-lg-2 col-md-12 col-sm-12'>
               <div className='genFooterBottomNav'>
                 <h4>Support</h4>
                 <ul>
@@ -79,7 +79,7 @@ const footer_page = () => {
               </div>
             </div>
 
-            <div className='col-lg-2 col-md-6 col-sm-6'>
+            <div className='col-lg-2 col-md-12 col-sm-12'>
               <div className='genFooterBottomNav'>
                 <h4>About</h4>
                 <ul>
@@ -105,7 +105,7 @@ const footer_page = () => {
               </div>
             </div>
 
-            <div className='col-lg-3 col-md-6 col-sm-6'>
+            <div className='col-lg-3 col-md-12 col-sm-12'>
               <div className='genFooterBottomNav'>
                 <h4>Our Address</h4>
                 <address>
