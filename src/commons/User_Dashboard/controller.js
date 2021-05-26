@@ -13,8 +13,8 @@ export const toLowercase = (s) => {
 };
 export const formatDate = (d) => {
   console.log(d);
-  if(!d){
-    return ""
+  if (!d) {
+    return "";
   }
   if (d.includes("/")) {
     var parts = d.split("/");
@@ -37,3 +37,7 @@ export const logOut = () => {
   localStorage.clear();
   window.location.assign("/");
 };
+
+export function capitalize(s) {
+  return s && s[0].toUpperCase() + s.slice(1);
+}

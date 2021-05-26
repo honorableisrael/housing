@@ -21,8 +21,41 @@ import bedsimg from "../../assets/double-bed.png";
 import shower from "../../assets/shower.png";
 import homes from "../../assets/homes.png";
 import PropertyCard from "./PropertyCard";
+import { API } from "../../config";
+import axios from "axios";
 
 const FeaturedProperties = () => {
+  const [state, setState] = React.useState({
+    propertyList: [],
+    error: "",
+  });
+
+  React.useEffect(() => {
+    axios
+      .all([axios.get(`${API}/general/featured-properties`)])
+      .then(
+        axios.spread((res) => {
+          console.log(res.data.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              isloading: false,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  }, []);
+
+  const { propertyList, error } = state;
+  console.log(propertyList);
   return (
     <>
       <Row className="secwrap">
@@ -93,10 +126,12 @@ const FeaturedProperties = () => {
             swipeable
             className="centerpositon"
           >
-            <PropertyCard submit_title={"View details"}/>
-            <PropertyCard submit_title={"View details"}/>
-            <PropertyCard submit_title={"View details"}/>
-            <PropertyCard submit_title={"View details"}/>
+            {propertyList?.map(data => (
+              <PropertyCard
+                submit_title={"View details"}
+                property_details={data}
+              />
+            ))}
           </Carousel>
         </div>
       </Row>

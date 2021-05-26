@@ -20,8 +20,10 @@ import Location from "../../assets/Location.png";
 import bedsimg from "../../assets/double-bed.png";
 import shower from "../../assets/shower.png";
 import homes from "../../assets/homes.png";
+import { capitalize, FormatAmount } from "../User_Dashboard/controller";
 
-const PropertyCard = ({submit_title}) => {
+const PropertyCard = ({ submit_title, property_details }) => {
+  console.log(property_details);
   return (
     <>
       {/* property card starts */}
@@ -29,34 +31,50 @@ const PropertyCard = ({submit_title}) => {
         <div className="property_card">
           <img
             src={sampleproperty}
+            // src={property_details.property_cover_image?property_details.property_cover_image:sampleproperty}
             alt="property_img"
             className="sampleprops12"
           />
         </div>
         <div className="card_second_area">
-          <div className="pricea">$ 27,000,000</div>
+          <div className="pricea">
+            $ {FormatAmount(property_details?.property_price)}
+          </div>
           <div className="locationtext">
             <img src={Location} alt="Location" className="Location1" />
-            Lekki pearl estate II, Lagos, Nigeria
+            {property_details?.property_name}{" "}
+            {property_details?.property_full_address}
           </div>
           <div className="cardbox_wrapper">
             <div className="cardbox_1">
               <img src={bedsimg} className="fet_1" />
-              <div className="no_of_beds">4 Beds</div>
+              <div className="no_of_beds">
+                {property_details?.property_bedrooms}{" "}
+                {property_details?.property_bedrooms == 1 ? "Beds" : "Bed"}
+              </div>
             </div>
             <div className="cardbox_1">
               <img src={shower} className="fet_1" />
-              <div className="no_of_beds">4 Baths</div>
+              <div className="no_of_beds">
+                {property_details?.property_bathrooms}{" "}
+                {property_details?.property_bathrooms == 1 ? "Baths" : "Bath"}{" "}
+              </div>
             </div>
             <div className="cardbox_1">
               <img src={homes} className="fet_1" />
-              <div className="no_of_beds">2349 Sqft</div>
+              <div className="no_of_beds">
+                {property_details?.property_size} Sqft
+              </div>
             </div>
           </div>
           <div className="fin_sec_card">
             <div>
-              <div className="fin_stats">Financial Status</div>
-              <div className="fin_info">Mortgage</div>
+              <div className="fin_stats">
+                {property_details?.finance_options && "Financial Status"}
+              </div>
+              <div className="fin_info">
+                {capitalize(property_details?.finance_options)}
+              </div>
             </div>
             <div>
               <div className="btndetails">{submit_title}</div>

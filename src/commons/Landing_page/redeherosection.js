@@ -20,8 +20,8 @@ const HeroSection = () => {
               </div>
               <article className="rdheroSection__headline">
                 <h1 className="redesignheroSection__headline--main">
-                  Properties <span className="thinfont">|</span> Mortgage{" "}
-                  <span className="thinfont">|</span> Insurance
+                  Home <span className="thinfont"></span> of{" "}
+                  <span className="thinfont"></span> Affordable Mortgages
                 </h1>
                 <p className="solution_intro">
                   <span className="heroheader"> Housing Solution Fund </span>{" "}

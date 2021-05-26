@@ -1,14 +1,81 @@
 import React from "react";
 import HomeNav from "../HomeNavbar/HomeNav";
-import PropertyCard from "../Landing_page/PropertyCard";
-import { Container, Col, Row,Pagination } from "react-bootstrap";
+import { Container, Col, Row, Pagination } from "react-bootstrap";
 import searchimg from "../../assets/search_icon.png";
 import union from "../../assets/Union.png";
 import naira from "../../assets/naira.png";
 import "./property.css";
 import FooterSection from "../Landing_page/redesignFooter";
+import PropertyCard from "../Landing_page/PropertyCard";
+import { API } from "../../config";
+import axios from "axios";
 
 const Property_Page = () => {
+  const [state, setState] = React.useState({
+    propertyList: [],
+    location: "Lagos",
+    bedrooms: "",
+    bathrooms: "",
+    price: "",
+    error: "",
+  });
+
+  React.useEffect(() => {
+    axios
+      .all([axios.get(`${API}/general/featured-properties`)])
+      .then(
+        axios.spread((res) => {
+          console.log(res.data.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              isloading: false,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  }, []);
+
+  const searchProperty = () => {
+    const mypayload = {
+      location: "Lagos",
+      bedrooms: "",
+      bathrooms: "",
+      price: 50000000,
+    };
+    axios
+      .all([axios.post(`${API}/general/featured-properties`, mypayload)])
+      .then(
+        axios.spread((res) => {
+          console.log(res.data.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              isloading: false,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  };
+  const { propertyList, error } = state;
+  console.log(propertyList);
+
   return (
     <>
       <HomeNav />
@@ -57,7 +124,7 @@ const Property_Page = () => {
                 </span>
               </div>
               <div className="flex-w2 w21 hon">
-                <div className="search_a">Search</div>
+                <div className="search_a" onClick={searchProperty}>Search</div>
               </div>
             </div>
           </Col>
@@ -71,12 +138,12 @@ const Property_Page = () => {
               </div>
             </div>
             <div className="flex12a">
-              <PropertyCard submit_title={"View details"} />
-              <PropertyCard submit_title={"View details"} />
-              <PropertyCard submit_title={"View details"} />
-              <PropertyCard submit_title={"View details"} />
-              <PropertyCard submit_title={"View details"} />
-              <PropertyCard submit_title={"View details"} />
+              {propertyList?.map((data) => (
+                <PropertyCard
+                  submit_title={"View details"}
+                  property_details={data}
+                />
+              ))}
             </div>
             <Col md={12}>
               <Pagination>
@@ -94,7 +161,7 @@ const Property_Page = () => {
           </Col>
         </Row>
       </Container>
-      <FooterSection/>
+      <FooterSection />
     </>
   );
 };

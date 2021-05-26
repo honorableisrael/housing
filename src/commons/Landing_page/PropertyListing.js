@@ -11,12 +11,46 @@ import "./landing.css";
 import Carousel from "react-multi-carousel";
 import { Col, Row, Pagination } from "react-bootstrap";
 import PropertyCard from "./PropertyCard";
+import { API } from "../../config";
+import axios from "axios";
 
 const PropertyListing = () => {
+  const [state, setState] = React.useState({
+    propertyList: [],
+    propertyunder: 1000000,
+    error: "",
+  });
+
+  React.useEffect(() => {
+    axios
+      .all([axios.get(`${API}/general/property-below-price/${state.propertyunder}`)])
+      .then(
+        axios.spread((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              isloading: false,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  }, []);
+
+  const { propertyList, error } = state;
+  console.log(propertyList)
   return (
     <>
       <Row className="propertylistings">
-        <Col md={12}>
+        {/* <Col md={12}>
           <div className="main_title_12">Property Listing</div>
           <div className="main_title_123">Recent Listings</div>
           <Carousel
@@ -71,7 +105,7 @@ const PropertyListing = () => {
             <PropertyCard submit_title={"View details"} />
             <PropertyCard submit_title={"View details"} />
           </Carousel>
-        </Col>
+        </Col> */}
         <Col md={12}>
           <br /> <br />
           <div className="main_title_123">Properties under $15,000,000</div>
@@ -122,10 +156,12 @@ const PropertyListing = () => {
             swipeable
             className="centerpositon"
           >
-            <PropertyCard submit_title={"View details"} />
-            <PropertyCard submit_title={"View details"} />
-            <PropertyCard submit_title={"View details"} />
-            <PropertyCard submit_title={"View details"} />
+            {propertyList?.map((data) => (
+              <PropertyCard
+                submit_title={"View details"}
+                property_details={data}
+              />
+            ))}
           </Carousel>
         </Col>
         <Col md={12} className="button_send12">
