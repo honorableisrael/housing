@@ -23,7 +23,9 @@ const PropertyListing = () => {
 
   React.useEffect(() => {
     axios
-      .all([axios.get(`${API}/general/property-below-price/${state.propertyunder}`)])
+      .all([
+        axios.get(`${API}/general/property-below-price/${state.propertyunder}`),
+      ])
       .then(
         axios.spread((res) => {
           console.log(res);
@@ -46,7 +48,7 @@ const PropertyListing = () => {
   }, []);
 
   const { propertyList, error } = state;
-  console.log(propertyList)
+  console.log(propertyList);
   return (
     <>
       <Row className="propertylistings">
@@ -165,7 +167,9 @@ const PropertyListing = () => {
           </Carousel>
         </Col>
         <Col md={12} className="button_send12">
-          <div className="button_send button_send34">View All Properties</div>
+          <div className="button_send button_send34">
+            <Link to="/properties"> View All Properties </Link>
+          </div>
         </Col>
       </Row>
     </>
