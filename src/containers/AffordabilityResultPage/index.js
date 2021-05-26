@@ -55,7 +55,7 @@ const affordabilityResultPage = () => {
       </section>
       <section className='property-affordable-list'>
         <div className='container'>
-          <div className='property-affordable-list_wrapper'>
+          <div className='property-affordable-list_wrapper row'>
             <div className='offset-lg-2 col-lg-8'>
               <div className='property-affordable-list-top-content'>
                 <h2>Filtered result for you</h2>
@@ -65,330 +65,332 @@ const affordabilityResultPage = () => {
                 </p>
               </div>
             </div>
-
-            <div className='property-cards-wrapper'>
-              <div className='row'>
-                <div className='col-lg-4'>
-                  <div className='property-cards'>
-                    <div
-                      className='property-img'
-                      style={{
-                        backgroundImage: "url(" + property_sample_img + ")",
-                      }}
-                    ></div>
-                    <div className='property-cards-info'>
-                      <div className='price-location'>
-                        <h4>$ 27,000,000</h4>
-                        <p>
-                          <Icons.MapPin size='15' />
-                          Lekki pearl estate II, Lagos, Nigeria
-                        </p>
-                      </div>
-                      <div className='amenities'>
-                        <div className='bed'>
-                          <img src={bed_icon} alt='Beds' />
-                          <span>4 beds</span>
+            <div className='col-lg-12'>
+              <div className='property-cards-wrapper'>
+                <div className='row'>
+                  <div className='col-lg-4'>
+                    <div className='property-cards'>
+                      <div
+                        className='property-img'
+                        style={{
+                          backgroundImage: "url(" + property_sample_img + ")",
+                        }}
+                      ></div>
+                      <div className='property-cards-info'>
+                        <div className='price-location'>
+                          <h4>$ 27,000,000</h4>
+                          <p>
+                            <Icons.MapPin size='15' />
+                            Lekki pearl estate II, Lagos, Nigeria
+                          </p>
                         </div>
-                        <div className='bath'>
-                          <img src={bath_icon} alt='Baths' />
-                          <span>4 Baths</span>
+                        <div className='amenities'>
+                          <div className='bed'>
+                            <img src={bed_icon} alt='Beds' />
+                            <span>4 beds</span>
+                          </div>
+                          <div className='bath'>
+                            <img src={bath_icon} alt='Baths' />
+                            <span>4 Baths</span>
+                          </div>
+                          <div className='dimension'>
+                            <img src={size_icon} alt='sqft' />
+                            <span>2800 sqft</span>
+                          </div>
                         </div>
-                        <div className='dimension'>
-                          <img src={size_icon} alt='sqft' />
-                          <span>2800 sqft</span>
-                        </div>
-                      </div>
-                      <div className='status-cta'>
-                        <div className='status'>
-                          <h4>Financial Status</h4>
-                          <p>Mortgage</p>
-                        </div>
-                        <div className='cta'>
-                          <button className='cta-btn' type='button'>
-                            Choose Me
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='col-lg-4'>
-                  <div className='property-cards'>
-                    <div
-                      className='property-img'
-                      style={{
-                        backgroundImage: "url(" + property_sample_img + ")",
-                      }}
-                    ></div>
-                    <div className='property-cards-info'>
-                      <div className='price-location'>
-                        <h4>$ 27,000,000</h4>
-                        <p>
-                          <Icons.MapPin size='15' />
-                          Lekki pearl estate II, Lagos, Nigeria
-                        </p>
-                      </div>
-                      <div className='amenities'>
-                        <div className='bed'>
-                          <img src={bed_icon} alt='Beds' />
-                          <span>4 beds</span>
-                        </div>
-                        <div className='bath'>
-                          <img src={bath_icon} alt='Baths' />
-                          <span>4 Baths</span>
-                        </div>
-                        <div className='dimension'>
-                          <img src={size_icon} alt='sqft' />
-                          <span>2800 sqft</span>
-                        </div>
-                      </div>
-                      <div className='status-cta'>
-                        <div className='status'>
-                          <h4>Financial Status</h4>
-                          <p>Mortgage</p>
-                        </div>
-                        <div className='cta'>
-                          <button className='cta-btn' type='button'>
-                            Choose Me
-                          </button>
+                        <div className='status-cta'>
+                          <div className='status'>
+                            <h4>Financial Status</h4>
+                            <p>Mortgage</p>
+                          </div>
+                          <div className='cta'>
+                            <button className='cta-btn' type='button'>
+                              Choose Me
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='col-lg-4'>
-                  <div className='property-cards'>
-                    <div
-                      className='property-img'
-                      style={{
-                        backgroundImage: "url(" + property_sample_img + ")",
-                      }}
-                    ></div>
-                    <div className='property-cards-info'>
-                      <div className='price-location'>
-                        <h4>$ 27,000,000</h4>
-                        <p>
-                          <Icons.MapPin size='15' />
-                          Lekki pearl estate II, Lagos, Nigeria
-                        </p>
-                      </div>
-                      <div className='amenities'>
-                        <div className='bed'>
-                          <img src={bed_icon} alt='Beds' />
-                          <span>4 beds</span>
+                  <div className='col-lg-4'>
+                    <div className='property-cards'>
+                      <div
+                        className='property-img'
+                        style={{
+                          backgroundImage: "url(" + property_sample_img + ")",
+                        }}
+                      ></div>
+                      <div className='property-cards-info'>
+                        <div className='price-location'>
+                          <h4>$ 27,000,000</h4>
+                          <p>
+                            <Icons.MapPin size='15' />
+                            Lekki pearl estate II, Lagos, Nigeria
+                          </p>
                         </div>
-                        <div className='bath'>
-                          <img src={bath_icon} alt='Baths' />
-                          <span>4 Baths</span>
+                        <div className='amenities'>
+                          <div className='bed'>
+                            <img src={bed_icon} alt='Beds' />
+                            <span>4 beds</span>
+                          </div>
+                          <div className='bath'>
+                            <img src={bath_icon} alt='Baths' />
+                            <span>4 Baths</span>
+                          </div>
+                          <div className='dimension'>
+                            <img src={size_icon} alt='sqft' />
+                            <span>2800 sqft</span>
+                          </div>
                         </div>
-                        <div className='dimension'>
-                          <img src={size_icon} alt='sqft' />
-                          <span>2800 sqft</span>
-                        </div>
-                      </div>
-                      <div className='status-cta'>
-                        <div className='status'>
-                          <h4>Financial Status</h4>
-                          <p>Mortgage</p>
-                        </div>
-                        <div className='cta'>
-                          <button className='cta-btn' type='button'>
-                            Choose Me
-                          </button>
+                        <div className='status-cta'>
+                          <div className='status'>
+                            <h4>Financial Status</h4>
+                            <p>Mortgage</p>
+                          </div>
+                          <div className='cta'>
+                            <button className='cta-btn' type='button'>
+                              Choose Me
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='col-lg-4'>
-                  <div className='property-cards'>
-                    <div
-                      className='property-img'
-                      style={{
-                        backgroundImage: "url(" + property_sample_img + ")",
-                      }}
-                    ></div>
-                    <div className='property-cards-info'>
-                      <div className='price-location'>
-                        <h4>$ 27,000,000</h4>
-                        <p>
-                          <Icons.MapPin size='15' />
-                          Lekki pearl estate II, Lagos, Nigeria
-                        </p>
-                      </div>
-                      <div className='amenities'>
-                        <div className='bed'>
-                          <img src={bed_icon} alt='Beds' />
-                          <span>4 beds</span>
+                  <div className='col-lg-4'>
+                    <div className='property-cards'>
+                      <div
+                        className='property-img'
+                        style={{
+                          backgroundImage: "url(" + property_sample_img + ")",
+                        }}
+                      ></div>
+                      <div className='property-cards-info'>
+                        <div className='price-location'>
+                          <h4>$ 27,000,000</h4>
+                          <p>
+                            <Icons.MapPin size='15' />
+                            Lekki pearl estate II, Lagos, Nigeria
+                          </p>
                         </div>
-                        <div className='bath'>
-                          <img src={bath_icon} alt='Baths' />
-                          <span>4 Baths</span>
+                        <div className='amenities'>
+                          <div className='bed'>
+                            <img src={bed_icon} alt='Beds' />
+                            <span>4 beds</span>
+                          </div>
+                          <div className='bath'>
+                            <img src={bath_icon} alt='Baths' />
+                            <span>4 Baths</span>
+                          </div>
+                          <div className='dimension'>
+                            <img src={size_icon} alt='sqft' />
+                            <span>2800 sqft</span>
+                          </div>
                         </div>
-                        <div className='dimension'>
-                          <img src={size_icon} alt='sqft' />
-                          <span>2800 sqft</span>
-                        </div>
-                      </div>
-                      <div className='status-cta'>
-                        <div className='status'>
-                          <h4>Financial Status</h4>
-                          <p>Mortgage</p>
-                        </div>
-                        <div className='cta'>
-                          <button className='cta-btn' type='button'>
-                            Choose Me
-                          </button>
+                        <div className='status-cta'>
+                          <div className='status'>
+                            <h4>Financial Status</h4>
+                            <p>Mortgage</p>
+                          </div>
+                          <div className='cta'>
+                            <button className='cta-btn' type='button'>
+                              Choose Me
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='col-lg-4'>
-                  <div className='property-cards'>
-                    <div
-                      className='property-img'
-                      style={{
-                        backgroundImage: "url(" + property_sample_img + ")",
-                      }}
-                    ></div>
-                    <div className='property-cards-info'>
-                      <div className='price-location'>
-                        <h4>$ 27,000,000</h4>
-                        <p>
-                          <Icons.MapPin size='15' />
-                          Lekki pearl estate II, Lagos, Nigeria
-                        </p>
-                      </div>
-                      <div className='amenities'>
-                        <div className='bed'>
-                          <img src={bed_icon} alt='Beds' />
-                          <span>4 beds</span>
+                  <div className='col-lg-4'>
+                    <div className='property-cards'>
+                      <div
+                        className='property-img'
+                        style={{
+                          backgroundImage: "url(" + property_sample_img + ")",
+                        }}
+                      ></div>
+                      <div className='property-cards-info'>
+                        <div className='price-location'>
+                          <h4>$ 27,000,000</h4>
+                          <p>
+                            <Icons.MapPin size='15' />
+                            Lekki pearl estate II, Lagos, Nigeria
+                          </p>
                         </div>
-                        <div className='bath'>
-                          <img src={bath_icon} alt='Baths' />
-                          <span>4 Baths</span>
+                        <div className='amenities'>
+                          <div className='bed'>
+                            <img src={bed_icon} alt='Beds' />
+                            <span>4 beds</span>
+                          </div>
+                          <div className='bath'>
+                            <img src={bath_icon} alt='Baths' />
+                            <span>4 Baths</span>
+                          </div>
+                          <div className='dimension'>
+                            <img src={size_icon} alt='sqft' />
+                            <span>2800 sqft</span>
+                          </div>
                         </div>
-                        <div className='dimension'>
-                          <img src={size_icon} alt='sqft' />
-                          <span>2800 sqft</span>
-                        </div>
-                      </div>
-                      <div className='status-cta'>
-                        <div className='status'>
-                          <h4>Financial Status</h4>
-                          <p>Mortgage</p>
-                        </div>
-                        <div className='cta'>
-                          <button className='cta-btn' type='button'>
-                            Choose Me
-                          </button>
+                        <div className='status-cta'>
+                          <div className='status'>
+                            <h4>Financial Status</h4>
+                            <p>Mortgage</p>
+                          </div>
+                          <div className='cta'>
+                            <button className='cta-btn' type='button'>
+                              Choose Me
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='col-lg-4'>
-                  <div className='property-cards'>
-                    <div
-                      className='property-img'
-                      style={{
-                        backgroundImage: "url(" + property_sample_img + ")",
-                      }}
-                    ></div>
-                    <div className='property-cards-info'>
-                      <div className='price-location'>
-                        <h4>$ 27,000,000</h4>
-                        <p>
-                          <Icons.MapPin size='15' />
-                          Lekki pearl estate II, Lagos, Nigeria
-                        </p>
-                      </div>
-                      <div className='amenities'>
-                        <div className='bed'>
-                          <img src={bed_icon} alt='Beds' />
-                          <span>4 beds</span>
+                  <div className='col-lg-4'>
+                    <div className='property-cards'>
+                      <div
+                        className='property-img'
+                        style={{
+                          backgroundImage: "url(" + property_sample_img + ")",
+                        }}
+                      ></div>
+                      <div className='property-cards-info'>
+                        <div className='price-location'>
+                          <h4>$ 27,000,000</h4>
+                          <p>
+                            <Icons.MapPin size='15' />
+                            Lekki pearl estate II, Lagos, Nigeria
+                          </p>
                         </div>
-                        <div className='bath'>
-                          <img src={bath_icon} alt='Baths' />
-                          <span>4 Baths</span>
+                        <div className='amenities'>
+                          <div className='bed'>
+                            <img src={bed_icon} alt='Beds' />
+                            <span>4 beds</span>
+                          </div>
+                          <div className='bath'>
+                            <img src={bath_icon} alt='Baths' />
+                            <span>4 Baths</span>
+                          </div>
+                          <div className='dimension'>
+                            <img src={size_icon} alt='sqft' />
+                            <span>2800 sqft</span>
+                          </div>
                         </div>
-                        <div className='dimension'>
-                          <img src={size_icon} alt='sqft' />
-                          <span>2800 sqft</span>
-                        </div>
-                      </div>
-                      <div className='status-cta'>
-                        <div className='status'>
-                          <h4>Financial Status</h4>
-                          <p>Mortgage</p>
-                        </div>
-                        <div className='cta'>
-                          <button className='cta-btn' type='button'>
-                            Choose Me
-                          </button>
+                        <div className='status-cta'>
+                          <div className='status'>
+                            <h4>Financial Status</h4>
+                            <p>Mortgage</p>
+                          </div>
+                          <div className='cta'>
+                            <button className='cta-btn' type='button'>
+                              Choose Me
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='col-lg-12'>
-                  <div className='pagination-counter'>
-                    <ul className='pagination'>
-                      <li className='page-item'>
-                        <a
-                          className='page-link disable icons'
-                          href='#'
-                          aria-label='Previous'
-                        >
-                          <Icons.ChevronLeft size='15' />
-                        </a>
-                      </li>
-                      <li className='page-item'>
-                        <a className='page-link' href='#'>
-                          1
-                        </a>
-                      </li>
-                      <li className='page-item '>
-                        <a className='page-link active ' href='#'>
-                          2
-                        </a>
-                      </li>
-                      <li className='page-item'>
-                        <a className='page-link' href='#'>
-                          ...
-                        </a>
-                      </li>
-                      <li className='page-item'>
-                        <a className='page-link' href='#'>
-                          9
-                        </a>
-                      </li>
-                      <li className='page-item'>
-                        <a className='page-link' href='#'>
-                          10
-                        </a>
-                      </li>
-                      <li className='page-item'>
-                        <a
-                          className='page-link icons'
-                          href='#'
-                          aria-label='Next'
-                        >
-                          <Icons.ChevronRight size='15' />
-                        </a>
-                      </li>
-                    </ul>
+                  <div className='col-lg-4'>
+                    <div className='property-cards'>
+                      <div
+                        className='property-img'
+                        style={{
+                          backgroundImage: "url(" + property_sample_img + ")",
+                        }}
+                      ></div>
+                      <div className='property-cards-info'>
+                        <div className='price-location'>
+                          <h4>$ 27,000,000</h4>
+                          <p>
+                            <Icons.MapPin size='15' />
+                            Lekki pearl estate II, Lagos, Nigeria
+                          </p>
+                        </div>
+                        <div className='amenities'>
+                          <div className='bed'>
+                            <img src={bed_icon} alt='Beds' />
+                            <span>4 beds</span>
+                          </div>
+                          <div className='bath'>
+                            <img src={bath_icon} alt='Baths' />
+                            <span>4 Baths</span>
+                          </div>
+                          <div className='dimension'>
+                            <img src={size_icon} alt='sqft' />
+                            <span>2800 sqft</span>
+                          </div>
+                        </div>
+                        <div className='status-cta'>
+                          <div className='status'>
+                            <h4>Financial Status</h4>
+                            <p>Mortgage</p>
+                          </div>
+                          <div className='cta'>
+                            <button className='cta-btn' type='button'>
+                              Choose Me
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p className='pagination-result-counter'>
-                    <strong>6 of 30</strong> showing based on Affordability Test
-                  </p>
+
+                  <div className='col-lg-12'>
+                    <div className='pagination-counter'>
+                      <ul className='pagination'>
+                        <li className='page-item'>
+                          <a
+                            className='page-link disable icons'
+                            href='#'
+                            aria-label='Previous'
+                          >
+                            <Icons.ChevronLeft size='15' />
+                          </a>
+                        </li>
+                        <li className='page-item'>
+                          <a className='page-link' href='#'>
+                            1
+                          </a>
+                        </li>
+                        <li className='page-item '>
+                          <a className='page-link active ' href='#'>
+                            2
+                          </a>
+                        </li>
+                        <li className='page-item'>
+                          <a className='page-link' href='#'>
+                            ...
+                          </a>
+                        </li>
+                        <li className='page-item'>
+                          <a className='page-link' href='#'>
+                            9
+                          </a>
+                        </li>
+                        <li className='page-item'>
+                          <a className='page-link' href='#'>
+                            10
+                          </a>
+                        </li>
+                        <li className='page-item'>
+                          <a
+                            className='page-link icons'
+                            href='#'
+                            aria-label='Next'
+                          >
+                            <Icons.ChevronRight size='15' />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <p className='pagination-result-counter'>
+                      <strong>6 of 30</strong> showing based on Affordability
+                      Test
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -398,12 +400,16 @@ const affordabilityResultPage = () => {
       <section className='banner-cta'>
         <div className='container'>
           <div className='banner-cta-wrapper'>
-            <div className='banner-cta-content'>
-              <p>
-                Still dont get what you are looking for, we can make provision
-                based on your suggestions
-              </p>
-              <a className='waiting-list-cta'>Join the waiting list</a>
+            <div className='row'>
+              <div className='offset-lg-2 col-lg-8'>
+                <div className='banner-cta-content'>
+                  <p>
+                    Still dont get what you are looking for, we can make
+                    provision based on your suggestions
+                  </p>
+                  <a className='waiting-list-cta'>Join the waiting list</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
