@@ -21,6 +21,7 @@ const Property_Page = () => {
   });
 
   React.useEffect(() => {
+    window.scrollTo(-0,-0)
     axios
       .all([axios.get(`${API}/general/featured-properties`)])
       .then(
@@ -46,10 +47,10 @@ const Property_Page = () => {
 
   const searchProperty = () => {
     const mypayload = {
-      location: "Lagos",
+      location: "",
       bedrooms: "",
       bathrooms: "",
-      price: 50000000,
+      price: "",
     };
     axios
       .all([axios.post(`${API}/general/featured-properties`, mypayload)])
@@ -73,7 +74,7 @@ const Property_Page = () => {
         });
       });
   };
-  const { propertyList, error } = state;
+  const { propertyList, error, price, location } = state;
   console.log(propertyList);
 
   return (
@@ -124,7 +125,9 @@ const Property_Page = () => {
                 </span>
               </div>
               <div className="flex-w2 w21 hon">
-                <div className="search_a" onClick={searchProperty}>Search</div>
+                <div className="search_a" onClick={searchProperty}>
+                  Search
+                </div>
               </div>
             </div>
           </Col>

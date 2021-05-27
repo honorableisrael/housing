@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import React, {Component} from "react";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
 // Auth Routes
 import LoginPage from "./containers/LoginPage";
@@ -8,19 +8,20 @@ import RegisterPage from "./containers/RegisterPage";
 // Normal Routes
 // import HomePage from "./containers/HomePage";
 
-import { LOGIN_PAGE_URL, REGISTER_URL } from "./constants";
+import {LOGIN_PAGE_URL, REGISTER_URL} from "./constants";
 import Error404Page from "./containers/Error404Page";
 import store from "./store";
 import setLoading from "./store/actions/setLoading";
 import NewHomepage from "./containers/NewHomepage";
 import GetStartedPage from "./containers/GetStartedPage";
 import NewApplicationPage from "./containers/NewApplicationPage";
+
 // import ProfilePage from "./containers/ProfilePage";
 // import ResetPassword from "./containers/ResetPassword";
 // import NewAffordabilityForm from "./containers/NewAffordabilityForm";
 
 import setAuthToken from "./utils/setAuthToken";
-import { logoutUser, setCurrentUser } from "./store/actions/authActions";
+import {logoutUser, setCurrentUser} from "./store/actions/authActions";
 import Userdashboard from "./commons/User_Dashboard/user_dashboard";
 
 //importing private Route
@@ -51,6 +52,10 @@ import PreviewMortgage from "./commons/User_Dashboard/PreviewMortgage";
 import Property_Page from "./commons/Property_Page/Property_page";
 import Property_Details from "./commons/Property_Page/Property_Details";
 
+// Normal Routes
+import Contact_us_page from "./containers/ContactUsPage";
+import Faqs_page from "./containers/NewFAQS";
+// import Affordability_result_page from "./containers/AffordabilityResultPage";
 
 //check for token
 if (localStorage.token && localStorage.user) {
@@ -80,95 +85,110 @@ class Routes extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div className='container-fluid p-0'>
           <Switch>
-            <Route exact path="/" component={Landing_page} />
-            {/* AUTH Routes */}
-            <Route exact path="/userdashboard" component={Userdashboard} />
-            <Route exact path="/signup" component={NewSignUp} />
-            <Route exact path="/signin" component={NewSIGNIN} />
+            <Route exact path='/' component={Landing_page} />
+
             <Route
               exact
-              path="/preview_profile"
+              path='/support/contact-us'
+              component={Contact_us_page}
+            />
+
+            <Route
+              exact
+              path='/support/frequently-asked-questions'
+              component={Faqs_page}
+            />
+
+            <Route
+              exact
+              path='/affordability-test/result'
+              component={Affordability_result_page}
+            />
+
+            {/* AUTH Routes */}
+            <Route exact path='/userdashboard' component={Userdashboard} />
+            <Route exact path='/signup' component={NewSignUp} />
+            <Route exact path='/signin' component={NewSIGNIN} />
+            <Route
+              exact
+              path='/preview_profile'
               component={PreviewApplication}
             />
 
             <Route
               exact
-              path="/password-recovery"
+              path='/password-recovery'
               component={PasswordRecovery}
             />
-            <Route exact path="/user-profile" component={Profile_1} />
-            <Route exact path="/user-employment-info" component={Profile_2} />
+            <Route exact path='/user-profile' component={Profile_1} />
+            <Route exact path='/user-employment-info' component={Profile_2} />
             <Route
               exact
-              path="/user-affordability-test"
+              path='/user-affordability-test'
               component={Profile_3}
             />
-            <Route exact path="/user-property-request" component={Profile_4} />
-            <Route exact path="/user-request-form" component={Profile_6} />
+            <Route exact path='/user-property-request' component={Profile_4} />
+            <Route exact path='/user-request-form' component={Profile_6} />
             <Route
               exact
-              path="/mortage-request"
+              path='/mortage-request'
               component={MortgageApplication}
             />
             <Route
               exact
-              path="/mortage-request-step-3"
+              path='/mortage-request-step-3'
               component={Mortgage_Application_Third}
             />
             <Route
               exact
-              path="/mortage-request-step-4"
+              path='/mortage-request-step-4'
               component={Mortgage_Application_FourthStep}
             />
             <Route
               exact
-              path="/mortage-request-step-5"
+              path='/mortage-request-step-5'
               component={MortgageApplicationFifthStep}
             />
             <Route
               exact
-              path="/mortage-request-step-2"
+              path='/mortage-request-step-2'
               component={MortgageApplication_SecondStep}
             />
             <Route
               exact
-              path="/user-request-form-view"
+              path='/user-request-form-view'
               component={Profile_6_disabled_pop}
             />
             <Route
               exact
-              path="/account-verification"
+              path='/account-verification'
               component={AccountVerification}
             />
 
             <Route
               exact
-              path="/mortgage_application_preview"
+              path='/mortgage_application_preview'
               component={PreviewMortgage}
             />
 
-            <Route exact path="/equity-finance" component={EquityFinance} />
-            <Route exact path="/personal-loans" component={PersonalLoans} />
-            <Route exact path="/account-settings" component={AccountSettings} />
-            <Route exact path="/printpage" component={PreviewPage} />
-            <Route exact path="/" component={Landing_page} />
-            <Route exact path="/properties" component={Property_Page} />
-            
-            <Route
-              exact
-              path="/auth/login"
-              component={() => {
-                return <Redirect to="/signin" />;
-              }}
-            />
+            <Route exact path='/equity-finance' component={EquityFinance} />
+            <Route exact path='/personal-loans' component={PersonalLoans} />
+            <Route exact path='/account-settings' component={AccountSettings} />
+            <Route exact path='/printpage' component={PreviewPage} />
+            <Route exact path='/' component={Landing_page} />
+            <Route exact path='/properties' component={Property_Page} />
 
             <Route
               exact
-              path='/properties/:id'
-              component={Property_Details}
+              path='/auth/login'
+              component={() => {
+                return <Redirect to='/signin' />;
+              }}
             />
+
+            <Route exact path='/properties/:id' component={Property_Details} />
             {/* <Switch>
               <PrivateRoute
                 exact

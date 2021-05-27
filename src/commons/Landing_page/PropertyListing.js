@@ -12,9 +12,10 @@ import Carousel from "react-multi-carousel";
 import { Col, Row, Pagination } from "react-bootstrap";
 import PropertyCard from "./PropertyCard";
 import { API } from "../../config";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-const PropertyListing = () => {
+const PropertyListing = (props) => {
   const [state, setState] = React.useState({
     propertyList: [],
     propertyunder: 1000000,
@@ -24,7 +25,7 @@ const PropertyListing = () => {
   React.useEffect(() => {
     axios
       .all([
-        axios.get(`${API}/general/property-below-price/${state.propertyunder}`),
+        axios.get(`${API}/general/property-detail/${props.match.params.id}}`),
       ])
       .then(
         axios.spread((res) => {

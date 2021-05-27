@@ -21,6 +21,7 @@ import bedsimg from "../../assets/double-bed.png";
 import shower from "../../assets/shower.png";
 import homes from "../../assets/homes.png";
 import { capitalize, FormatAmount } from "../User_Dashboard/controller";
+import { Link } from "react-router-dom";
 
 const PropertyCard = ({ submit_title, property_details }) => {
   console.log(property_details);
@@ -77,7 +78,11 @@ const PropertyCard = ({ submit_title, property_details }) => {
               </div>
             </div>
             <div>
-              <div className="btndetails">{submit_title}</div>
+              <div className="btndetails">
+                <Link to={`/properties/${property_details?.id}`}>
+                  {submit_title}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

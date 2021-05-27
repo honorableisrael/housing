@@ -12,6 +12,8 @@ import homes from "../../assets/homes.png";
 import "./property.css";
 import FooterSection from "../Landing_page/redesignFooter";
 import { Link } from "react-router-dom";
+import { API } from "../../config";
+import axios from "axios";
 
 const Property_Details = () => {
   const [state, setState] = useState({
@@ -24,7 +26,39 @@ const Property_Details = () => {
     phone: "",
     message: "",
     email: "",
+    propertyList: [],
+    propertyunder: 1000000,
+    error: "",
   });
+
+
+  React.useEffect(() => {
+    axios
+      .all([
+        axios.get(`${API}/general/property-below-price/${state.propertyunder}`),
+      ])
+      .then(
+        axios.spread((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              isloading: false,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  }, []);
+
+  console.log(propertyList);
 
   const setNewTab = () => {
     if (scheduled_tour) {
@@ -48,15 +82,14 @@ const Property_Details = () => {
     preferred_time,
     preferred_year,
     message,
+    propertyList,
+    error,
     contact_type,
     name,
     phone,
     email,
   } = state;
-  React.useEffect(() => {
-    const fileInput = null;
-    console.log(fileInput);
-  }, []);
+
   const changeHandler = (e) => {
     setState({
       ...state,
