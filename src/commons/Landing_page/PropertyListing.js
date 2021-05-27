@@ -11,6 +11,7 @@ import "./landing.css";
 import Carousel from "react-multi-carousel";
 import { Col, Row, Pagination } from "react-bootstrap";
 import PropertyCard from "./PropertyCard";
+import { Link } from "react-router-dom";
 
 const PropertyListing = () => {
   return (
@@ -129,7 +130,9 @@ const PropertyListing = () => {
           </Carousel>
         </Col>
         <Col md={12} className="button_send12">
-          <div className="button_send button_send34">View All Properties</div>
+          <div className="button_send button_send34">
+            <Link to="/properties">View All Properties</Link>
+          </div>
         </Col>
       </Row>
     </>
