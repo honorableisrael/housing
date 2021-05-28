@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
 import Stanbic from "../../containers/Resource/new-stanbic-bank.png";
 import AccessBank from "../../containers/Resource/new-access-bank.png";
 import StandardChartered from "../../containers/Resource/new-standard-bank.png";
@@ -10,7 +12,7 @@ import FederalMortgage from "../../containers/Resource/federal.png";
 import "./landing.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Tab, Tabs, Row } from "react-bootstrap";
+import {Tab, Tabs, Row} from "react-bootstrap";
 import FeaturedPropertyTabContent from "./FeaturedPropertyTabContent";
 import searchimg from "../../assets/search_icon.png";
 import union from "../../assets/Union.png";
@@ -25,41 +27,44 @@ const PropertyCard = ({submit_title}) => {
   return (
     <>
       {/* property card starts */}
-      <div className="sampleproperty12">
-        <div className="property_card">
+      <div className='sampleproperty12'>
+        <div className='property_card'>
           <img
             src={sampleproperty}
-            alt="property_img"
-            className="sampleprops12"
+            alt='property_img'
+            className='sampleprops12'
           />
         </div>
-        <div className="card_second_area">
-          <div className="pricea">$ 27,000,000</div>
-          <div className="locationtext">
-            <img src={Location} alt="Location" className="Location1" />
+        <div className='card_second_area'>
+          <div className='pricea'>$ 27,000,000</div>
+          <div className='locationtext'>
+            <img src={Location} alt='Location' className='Location1' />
             Lekki pearl estate II, Lagos, Nigeria
           </div>
-          <div className="cardbox_wrapper">
-            <div className="cardbox_1">
-              <img src={bedsimg} className="fet_1" />
-              <div className="no_of_beds">4 Beds</div>
+          <div className='cardbox_wrapper'>
+            <div className='cardbox_1'>
+              <img src={bedsimg} className='fet_1' />
+              <div className='no_of_beds'>4 Beds</div>
             </div>
-            <div className="cardbox_1">
-              <img src={shower} className="fet_1" />
-              <div className="no_of_beds">4 Baths</div>
+            <div className='cardbox_1'>
+              <img src={shower} className='fet_1' />
+              <div className='no_of_beds'>4 Baths</div>
             </div>
-            <div className="cardbox_1">
-              <img src={homes} className="fet_1" />
-              <div className="no_of_beds">2349 Sqft</div>
+            <div className='cardbox_1'>
+              <img src={homes} className='fet_1' />
+              <div className='no_of_beds'>2349 Sqft</div>
             </div>
           </div>
-          <div className="fin_sec_card">
+          <div className='fin_sec_card'>
             <div>
-              <div className="fin_stats">Financial Status</div>
-              <div className="fin_info">Mortgage</div>
+              <div className='fin_stats'>Financial Status</div>
+              <div className='fin_info'>Mortgage</div>
             </div>
             <div>
-              <div className="btndetails">{submit_title}</div>
+              {/* <div className='btndetails'>{submit_title}</div> */}
+              <Link to='/affordability-test' className='btndetails'>
+                {submit_title}
+              </Link>
             </div>
           </div>
         </div>

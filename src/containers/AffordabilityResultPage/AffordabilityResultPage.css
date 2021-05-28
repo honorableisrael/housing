@@ -9,7 +9,7 @@
 .affordability-result-top-content .affordability-result-card {
     background: linear-gradient(91.58deg, #16465C -1.93%, #528951 61.62%, #6FA73D 126.5%);
     border-radius: 12px;
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +57,41 @@
     border-right: 1px solid #ffffff;
     content: "";
 }
+
+.property-table {
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 2rem 0;
+    margin: 1rem 0;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 50px auto;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+td,
+th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+}
+
+
 
 .property-affordable-list {
     padding: 2rem 0;
@@ -178,7 +213,6 @@
 
 }
 
-.status-cta .status {}
 
 .status-cta .status h4 {
     color: #4E4B66;
@@ -249,15 +283,14 @@
 }
 
 .banner-cta {
-    padding: 4rem 0;
-
+    padding: 2rem 0 4rem;
 }
 
 .banner-cta-wrapper {
     background-image: url(../../assets/banner-cta.png);
     background-position: 50%;
     background-size: cover;
-    padding: 2rem 5rem;
+    padding: 2rem 0;
     border-radius: 12px;
 }
 
@@ -266,8 +299,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    padding: 0 4rem;
-
+    padding-bottom: 1.5rem;
 }
 
 .banner-cta-content p {
@@ -277,18 +309,19 @@
     font-size: 24px !important;
     line-height: 35px !important;
     margin-bottom: 30px;
-    /* padding: 0 4rem; */
     margin-top: 20px;
 }
+
 
 .waiting-list-cta {
     background: #fff;
     padding: 1rem 4rem;
     text-decoration: none;
-    color: #38301e;
+    color: #6FA73D !important;
     font-weight: 600;
     font-size: 14px;
-    max-width: 400px;
     text-align: center;
-
+    border-radius: 12px;
+    margin: 0 auto;
+    display: block;
 }

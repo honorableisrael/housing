@@ -1,0 +1,128 @@
+/* Progress Form CSS */
+.progress-bar {
+    display: flex;
+    margin: 40px 0;
+    user-select: none;
+    flex-direction: row;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: transparent;
+    transition: width .6s ease;
+}
+
+.progress-bar .step {
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.progress-bar .step p {
+    font-weight: 500;
+    font-size: 18px;
+    color: #16465C;
+    margin-bottom: 8px;
+}
+
+.progress-bar .step p.pending {
+    color: #A0A3BD !important;
+}
+
+.progress-bar .step .bullet {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #BDBDBD;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.2s;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    background: #BDBDBD;
+}
+
+.progress-bar .step .bullet.active,
+.progress-bar .step .bullet.completed {
+    border-color: #6FA73D;
+    background: #6FA73D;
+}
+
+.progress-bar .step .bullet span {
+    position: absolute;
+    left: 50%;
+    top: 13%;
+    transform: translateX(-50%);
+    color: #6E7191;
+}
+
+.progress-bar .step .bullet.completed span {
+    display: none;
+}
+
+.progress-bar .step .bullet.active span {
+    color: #ffffff;
+}
+
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after {
+    position: absolute;
+    content: '';
+    top: 18px;
+    left: 37.7px;
+    height: 5px;
+    width: 380px;
+    background: #6FA73D;
+}
+
+.progress-bar .step .bullet.active:after {
+    background: #BDBDBD;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
+}
+
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after {
+    display: none;
+}
+
+.progress-bar .step p.active {
+    color: #16465C;
+    transition: 0.2s linear;
+}
+
+.progress-bar .step .check.completed {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.progress-bar .step .check.pending {
+    display: none;
+}
+
+.progress-bar .step .check.active {
+    position: absolute;
+    left: 50%;
+    top: -15px;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: #6FA73D;
+}
+
+/* .progress-bar .step .check.active {
+    display: block;
+    color: #f00;
+} */

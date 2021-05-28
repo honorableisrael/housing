@@ -9,29 +9,29 @@ import FamilyHomes from "../../containers/Resource/familyhomes.png";
 import FederalMortgage from "../../containers/Resource/federal.png";
 import "./landing.css";
 import Carousel from "react-multi-carousel";
-import { Col, Row, Pagination } from "react-bootstrap";
+import {Col, Row, Pagination} from "react-bootstrap";
 import PropertyCard from "./PropertyCard";
 import { Link } from "react-router-dom";
 
 const PropertyListing = () => {
   return (
     <>
-      <Row className="propertylistings">
-        <Col md={12}>
-          <div className="main_title_12">Property Listing</div>
-          <div className="main_title_123">Recent Listings</div>
+      <Row className='propertylistings'>
+        {/* <Col md={12}>
+          <div className='main_title_12'>Property Listing</div>
+          <div className='main_title_123'>Recent Listings</div>
           <Carousel
             additionalTransfrom={0}
             arrows={false}
             autoPlay={true}
             autoPlaySpeed={4000}
             centerMode={false}
-            containerClass="container-with-dots"
-            dotListClass=""
+            containerClass='container-with-dots'
+            dotListClass=''
             draggable
             focusOnSelect={false}
             infinite={true}
-            itemClass=""
+            itemClass=''
             keyBoardControl
             minimumTouchDrag={80}
             renderDotsOutside={false}
@@ -62,10 +62,10 @@ const PropertyListing = () => {
               },
             }}
             showDots={false}
-            sliderClass=""
+            sliderClass=''
             slidesToSlide={1}
             swipeable
-            className="centerpositon"
+            className='centerpositon'
           >
             <PropertyCard submit_title={"View details"} />
             <PropertyCard submit_title={"View details"} />
@@ -75,19 +75,19 @@ const PropertyListing = () => {
         </Col>
         <Col md={12}>
           <br /> <br />
-          <div className="main_title_123">Properties under $15,000,000</div>
+          <div className='main_title_123'>Properties under $15,000,000</div>
           <Carousel
             additionalTransfrom={0}
             arrows={false}
             autoPlay={true}
             autoPlaySpeed={4000}
             centerMode={false}
-            containerClass="container-with-dots"
-            dotListClass=""
+            containerClass='container-with-dots'
+            dotListClass=''
             draggable
             focusOnSelect={false}
             infinite={true}
-            itemClass=""
+            itemClass=''
             keyBoardControl
             minimumTouchDrag={80}
             renderDotsOutside={false}
@@ -118,10 +118,10 @@ const PropertyListing = () => {
               },
             }}
             showDots={false}
-            sliderClass=""
+            sliderClass=''
             slidesToSlide={1}
             swipeable
-            className="centerpositon"
+            className='centerpositon'
           >
             <PropertyCard submit_title={"View details"} />
             <PropertyCard submit_title={"View details"} />
@@ -133,7 +133,7 @@ const PropertyListing = () => {
           <div className="button_send button_send34">
             <Link to="/properties">View All Properties</Link>
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </>
   );
