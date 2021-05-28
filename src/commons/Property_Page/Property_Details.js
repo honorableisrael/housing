@@ -14,7 +14,12 @@ import FooterSection from "../Landing_page/redesignFooter";
 import { Link } from "react-router-dom";
 import { API } from "../../config";
 import axios from "axios";
+import Image2 from "../../assets/Image2.png";
 import { FormatAmount } from "../User_Dashboard/controller";
+import Modal from "react-modal";
+import successfullysaved from "../../assets/successfullysaved.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Property_Details = (props) => {
   const [state, setState] = useState({
@@ -24,13 +29,14 @@ const Property_Details = (props) => {
     preferred_year: "",
     contact_type: "",
     name: "",
-    isloading:false,
+    isloading: false,
     phone: "",
     message: "",
     email: "",
     property_details: [],
     propertyunder: 1000000,
     error: "",
+    modalIsOpen: false,
   });
 
   React.useEffect(() => {
@@ -79,18 +85,45 @@ const Property_Details = (props) => {
       });
     }
   };
+  const customStyles = {
+    content: {
+      top: "56%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      padding: "3rem 2rem",
+      borderRadius: "20px",
+      zIndex: "3333",
+    },
+  };
+
+  const afterOpenModal = () => {
+    // references are now sync'd and can be accessed.
+  };
+
+  const closeModal = () => {
+    setState({
+      ...state,
+      modalIsOpen: false,
+    });
+  };
   const scheduleTour = () => {
     setState({
       ...state,
       isloading: true,
     });
+    if (!name || !email || !phone || !preferred_year || !preferred_time) {
+      notify("Please enter all fields");
+    }
     const data = {
-      property_id: 44,
-      name: "koko laria",
-      email: "kk@test.com",
-      phone: "08012345678",
-      book_date: "10/12/2021",
-      book_time: "10am",
+      property_id: props.match.params.id,
+      name,
+      email,
+      phone,
+      book_date: preferred_year,
+      book_time: preferred_time,
     };
     try {
       axios
@@ -101,8 +134,8 @@ const Property_Details = (props) => {
             if (res.status === 200) {
               setState({
                 ...state,
-                property_details: res.data.data,
                 isloading: false,
+                modalIsOpen: true,
               });
             }
           })
@@ -118,10 +151,12 @@ const Property_Details = (props) => {
       console.log(error);
     }
   };
+  const notify = (message) => toast(message, { containerId: "t" });
   const {
     scheduled_tour,
     request_info,
     preferred_time,
+    modalIsOpen,
     preferred_year,
     message,
     property_details,
@@ -141,8 +176,52 @@ const Property_Details = (props) => {
       [e.target.name]: e.target.value,
     });
   };
+  const openModal = () => {
+    setState({
+      ...state,
+      modalIsOpen: true,
+    });
+  };
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1;
+  var yyyy = today.getFullYear();
+  today = yyyy+'-'+mm+'-'+dd;
+  console.log(today)
   return (
     <>
+      <ToastContainer
+        enableMultiContainer
+        containerId={"t"}
+        toastClassName="bg-info text-white"
+        hideProgressBar={true}
+        position={toast.POSITION.TOP_CENTER}
+      />
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className="schcc12">
+          <img
+            src={successfullysaved}
+            className="successfullysaved"
+            alt="successfullysaved"
+          />
+        </div>
+        <div className="schcc">Successfuly Scheduled a Tour</div>
+        <div className="schcc2">
+          {" "}
+          Please check your mail, we have sent you details of your Tour
+        </div>
+        <div className="text-center">
+          <span className="moreppr">
+            <Link to="/properties">Check out More Properties</Link>
+          </span>
+        </div>
+      </Modal>
       <HomeNav />
       <Container fluid={true} className="property111 property111b">
         <Row>
@@ -165,6 +244,12 @@ const Property_Details = (props) => {
                 </div>
                 <div>
                   <img src={top_slide} className="top_slide__1" />
+                  <div className="topssl0">
+                    <span className="topssl">
+                      <img src={Image2} className="topssl2" />
+                      34
+                    </span>
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -304,6 +389,8 @@ const Property_Details = (props) => {
                         <input
                           type="date"
                           placeholder="Enter date"
+                          min={today}
+                          max="2090-05-05"
                           onChange={changeHandler}
                           className="form-control reftime2"
                           name="preferred_year"

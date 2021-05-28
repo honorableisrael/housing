@@ -150,6 +150,15 @@
     width: 100% !important;
     border-bottom: 1px solid #a0a3bd;
   }
+  .hjt{
+    display: none;
+  }
+  .property111b div div div{
+    margin-right: .3rem;
+  }
+  .main_title_123{
+    text-align: left;
+  }
 }
 
 .property111b {
@@ -420,7 +429,7 @@
   padding-left: 0.6rem !important;
 }
 .reftime {
-  color: #A0A3BD;
+  color: #a0a3bd;
   font-size: 14px;
   padding-bottom: 0.3rem;
 }
@@ -445,7 +454,7 @@
   right: 1.7rem;
   padding-right: 0.1rem;
 }
-.hf22{
+.hf22 {
   background: #16465c;
   border: 1px solid #16465c;
   box-sizing: border-box;
@@ -459,39 +468,98 @@
   font-weight: 600;
   cursor: pointer;
 }
-.ll34{
+.ll34 {
   display: flex;
-  margin-top: .6rem;
-  color: #A0A3BD;
+  margin-top: 0.6rem;
+  color: #a0a3bd;
 }
-.ll34z{
-  margin-bottom: .3rem;
-  margin-right: .3rem;
+.ll34z {
+  margin-bottom: 0.3rem;
+  margin-right: 0.3rem;
 }
-.checkmark{
-  margin-right: .9rem;
+.checkmark {
+  margin-right: 0.9rem;
 }
-.contact_type{
-  margin-right: .4rem;
+.contact_type {
+  margin-right: 0.4rem;
 }
-.inactive_tab{
-  color: #A0A3BD;
-  border-bottom-color: #A0A3BD;
+.inactive_tab {
+  color: #a0a3bd;
+  border-bottom-color: #a0a3bd;
 }
-.za{
+.za {
   padding-top: 1rem;
   position: relative;
-  right: .9rem;
-  width: 76%;  
+  right: 0.9rem;
+  width: 76%;
 }
-.xza{
+.xza {
   width: 95%;
   padding-bottom: 3rem;
   margin-bottom: 1rem;
 }
 
-.card9{
+.card9 {
   display: flex;
   justify-content: space-between;
-  margin-top: .9rem;
+  margin-top: 0.9rem;
+}
+.propdetailsa {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.topssl0 {
+  position: absolute;
+  right: 1rem;
+  /* top: 1px; */
+}
+.topssl {
+  background: rgba(0, 0, 0, 0.829);
+  border-radius: 13px;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 0.4rem;
+  position: relative;
+  bottom: 3rem;
+  cursor: pointer;
+}
+.topssl2 {
+  width: 20px;
+}
+.schcc {
+  text-align: center;
+  font-size: 20px;
+  line-height: 31px;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-style:normal;
+}
+.schcc2 {
+  text-align: center;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.0175em;
+  color: #4e4b66;
+  font-weight: 100;
+  padding-bottom: 2rem;
+}
+
+.moreppr{
+  color: white;
+  width: 200px;
+  background: var(--heavy-blue);
+  padding: 1rem;
+  border-radius: 18px;
+  margin-top: 2rem;
+}
+.successfullysaved{
+  width: 50%;
+  margin: auto;
+}
+.schcc12{
+  text-align: center;
 }

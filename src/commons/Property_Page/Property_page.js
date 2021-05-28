@@ -29,13 +29,13 @@ const Property_Page = () => {
         axios.get(`${API}/general/all-general-properties-types`),
       ])
       .then(
-        axios.spread((res,res2) => {
+        axios.spread((res, res2) => {
           console.log(res2.data);
           if (res.status === 200) {
             setState({
               ...state,
               propertyList: res.data.data,
-              ListOfHomeTypes:res2.data.data,
+              ListOfHomeTypes: res2.data.data,
               isloading: false,
             });
           }
@@ -53,7 +53,7 @@ const Property_Page = () => {
   const searchProperty = () => {
     const mypayload = {
       location,
-      bedrooms: "",
+      bedrooms:no_of_bedrooms,
       bathrooms: "",
       price,
     };
@@ -79,7 +79,14 @@ const Property_Page = () => {
         });
       });
   };
-  const { propertyList, ListOfHomeTypes, error, price, location } = state;
+  const {
+    propertyList,
+    ListOfHomeTypes,
+    error,
+    no_of_bedrooms,
+    price,
+    location,
+  } = state;
   console.log(ListOfHomeTypes);
 
   return (
@@ -134,7 +141,9 @@ const Property_Page = () => {
                   <input
                     type="text"
                     className="home_input home12"
-                    placeholder="Property Status"
+                    value={no_of_bedrooms}
+                    name="no_of_bedrooms"
+                    placeholder="Property Bedrooms"
                   />
                 </span>
               </div>

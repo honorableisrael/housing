@@ -96,7 +96,7 @@
   .homeImage > iframe {
     width: 75%;
     height: 75%;
-  } 
+  }
 }
 
 iframe {
@@ -768,13 +768,13 @@ iframe {
 .nav-tabs .nav-link.active {
   border-color: transparent;
   font-size: 16px;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   color: var(--light-green);
   font-weight: 600;
   width: 200px;
 }
 .nav-tabs .nav-link {
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   font-size: 16px;
   width: 200px;
   border-bottom-color: transparent;
@@ -786,8 +786,8 @@ iframe {
   box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
   border-radius: 0px 8px 8px 8px;
   background: var(--white-color);
-  padding: 2rem 1rem;
-  min-height: 120px;
+  padding: 1rem 1rem;
+  min-height: 81px;
   width: 100%;
 }
 .home_input,
@@ -928,7 +928,8 @@ iframe {
   padding: 0.4rem;
 }
 .cardbox_wrapper,
-.disflex,.cardbox_wrapper2 {
+.disflex,
+.cardbox_wrapper2 {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
