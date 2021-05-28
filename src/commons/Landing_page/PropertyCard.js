@@ -30,12 +30,14 @@ const PropertyCard = ({ submit_title, property_details }) => {
       {/* property card starts */}
       <div className="sampleproperty12">
         <div className="property_card">
-          <img
-            src={sampleproperty}
-            // src={property_details.property_cover_image?property_details.property_cover_image:sampleproperty}
-            alt="property_img"
-            className="sampleprops12"
-          />
+          <Link to={`/properties/${property_details?.slug}`}>
+            <img
+              src={sampleproperty}
+              // src={property_details.property_cover_image?property_details.property_cover_image:sampleproperty}
+              alt="property_img"
+              className="sampleprops12"
+            />
+          </Link>
         </div>
         <div className="card_second_area">
           <div className="pricea">
@@ -43,8 +45,10 @@ const PropertyCard = ({ submit_title, property_details }) => {
           </div>
           <div className="locationtext">
             <img src={Location} alt="Location" className="Location1" />
-            {property_details?.property_name}{" "}
-            {property_details?.property_full_address}
+            <Link to={`/properties/${property_details?.slug}`}>
+              {property_details?.property_name}{" "}
+              {property_details?.property_full_address}
+            </Link>
           </div>
           <div className="cardbox_wrapper">
             <div className="cardbox_1">
@@ -79,7 +83,7 @@ const PropertyCard = ({ submit_title, property_details }) => {
             </div>
             <div>
               <div className="btndetails">
-                <Link to={`/properties/${property_details?.id}`}>
+                <Link to={`/properties/${property_details?.slug}`}>
                   {submit_title}
                 </Link>
               </div>

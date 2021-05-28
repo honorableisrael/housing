@@ -91,7 +91,6 @@ const Profile_6 = (props) => {
               States: [...res2.data.data],
               property: currentProperty,
               isloading: false,
-              ListOfHomeTypes:res3.data.data,
             });
           }
           if (res.status == 400) {

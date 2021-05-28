@@ -151,9 +151,12 @@
     border-bottom: 1px solid #a0a3bd;
   }
 }
+
 .property111b {
   padding-top: 5rem;
+  padding-bottom: 4rem;
 }
+
 .property111b div div div {
   margin-left: 5px;
   padding-right: 0px;
@@ -485,4 +488,10 @@
   width: 95%;
   padding-bottom: 3rem;
   margin-bottom: 1rem;
+}
+
+.card9{
+  display: flex;
+  justify-content: space-between;
+  margin-top: .9rem;
 }

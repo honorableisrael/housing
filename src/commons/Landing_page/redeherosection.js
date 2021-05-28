@@ -31,7 +31,7 @@ const HeroSection = () => {
                   </b>
                 </p>
                 <div>
-                  <Link className="btn-gtstrted" to="/signin">
+                  <Link className="btn-gtstrted" to="/">
                     Apply for a Home
                   </Link>
                 </div>

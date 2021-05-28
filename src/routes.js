@@ -55,7 +55,7 @@ import Property_Details from "./commons/Property_Page/Property_Details";
 // Normal Routes
 import Contact_us_page from "./containers/ContactUsPage";
 import Faqs_page from "./containers/NewFAQS";
-// import Affordability_result_page from "./containers/AffordabilityResultPage";
+import Affordability_result_page from "./containers/AffordabilityResultPage";
 
 //check for token
 if (localStorage.token && localStorage.user) {

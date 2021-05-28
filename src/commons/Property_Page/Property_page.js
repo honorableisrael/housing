@@ -13,24 +13,29 @@ import axios from "axios";
 const Property_Page = () => {
   const [state, setState] = React.useState({
     propertyList: [],
-    location: "Lagos",
+    location: "",
     bedrooms: "",
     bathrooms: "",
     price: "",
     error: "",
+    ListOfHomeTypes: [],
   });
 
   React.useEffect(() => {
-    window.scrollTo(-0,-0)
+    window.scrollTo(-0, -0);
     axios
-      .all([axios.get(`${API}/general/featured-properties`)])
+      .all([
+        axios.get(`${API}/general/featured-properties`),
+        axios.get(`${API}/general/all-general-properties-types`),
+      ])
       .then(
-        axios.spread((res) => {
-          console.log(res.data.data);
+        axios.spread((res,res2) => {
+          console.log(res2.data);
           if (res.status === 200) {
             setState({
               ...state,
               propertyList: res.data.data,
+              ListOfHomeTypes:res2.data.data,
               isloading: false,
             });
           }
@@ -47,20 +52,20 @@ const Property_Page = () => {
 
   const searchProperty = () => {
     const mypayload = {
-      location: "",
+      location,
       bedrooms: "",
       bathrooms: "",
-      price: "",
+      price,
     };
     axios
-      .all([axios.post(`${API}/general/featured-properties`, mypayload)])
+      .all([axios.post(`${API}/general/search-properties`, mypayload)])
       .then(
         axios.spread((res) => {
           console.log(res.data.data);
           if (res.status === 200) {
             setState({
               ...state,
-              propertyList: res.data.data,
+              propertyList: res.data.data.data,
               isloading: false,
             });
           }
@@ -74,8 +79,8 @@ const Property_Page = () => {
         });
       });
   };
-  const { propertyList, error, price, location } = state;
-  console.log(propertyList);
+  const { propertyList, ListOfHomeTypes, error, price, location } = state;
+  console.log(ListOfHomeTypes);
 
   return (
     <>
@@ -92,6 +97,8 @@ const Property_Page = () => {
                   <input
                     type="text"
                     className="home_input home12"
+                    value={location}
+                    name="location"
                     placeholder="Name, State, City ..."
                   />
                 </div>
@@ -101,6 +108,11 @@ const Property_Page = () => {
                   </span>
                   <select className="home_input home12">
                     <option className="home_input">Property Type</option>
+                    {ListOfHomeTypes.map((data, i) => (
+                      <option value={data.property_class_id}>
+                        {data.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="flex-w2 w21 w2a">
@@ -110,6 +122,8 @@ const Property_Page = () => {
                   <input
                     type="text"
                     className="home_input home12"
+                    value={price}
+                    name="price"
                     placeholder="Maximum price"
                   />
                 </div>

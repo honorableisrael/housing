@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 // import React, { Component, createRef } from "react";
-import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import {connect} from "react-redux";
+import {Link, withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
-import { loginUser } from './../../store/actions/authActions';
+import {loginUser} from "./../../store/actions/authActions";
 
 import * as Icon from "react-feather";
 
@@ -18,35 +18,31 @@ import "./LoginPage.css";
 import InputPassword from "./../../commons/InputPassword";
 import TextFieldGroup from "./../../commons/TextFieldGroup";
 import Header from "../../commons/Header";
-import ButtonSpinner from '../ButtonSpinner';
-import * as Yup from 'yup';
-import { Form, Formik } from 'formik';
-import { validations } from '../../utils/yupUtils';
-
+import ButtonSpinner from "../ButtonSpinner";
+import * as Yup from "yup";
+import {Form, Formik} from "formik";
+import {validations} from "../../utils/yupUtils";
 
 // import LoginDoorIcon from "../Resource/fp-login-page-door-access.svg";
-
 
 function LoginPage(props) {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   const [backErrors, setBackErrors] = useState({});
 
-  useEffect(()=>{
-    if(props.auth.isAuthenticated){
-      props.history.push("/application")
+  useEffect(() => {
+    if (props.auth.isAuthenticated) {
+      props.history.push("/application");
     }
   }, [props.history, props.auth.isAuthenticated]);
 
-  useEffect(()=>{
-    if(props.errors.errors){
-      if(props.errors.errors.data.message === "login failed"){
-          console.log(props.errors.errors)
-          setBackErrors(props.errors.errors.data)
-      }else if(props.errors.errors.message === "Validation Error"){
-          props.errors.errors.data.map(data => (
-            setBackErrors(data)
-          )) 
+  useEffect(() => {
+    if (props.errors.errors) {
+      if (props.errors.errors.data.message === "login failed") {
+        console.log(props.errors.errors);
+        setBackErrors(props.errors.errors.data);
+      } else if (props.errors.errors.message === "Validation Error") {
+        props.errors.errors.data.map((data) => setBackErrors(data));
       }
     }
   }, [props.errors]);
@@ -69,7 +65,7 @@ function LoginPage(props) {
    * Handles change event on an input element
    * @param {DOMEvent} event
    */
-    //  handleChange = event => handleChange(event, this);
+  //  handleChange = event => handleChange(event, this);
 
   // componentDidMount() {
   //   document.title = "Login Authentication | Finance Plus";
@@ -110,36 +106,31 @@ function LoginPage(props) {
    * Handles click event on "Join Now"
    * @param {DOMEvent} event
    */
-   const handleJoinNowClick = event => {
+  const handleJoinNowClick = (event) => {
     event.preventDefault();
   };
-
-
 
   // render() {
   //   const {errors, isLoading} = this.props;
   //   const backErrors = errors
 
-    const validationSchema = (() => {
-      return Yup.object().shape({
-        email: validations.email,
-        password: validations.password,    
-      });
-    })();
+  const validationSchema = (() => {
+    return Yup.object().shape({
+      email: validations.email,
+      password: validations.password,
+    });
+  })();
 
-    return (
-
-      <div className='container-fluid px-0'>
-        <section id='fp-login-auth-page'>
+  return (
+    <div className='container-fluid px-0'>
+      <section id='fp-login-auth-page'>
         <Header />
-        
-          <div className='container-fluid fp-login-auth-page-landing'>
-                  <div className='row'>
-                    <div className='col-md-8 offset-md-2 mt-5 fp-login-auth-page-landing-form'>
-                      <p className='fp-login-auth-page-landing-subtitle'>
-                        Sign in
-                      </p>
-                      {/* <div className='fp-login-notification'>
+
+        <div className='container-fluid fp-login-auth-page-landing'>
+          <div className='row'>
+            <div className='col-md-8 offset-md-2 mt-5 fp-login-auth-page-landing-form'>
+              <p className='fp-login-auth-page-landing-subtitle'>Sign in</p>
+              {/* <div className='fp-login-notification'>
                         <div className='fp-login-notification-content-wrapper'>
                           <div className='fp-login-notification-content'>
                             <div className='fp-login-notification-content-title'>
@@ -153,129 +144,141 @@ function LoginPage(props) {
                           </div>
                         </div>
                       </div> */}
-                      {backErrors && backErrors.length ? (
-                        <ul className='error-list fp-errors-display-list'>
-                          {backErrors.map((msg, index) => {
-                            return (
-                              <li className='error-item' key={index}>
-                                <Icon.AlertCircle
-                                  className='mr-2'
-                                  size='12'
-                                  color='#f00'
-                                />
-                                {msg}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      ) : (
-                        ""
-                      )}
+              {backErrors && backErrors.length ? (
+                <ul className='error-list fp-errors-display-list'>
+                  {backErrors.map((msg, index) => {
+                    return (
+                      <li className='error-item' key={index}>
+                        <Icon.AlertCircle
+                          className='mr-2'
+                          size='12'
+                          color='#f00'
+                        />
+                        {msg}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                ""
+              )}
 
               <Formik
-                      initialValues={{
-                        email: "",
-                        password: "",
-                      }}
-                      onSubmit={(data) => props.loginUser(data)}
-                      // onSubmit={this.handleSubmit}
-                      validationSchema={validationSchema}
-                    >
-                      {({ values, errors, touched, handleChange, handleBlur, isSubmitting }) => {
-                        const { 
-                          email, password
-                        } = values;
-                        if(backErrors.success === false){
-                          isSubmitting = false;
-                          // backErrors.data = {}
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                onSubmit={(data) => props.loginUser(data)}
+                // onSubmit={this.handleSubmit}
+                validationSchema={validationSchema}
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  isSubmitting,
+                }) => {
+                  const {email, password} = values;
+                  if (backErrors.success === false) {
+                    isSubmitting = false;
+                    // backErrors.data = {}
+                  }
+                  // if(backErrors){
+                  //   isSubmitting = false;
+                  //   // backErrors.data = {}
+                  // }
+
+                  return (
+                    <Form className='fp-login-form-wrapper'>
+                      <TextFieldGroup
+                        type='email'
+                        placeholder='Email'
+                        name='email'
+                        value={email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        // onChange={(e)=> setEmail(e.target.value)}
+                        pattern='^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$'
+                        required
+                        // error={errors ? errors.email : (backErrors.message === "login failed"  && backErrors.data)}
+                        // error={errors ? errors.email :  backErrors.data }
+                        error={
+                          backErrors.message === "login failed"
+                            ? backErrors.data
+                            : errors.email
                         }
-                        // if(backErrors){
-                        //   isSubmitting = false;
-                        //   // backErrors.data = {}
-                        // }
-                        
-                return (
-                  <Form className="fp-login-form-wrapper" > 
-                        
-                        <TextFieldGroup 
-                            type='email'
-                            placeholder='Email'
-                            name='email'
-                            value={email}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            // onChange={(e)=> setEmail(e.target.value)} 
-                            pattern='^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$'
-                            required
-                            // error={errors ? errors.email : (backErrors.message === "login failed"  && backErrors.data)}
-                            // error={errors ? errors.email :  backErrors.data }
-                            error= {(backErrors.message === "login failed" ? backErrors.data : errors.email )}  
-                            // {...{ errors, touched }}
-                            // error="Invalid email address"
-                        />
-                        <InputPassword 
-                            type="password" 
-                            placeholder="Password"
-                            name='password'
-                            value={password}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            // onChange={(e)=> setPassword(e.target.value)}
-                            minLength='6'
-                            error={errors ? errors.password : (backErrors.message === "login failed"  && backErrors.data)}
-                            // error={errors ? errors.password : backErrors.data}
-                            // error = {(backErrors.message === "login failed" ? backErrors.data : errors.password )} 
-                            // {...{ errors, touched }}
-                          /> 
+                        // {...{ errors, touched }}
+                        // error="Invalid email address"
+                      />
+                      <InputPassword
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        value={password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        // onChange={(e)=> setPassword(e.target.value)}
+                        minLength='6'
+                        error={
+                          errors
+                            ? errors.password
+                            : backErrors.message === "login failed" &&
+                              backErrors.data
+                        }
+                        // error={errors ? errors.password : backErrors.data}
+                        // error = {(backErrors.message === "login failed" ? backErrors.data : errors.password )}
+                        // {...{ errors, touched }}
+                      />
 
-
-                        <div className='fp-login-options'>
-                          <div className='fp-forgotPassword'>
-                            <Link className="fp-forgotPassword-link" to='/auth/resetPassword'>
-                              Forgot your password? Recover it
-                            </Link>
-                          </div>
-                        </div>
-                        {/* <input type="submit" className="btn-lg btn-info btn-block mt-4 mb-4" value="Sign In"  /> */}
-                        <button
-                          type='submit'
-                          className='btn-lg btn-info btn-block mt-4 mb-4'
-                          disabled={isSubmitting}
-                        >
-                          {
-                            isSubmitting ? (
-                              <ButtonSpinner />
-                            ) : 'Sign In'
-                          }
-                        </button>
-                        <div className='fp-create-account-wrapper'>
-                          Do not have an account?
+                      <div className='fp-login-options'>
+                        <div className='fp-forgotPassword'>
                           <Link
-                            className="sign"
-                            to='/auth/register'
-                            onClick={handleJoinNowClick}
+                            className='fp-forgotPassword-link'
+                            to='/auth/resetPassword'
                           >
-                            {" "}
-                            Sign Up
+                            Forgot your password? Recover it
                           </Link>
                         </div>
-                      </Form>
-              );
-            }}
-          </Formik>
-                    </div>
-                  </div>
-                </div>
-        </section>
-      </div>)
-    // }
-  }
+                      </div>
+                      {/* <input type="submit" className="btn-lg btn-info btn-block mt-4 mb-4" value="Sign In"  /> */}
+                      <button
+                        type='submit'
+                        className='btn-lg btn-info btn-block mt-4 mb-4'
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? <ButtonSpinner /> : "Sign In"}
+                      </button>
+                      <div className='fp-create-account-wrapper'>
+                        Do not have an account?
+                        <Link
+                          className='sign'
+                          to='/auth/register'
+                          onClick={handleJoinNowClick}
+                        >
+                          {" "}
+                          Sign Up
+                        </Link>
+                      </div>
+                    </Form>
+                  );
+                }}
+              </Formik>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+  // }
+}
 
-LoginPage.propTypes ={
-    loginUser : PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-  };
+LoginPage.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
 // const mapStateToProps = (state , ownProps) => {
 //   return {
 //     isAuthenticated: state.isAuthenticated,
@@ -285,9 +288,9 @@ LoginPage.propTypes ={
 //   };
 // };
 
-const mapStateToProps = (state)=>({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
 // const mapDispatchToProps = dispatch => {

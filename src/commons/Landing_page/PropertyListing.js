@@ -23,29 +23,34 @@ const PropertyListing = (props) => {
   });
 
   React.useEffect(() => {
-    axios
-      .all([
-        axios.get(`${API}/general/property-detail/${props.match.params.id}}`),
-      ])
-      .then(
-        axios.spread((res) => {
-          console.log(res);
-          if (res.status === 200) {
-            setState({
-              ...state,
-              propertyList: res.data.data,
-              isloading: false,
-            });
-          }
-        })
-      )
-      .catch((err) => {
-        console.log(err.response);
-        setState({
-          ...state,
-          isloading: false,
-        });
-      });
+    // try{
+    // axios
+    //   .all([
+    //     axios.get(`${API}/general/property-detail/${state.propertyunder}}`),
+    //   ])
+    //   .then(
+    //     axios.spread((res) => {
+    //       console.log(res);
+    //       if (res.status === 200) {
+    //         setState({
+    //           ...state,
+    //           propertyList: res.data.data,
+    //           isloading: false,
+    //         });
+    //       }
+    //     })
+    //   )
+    //   .catch((err) => {
+    //     console.log(err.response);
+    //     setState({
+    //       ...state,
+    //       isloading: false,
+    //     });
+    //   });
+    // }
+    // catch(error){
+    //   console.log(error)
+    // }
   }, []);
 
   const { propertyList, error } = state;
@@ -109,7 +114,7 @@ const PropertyListing = (props) => {
             <PropertyCard submit_title={"View details"} />
           </Carousel>
         </Col> */}
-        <Col md={12}>
+        {/* <Col md={12}>
           <br /> <br />
           <div className="main_title_123">Properties under $15,000,000</div>
           <Carousel
@@ -166,12 +171,12 @@ const PropertyListing = (props) => {
               />
             ))}
           </Carousel>
-        </Col>
-        <Col md={12} className="button_send12">
+        </Col> */}
+        {/* <Col md={12} className="button_send12">
           <div className="button_send button_send34">
-            <Link to="/properties"> View All Properties </Link>
+            <Link to="/properties">View All Properties</Link>
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </>
   );

@@ -1269,8 +1269,8 @@ iframe {
   line-height: 24px;
   letter-spacing: 0.04em;
   padding: 1rem;
-  padding-top: 3rem;
-  margin-top: 3rem;
+  padding-top: 3.5rem;
+  /* margin-top: 3rem; */
 }
 .footer2a {
   text-align: center;

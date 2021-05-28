@@ -1,0 +1,294 @@
+.affordability-result-page {
+    padding: 3rem 0;
+}
+
+.affordability-result-top-content {
+    padding: 0 3rem;
+}
+
+.affordability-result-top-content .affordability-result-card {
+    background: linear-gradient(91.58deg, #16465C -1.93%, #528951 61.62%, #6FA73D 126.5%);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.maximum-loan-amount-card h4,
+.monthly-repayment-card h4,
+.maximum-tenure-card h4 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+
+}
+
+.maximum-loan-amount-card h2,
+.monthly-repayment-card h2,
+.maximum-tenure-card h2 {
+    font-weight: 500;
+    line-height: 30px;
+    color: #ffffff;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.maximum-loan-amount-card::after {
+    position: absolute;
+    top: 0;
+    left: 4%;
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid #ffffff;
+    content: "";
+}
+
+.monthly-repayment-card::after {
+    position: absolute;
+    top: 0;
+    right: 32%;
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid #ffffff;
+    content: "";
+}
+
+.property-affordable-list {
+    padding: 2rem 0;
+}
+
+.property-affordable-list_wrapper .property-affordable-list-top-content {
+    padding: 0 4rem;
+    text-align: center;
+    /* margin-bottom: 4rem; */
+}
+
+.property-affordable-list-top-content h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: #16465c;
+}
+
+.property-affordable-list-top-content p {
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 25px !important;
+    color: #4E4B66;
+    margin-top: 1rem;
+}
+
+.property-cards-wrapper {
+    padding: 3rem 5rem;
+}
+
+.property-cards {
+    height: 430px;
+    background: #ffffff;
+    /* padding: 0 2rem; */
+    box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
+    /* border-radius: 20px; */
+    width: 322px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.property-img {
+    height: 186px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.property-cards-info {
+    padding: 0 1rem;
+}
+
+.property-cards-info h4 {
+    color: #16465c;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 15px;
+}
+
+.property-cards-info p {
+    font-weight: 400;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    color: #6E7191;
+    margin-top: -5px;
+}
+
+.property-cards-info svg {
+    margin-right: 5px;
+    color: #6E7191;
+}
+
+.amenities {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bed,
+.bath,
+.dimension {
+    box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
+    border-radius: 12px;
+    background: #ffffff;
+    display: block;
+    height: 71px;
+    width: 71px;
+    text-align: center;
+}
+
+.bed img,
+.bath img,
+.dimension img {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.bed span,
+.bath span,
+.dimension span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #4E4B66;
+}
+
+.status-cta {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 10px;
+
+}
+
+.status-cta .status {}
+
+.status-cta .status h4 {
+    color: #4E4B66;
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.status-cta .status p {
+    font-weight: 400;
+    font-size: 13px !important;
+    /* line-height: 18px !important; */
+    color: #528951;
+    margin-top: -5px;
+}
+
+.status-cta .cta-btn {
+    background-color: #16465C;
+    padding: 0.6rem 1rem !important;
+    line-height: 1.5;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid #16465c;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.pagination-counter {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-link {
+    padding: .75rem 1.1rem !important;
+    border-radius: 4px;
+    border: 1px solid #F2F2F2;
+    color: #14142B;
+}
+
+.page-link.icons {
+    color: #DFE3E8;
+}
+
+.page-link.active {
+    background: #ffffff;
+    border: 1px solid #528951;
+    color: #528951;
+    /* box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12); */
+
+}
+
+.page-link.disable {
+    background: #F2F2F2;
+    color: #ffffff;
+    border: 1px solid #f2f2f2;
+}
+
+.pagination-counter ul li {
+    text-align: center;
+}
+
+.pagination-result-counter {
+    text-align: center;
+    margin-top: -30px;
+    color: #A0A3BD !important;
+}
+
+.banner-cta {
+    padding: 4rem 0;
+
+}
+
+.banner-cta-wrapper {
+    background-image: url(../../assets/banner-cta.png);
+    background-position: 50%;
+    background-size: cover;
+    padding: 2rem 5rem;
+    border-radius: 12px;
+}
+
+.banner-cta-content {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem;
+
+}
+
+.banner-cta-content p {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px !important;
+    line-height: 35px !important;
+    margin-bottom: 30px;
+    /* padding: 0 4rem; */
+    margin-top: 20px;
+}
+
+.waiting-list-cta {
+    background: #fff;
+    padding: 1rem 4rem;
+    text-decoration: none;
+    color: #38301e;
+    font-weight: 600;
+    font-size: 14px;
+    max-width: 400px;
+    text-align: center;
+
+}

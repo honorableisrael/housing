@@ -14,8 +14,9 @@ import FooterSection from "../Landing_page/redesignFooter";
 import { Link } from "react-router-dom";
 import { API } from "../../config";
 import axios from "axios";
+import { FormatAmount } from "../User_Dashboard/controller";
 
-const Property_Details = () => {
+const Property_Details = (props) => {
   const [state, setState] = useState({
     scheduled_tour: true,
     request_info: false,
@@ -23,42 +24,44 @@ const Property_Details = () => {
     preferred_year: "",
     contact_type: "",
     name: "",
+    isloading:false,
     phone: "",
     message: "",
     email: "",
-    propertyList: [],
+    property_details: [],
     propertyunder: 1000000,
     error: "",
   });
 
-
   React.useEffect(() => {
-    axios
-      .all([
-        axios.get(`${API}/general/property-below-price/${state.propertyunder}`),
-      ])
-      .then(
-        axios.spread((res) => {
-          console.log(res);
-          if (res.status === 200) {
-            setState({
-              ...state,
-              propertyList: res.data.data,
-              isloading: false,
-            });
-          }
-        })
-      )
-      .catch((err) => {
-        console.log(err.response);
-        setState({
-          ...state,
-          isloading: false,
+    try {
+      axios
+        .all([
+          axios.get(`${API}/general/property-detail/${props.match.params.id}`),
+        ])
+        .then(
+          axios.spread((res) => {
+            console.log(res);
+            if (res.status === 200) {
+              setState({
+                ...state,
+                property_details: res.data.data,
+                isloading: false,
+              });
+            }
+          })
+        )
+        .catch((err) => {
+          console.log(err.response);
+          setState({
+            ...state,
+            isloading: false,
+          });
         });
-      });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
-
-  console.log(propertyList);
 
   const setNewTab = () => {
     if (scheduled_tour) {
@@ -76,19 +79,61 @@ const Property_Details = () => {
       });
     }
   };
+  const scheduleTour = () => {
+    setState({
+      ...state,
+      isloading: true,
+    });
+    const data = {
+      property_id: 44,
+      name: "koko laria",
+      email: "kk@test.com",
+      phone: "08012345678",
+      book_date: "10/12/2021",
+      book_time: "10am",
+    };
+    try {
+      axios
+        .all([axios.post(`${API}/general/book-tour`, data)])
+        .then(
+          axios.spread((res) => {
+            console.log(res);
+            if (res.status === 200) {
+              setState({
+                ...state,
+                property_details: res.data.data,
+                isloading: false,
+              });
+            }
+          })
+        )
+        .catch((err) => {
+          console.log(err.response);
+          setState({
+            ...state,
+            isloading: false,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const {
     scheduled_tour,
     request_info,
     preferred_time,
     preferred_year,
     message,
-    propertyList,
+    property_details,
     error,
+    isloading,
     contact_type,
     name,
     phone,
     email,
   } = state;
+
+  console.log(property_details);
 
   const changeHandler = (e) => {
     setState({
@@ -131,16 +176,19 @@ const Property_Details = () => {
                   <div className="fbdroom">
                     <div className="ll2a boldtxt1">
                       {" "}
-                      4 Bedrooms semi-detached duplex with BQ{" "}
+                      {property_details?.property_name}{" "}
                     </div>
                     <div className="ll23">
                       <img src={Location} className="Location" />
-                      Lekki penisula II, Lekki Lagos State, Nigeria
+
+                      {property_details?.property_full_address}
                     </div>
                   </div>
                   <div>
                     <div className="smltext">From</div>
-                    <div className="boldtxt1">$ 27, 000,000.00 </div>
+                    <div className="boldtxt1">
+                      $ {FormatAmount(property_details?.property_price)}{" "}
+                    </div>
                     <div className="search_a llm">Get prequalified</div>
                   </div>
                 </div>
@@ -148,25 +196,39 @@ const Property_Details = () => {
                   <div className="cardbox_wrapper">
                     <div className="cardbox_1 no_boxes">
                       <img src={bedsimg} className="fet_1" />
-                      <div className="no_of_beds ">4 Beds</div>
+                      <div className="no_of_beds ">
+                        {property_details?.property_bedrooms}{" "}
+                        {property_details?.property_bedrooms == 1
+                          ? "Beds"
+                          : "Bed"}
+                      </div>
                     </div>
                     <div className="cardbox_1 no_boxes">
                       <img src={shower} className="fet_1" />
-                      <div className="no_of_beds">4 Baths</div>
+                      <div className="no_of_beds">
+                        {property_details?.property_bathrooms}{" "}
+                        {property_details?.property_bathrooms == 1
+                          ? "Baths"
+                          : "Bath"}{" "}
+                      </div>
                     </div>
                     <div className="cardbox_1 no_boxes">
                       <img src={homes} className="fet_1" />
-                      <div className="no_of_beds">2349 Sqft</div>
+                      <div className="no_of_beds">
+                        {property_details?.property_size} Sqft
+                      </div>
                     </div>
                     <div className="cardbox_1 no_boxes">
                       <img src={cars} className="fet_1" />
                       <div className="no_of_beds">2 Cars</div>
                     </div>
                   </div>
-                  <div className="cardbox_wrapper2">
+                  <div className="card9 dbox_wrapper2">
                     <div>
                       <div>Property Status</div>
-                      <div className="contstr2">Under Construction</div>
+                      <div className="contstr2">
+                        {property_details?.property_status?.name}
+                      </div>
                     </div>
                     <div>
                       <div>Property Title</div>
@@ -181,52 +243,19 @@ const Property_Details = () => {
                 <Col md={12} className="contstr3">
                   <div className="desc_110a">Description</div>
                   <div className="desc_110">
-                    Morerbt ipsum dolor sit amet, consectetur adipiscing elit.
-                    Scelerisque aliquet turpis lectus quam blandit facilisis
-                    egestas. Egestas aliquam nunc pharetra, ullamcorper nibh
-                    libero diam. Ac volutpat, lacus dignissim at sagittis, et.
-                    Nisl phasellus blandit semper massa donec magna egestas
-                    tempor, volutpat. Dignissim ullamcorper viverra et ornare
-                    euismod maecenas lorem at. Ac scelerisque sed ultrices
-                    ornare libero quam. In ac vel, eu integer non. blandit
-                    semper massa donec magna egestas tempor, volutpat. Dignissim
-                    ullamcorper viverra et ornare euismod maecenas lorem at. Ac
-                    scelerisque sed ultrices ornare libero quam. In ac vel, eu
-                    integer non.
+                    {property_details?.description && "Financial Status"}
                   </div>
                 </Col>
                 <Col md={12} className="contstr3">
                   <div className="amentities">
                     <div className="title_amenities">Amenities</div>
                     <div className="amenities_body">
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Fitted Kitchen
-                      </div>
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Cart Port
-                      </div>
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Treated Water
-                      </div>
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Sewage Treatment
-                      </div>
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Drainage
-                      </div>
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Paved Road
-                      </div>
-                      <div className="feature12">
-                        <img src={Exclude} className="Exclude" />
-                        Power transformer
-                      </div>
+                      {property_details?.property_amenities?.map((data, i) => (
+                        <div className="feature12" key={i}>
+                          <img src={Exclude} className="Exclude" />
+                          {data.name}
+                        </div>
+                      ))}
                     </div>
                   </div>
                   <div className="desc_110a desc_11xz ">Property Types</div>
@@ -362,7 +391,9 @@ const Property_Details = () => {
 
                         <Col md={12}>
                           <div className="schedultour">
-                            <div className="schdl hf22">Schedule a Tour</div>
+                            <div className="schdl hf22" onClick={scheduleTour}>
+                              {!isloading ? "Schedule a Tour" : "Loading"}
+                            </div>
                           </div>
                         </Col>
                       </Row>
@@ -424,7 +455,9 @@ const Property_Details = () => {
 
                         <Col md={12}>
                           <div className="schedultour">
-                            <div className="schdl hf22">Schedule a Tour</div>
+                            <div className="schdl hf22" onClick={scheduleTour}>
+                              {!isloading ? "Schedule a Tour" : "Loading"}
+                            </div>
                           </div>
                         </Col>
                       </Row>

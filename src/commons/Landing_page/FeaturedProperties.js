@@ -60,12 +60,44 @@ const FeaturedProperties = () => {
     <>
       <Row className="secwrap">
         <Tabs
-          defaultActiveKey="profile"
+          defaultActiveKey="home"
           className="flex22"
           id="uncontrolled-tab-example"
         >
           <Tab eventKey="home" title="Properties">
-            <FeaturedPropertyTabContent />
+            <div className="flex-23">
+              <div className="flex-w2 w2a fl33a">
+                <span>
+                  <img src={searchimg} className="searchimg" />
+                </span>
+                <input
+                  type="text"
+                  className="home_input"
+                  placeholder="Name, State, City ..."
+                />
+              </div>
+              <div className="flex-w2 w2 w2a">
+                <span>
+                  <img src={union} className="searchimg" />
+                </span>
+                <select className="home_input">
+                  <option className="home_input">Property Type</option>
+                </select>
+              </div>
+              <div className="flex-w2 w21">
+                <span>
+                  <img src={naira} className="searchimg" />
+                </span>
+                <input
+                  type="text"
+                  className="home_input "
+                  placeholder="Maximum price"
+                />
+              </div>
+              <div className="flex-w2 w21 hon">
+                <div className="search_a">Search</div>
+              </div>
+            </div>
           </Tab>
           <Tab eventKey="profile" title="Rent to Own">
             <FeaturedPropertyTabContent />
@@ -126,7 +158,7 @@ const FeaturedProperties = () => {
             swipeable
             className="centerpositon"
           >
-            {propertyList?.map(data => (
+            {propertyList?.map((data) => (
               <PropertyCard
                 submit_title={"View details"}
                 property_details={data}
