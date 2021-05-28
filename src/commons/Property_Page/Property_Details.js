@@ -110,13 +110,13 @@ const Property_Details = (props) => {
     });
   };
   const scheduleTour = () => {
+    if (!name || !email || !phone || !preferred_year || !preferred_time) {
+      return  notify("Please enter all fields");  
+      };
     setState({
       ...state,
       isloading: true,
     });
-    if (!name || !email || !phone || !preferred_year || !preferred_time) {
-      notify("Please enter all fields");
-    }
     const data = {
       property_id: props.match.params.id,
       name,
@@ -141,6 +141,7 @@ const Property_Details = (props) => {
           })
         )
         .catch((err) => {
+          notify("Failed to process");
           console.log(err.response);
           setState({
             ...state,
@@ -182,12 +183,6 @@ const Property_Details = (props) => {
       modalIsOpen: true,
     });
   };
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth() + 1;
-  var yyyy = today.getFullYear();
-  today = yyyy+'-'+mm+'-'+dd;
-  console.log(today)
   return (
     <>
       <ToastContainer
@@ -389,7 +384,7 @@ const Property_Details = (props) => {
                         <input
                           type="date"
                           placeholder="Enter date"
-                          min={today}
+                          min={"2021-05-28"}
                           max="2090-05-05"
                           onChange={changeHandler}
                           className="form-control reftime2"

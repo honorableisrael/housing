@@ -563,3 +563,6 @@
 .schcc12{
   text-align: center;
 }
+.reftime2::placeholder{
+  color: #444444;
+}
