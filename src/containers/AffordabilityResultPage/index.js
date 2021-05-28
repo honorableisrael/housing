@@ -9,6 +9,9 @@ import bed_icon from "../../assets/icons/bed.png";
 import bath_icon from "../../assets/icons/bath.png";
 import size_icon from "../../assets/icons/size.png";
 
+import ProgressSlider from "../../commons/ProgressSlider";
+import AfordabilityFormStepTwo from "../../commons/Forms/AfordabilityFormStepTwo";
+
 import "./AffordabilityResultPage.css";
 
 const affordabilityResultPage = () => {
@@ -28,7 +31,7 @@ const affordabilityResultPage = () => {
           <div className='affordability-result-top-content'>
             <div className='row'>
               <div className='col-lg-12'>
-                <div className='affordability-result-card '>
+                <div className='affordability-result-card'>
                   <div className='maximum-loan-amount-card w30'>
                     <h4>Your Maximum Loanable Amount</h4>
                     <h2>
@@ -53,6 +56,7 @@ const affordabilityResultPage = () => {
           </div>
         </div>
       </section>
+
       <section className='property-affordable-list'>
         <div className='container'>
           <div className='property-affordable-list_wrapper row'>
@@ -65,6 +69,7 @@ const affordabilityResultPage = () => {
                 </p>
               </div>
             </div>
+
             <div className='col-lg-12'>
               <div className='property-cards-wrapper'>
                 <div className='row'>
@@ -104,7 +109,14 @@ const affordabilityResultPage = () => {
                             <p>Mortgage</p>
                           </div>
                           <div className='cta'>
-                            <button className='cta-btn' type='button'>
+                            <button
+                              className='cta-btn'
+                              type='button'
+                              onClick={() =>
+                                (window.location.href =
+                                  "/affordability-test/down-payment")
+                              }
+                            >
                               Choose Me
                             </button>
                           </div>
@@ -149,7 +161,14 @@ const affordabilityResultPage = () => {
                             <p>Mortgage</p>
                           </div>
                           <div className='cta'>
-                            <button className='cta-btn' type='button'>
+                            <button
+                              className='cta-btn'
+                              type='button'
+                              onClick={() =>
+                                (window.location.href =
+                                  "/affordability-test/down-payment")
+                              }
+                            >
                               Choose Me
                             </button>
                           </div>
@@ -194,7 +213,14 @@ const affordabilityResultPage = () => {
                             <p>Mortgage</p>
                           </div>
                           <div className='cta'>
-                            <button className='cta-btn' type='button'>
+                            <button
+                              className='cta-btn'
+                              type='button'
+                              onClick={() =>
+                                (window.location.href =
+                                  "/affordability-test/down-payment")
+                              }
+                            >
                               Choose Me
                             </button>
                           </div>
@@ -239,7 +265,14 @@ const affordabilityResultPage = () => {
                             <p>Mortgage</p>
                           </div>
                           <div className='cta'>
-                            <button className='cta-btn' type='button'>
+                            <button
+                              className='cta-btn'
+                              type='button'
+                              onClick={() =>
+                                (window.location.href =
+                                  "/affordability-test/down-payment")
+                              }
+                            >
                               Choose Me
                             </button>
                           </div>
@@ -284,7 +317,14 @@ const affordabilityResultPage = () => {
                             <p>Mortgage</p>
                           </div>
                           <div className='cta'>
-                            <button className='cta-btn' type='button'>
+                            <button
+                              className='cta-btn'
+                              type='button'
+                              onClick={() =>
+                                (window.location.href =
+                                  "/affordability-test/down-payment")
+                              }
+                            >
                               Choose Me
                             </button>
                           </div>
@@ -329,7 +369,14 @@ const affordabilityResultPage = () => {
                             <p>Mortgage</p>
                           </div>
                           <div className='cta'>
-                            <button className='cta-btn' type='button'>
+                            <button
+                              className='cta-btn'
+                              type='button'
+                              onClick={() =>
+                                (window.location.href =
+                                  "/affordability-test/down-payment")
+                              }
+                            >
                               Choose Me
                             </button>
                           </div>
@@ -397,6 +444,7 @@ const affordabilityResultPage = () => {
           </div>
         </div>
       </section>
+
       <section className='banner-cta'>
         <div className='container'>
           <div className='banner-cta-wrapper'>

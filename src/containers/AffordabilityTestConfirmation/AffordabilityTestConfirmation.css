@@ -1,0 +1,82 @@
+.property-info-selected {
+    padding: 1rem 0;
+}
+
+.property-info-selected-wrapper {
+    padding: 0rem 4rem;
+}
+
+.property-info-content {
+    background: #ffffff;
+    box-shadow: 0px 4px 12px rgba(17, 17, 17, 0.04);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.3rem 2rem;
+    /* text-align: left; */
+}
+
+.table-responsive .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(17, 17, 17, 0.04);
+    border-radius: 12px;
+    /* padding-right: 20px; */
+    text-align: center;
+}
+
+.table-responsive .table thead tr {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table-responsive .table .thead-light th {
+    color: #4E4B66;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e9ecef;
+
+}
+
+.table-responsive .table.align-items-center th {
+    vertical-align: middle;
+}
+
+.table-responsive .table th {
+    padding-right: 1.5rem;
+    /* padding-left: 1.5rem; */
+    border: none !important;
+}
+
+.table-responsive .table thead th {
+    font-size: 15px;
+    padding-top: 1;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid #e9ecef;
+    color: #4E4B66;
+    font-family: "Airbnb Cereal App Light";
+}
+
+tr:nth-of-type(2n+1) {
+    background: transparent;
+}
+
+td {
+    border: none !important;
+    letter-spacing: 0.02em;
+    color: #4E4B66;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.table-view-btn {
+    background-color: #16465C;
+    padding: 0.4rem 1rem !important;
+    color: #ffffff !important;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid #16465c;
+    margin-top: 15px;
+    font-size: 13px;
+    margin-left: 20px;
+}

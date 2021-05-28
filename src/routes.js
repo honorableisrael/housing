@@ -52,10 +52,14 @@ import PreviewMortgage from "./commons/User_Dashboard/PreviewMortgage";
 import Property_Page from "./commons/Property_Page/Property_page";
 import Property_Details from "./commons/Property_Page/Property_Details";
 
-// Normal Routes
+// Added Routes by Biodun
 import Contact_us_page from "./containers/ContactUsPage";
 import Faqs_page from "./containers/NewFAQS";
+import Affordability_test_page from "./containers/AffordabilityTestPage";
 import Affordability_result_page from "./containers/AffordabilityResultPage";
+import Affordability_test_down_payment from "./containers/AffordabilityTestDownPayment";
+import Affordability_test_confirmation from "./containers/AffordabilityTestConfirmation";
+// Added Routes by Biodun
 
 //check for token
 if (localStorage.token && localStorage.user) {
@@ -88,24 +92,38 @@ class Routes extends Component {
         <div className='container-fluid p-0'>
           <Switch>
             <Route exact path='/' component={Landing_page} />
-
+            {/* Added Routes by Biodun */}
             <Route
               exact
               path='/support/contact-us'
               component={Contact_us_page}
             />
-
             <Route
               exact
               path='/support/frequently-asked-questions'
               component={Faqs_page}
             />
-
+            <Route
+              exact
+              path='/affordability-test'
+              component={Affordability_test_page}
+            />
             <Route
               exact
               path='/affordability-test/result'
               component={Affordability_result_page}
             />
+            <Route
+              exact
+              path='/affordability-test/down-payment'
+              component={Affordability_test_down_payment}
+            />
+            <Route
+              exact
+              path='/affordability-test/confirmation'
+              component={Affordability_test_confirmation}
+            />
+            {/* Added Routes by Biodun */}
 
             {/* AUTH Routes */}
             <Route exact path='/userdashboard' component={Userdashboard} />
@@ -116,7 +134,6 @@ class Routes extends Component {
               path='/preview_profile'
               component={PreviewApplication}
             />
-
             <Route
               exact
               path='/password-recovery'
@@ -166,20 +183,17 @@ class Routes extends Component {
               path='/account-verification'
               component={AccountVerification}
             />
-
             <Route
               exact
               path='/mortgage_application_preview'
               component={PreviewMortgage}
             />
-
             <Route exact path='/equity-finance' component={EquityFinance} />
             <Route exact path='/personal-loans' component={PersonalLoans} />
             <Route exact path='/account-settings' component={AccountSettings} />
             <Route exact path='/printpage' component={PreviewPage} />
             <Route exact path='/' component={Landing_page} />
             <Route exact path='/properties' component={Property_Page} />
-
             <Route
               exact
               path='/auth/login'
@@ -187,7 +201,6 @@ class Routes extends Component {
                 return <Redirect to='/signin' />;
               }}
             />
-
             <Route exact path='/properties/:id' component={Property_Details} />
             {/* <Switch>
               <PrivateRoute

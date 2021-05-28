@@ -58,6 +58,41 @@
     content: "";
 }
 
+.property-table {
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 2rem 0;
+    margin: 1rem 0;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 50px auto;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+td,
+th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+}
+
+
+
 .property-affordable-list {
     padding: 2rem 0;
 }
@@ -178,7 +213,6 @@
 
 }
 
-.status-cta .status {}
 
 .status-cta .status h4 {
     color: #4E4B66;
@@ -265,6 +299,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1.5rem;
 }
 
 .banner-cta-content p {
@@ -277,10 +312,6 @@
     margin-top: 20px;
 }
 
-.banner-cta-content a {
-    align-items: center;
-    text-align: center;
-}
 
 .waiting-list-cta {
     background: #fff;
@@ -293,5 +324,4 @@
     border-radius: 12px;
     margin: 0 auto;
     display: block;
-
 }
