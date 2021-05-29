@@ -1,241 +1,251 @@
 footer {
-    background: #16465c;
-    margin: 0;
-    padding: 4rem 2rem 0;
-    font-family: "Airbnb Cereal App Light";
+  background: #16465c;
+  margin: 0;
+  padding: 4rem 2rem 0;
+  font-family: "Airbnb Cereal App Light";
 }
 
 .genFooterTopWrapper .footer-subscriber-form {
-    padding: 1rem 3rem 2rem;
+  padding: 1rem 3rem 2rem;
 }
 
 .footer-subscriber-form h2 {
-    font-weight: 800;
-    font-size: 25px;
-    line-height: 40px;
-    color: #ffffff;
-    text-transform: capitalize;
-    letter-spacing: 0.04em;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 40px;
+  color: #ffffff;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
 }
 
 .footer-subscriber-form p {
-    max-width: 100% !important;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 30px;
-    color: #ffffff;
-    letter-spacing: 0.04em;
+  max-width: 100% !important;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  color: #ffffff;
+  letter-spacing: 0.04em;
 }
 
 .footer-subscriber-form-wrapper {
-    background: #ffffff;
-    height: 3.5rem;
-    padding-bottom: 3rem;
-    border-radius: 16px;
+  background: #ffffff;
+  height: 3.5rem;
+  padding-bottom: 3rem;
+  border-radius: 16px;
 }
 
 .footer-subscriber-form-content {
-    padding: 0 0.6rem;
-    display: flex;
-    justify-content: space-between;
+  padding: 0 0.6rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .footer-subscriber-form-content svg {
-    margin-top: 13px;
-    color: #16465C;
+  margin-top: 13px;
+  color: #16465c;
 }
 
 .footer-subscriber-form-content input[type="email"] {
-    color: #333;
-    font-size: 13px;
-    padding: 10px;
-    min-width: 380px;
-    height: 3rem;
-    outline: none;
-    margin-top: 3px;
-    border-radius: 0;
-    font-weight: 700;
-    border: none;
-    letter-spacing: 0.04em;
-    /* background-color: #f00; */
-
+  color: #333;
+  font-size: 13px;
+  padding: 10px;
+  min-width: 380px;
+  height: 3rem;
+  outline: none;
+  margin-top: 3px;
+  border-radius: 0;
+  font-weight: 700;
+  border: none;
+  letter-spacing: 0.04em;
+  /* background-color: #f00; */
 }
 
 .footer-subscriber-form-content input[type="email"]:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .footer-subscriber-form-content input[type="email"]::placeholder {
-    font-size: 15px;
-    font-weight: 200;
-    color: #adadad;
-    opacity: .6;
-    padding: 0 10px
+  font-size: 15px;
+  font-weight: 200;
+  color: #adadad;
+  opacity: 0.6;
+  padding: 0 10px;
 }
 
 .footer-subscriber-form-content .subscriber-btn {
-    border: solid 1px #6FA73D;
-    background-color: #6FA73D;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 15px;
-    padding: 12px 30px;
-    border-right: none;
-    margin-top: 7px;
-    letter-spacing: 0.04em;
-    border-radius: 8px;
+  border: solid 1px #6fa73d;
+  background-color: #6fa73d;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 12px 30px;
+  border-right: none;
+  margin-top: 7px;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  position: relative;
+  left: -3rem;
+}
+
+@media (max-width: 1400px) {
+  .footer-subscriber-form-content .subscriber-btn {
+    position: relative;
+    left: -1rem;
+  }
 }
 
 .genFooterTopWrapper p {
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 30px;
-    color: #ffffff;
-    max-width: 420px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  color: #ffffff;
+  max-width: 420px;
 }
 
 .genFooterBottomNav {
-    padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 .genFooterBottomNav h4,
 .genFooterSocials h4 {
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 30px;
-    color: #ffffff;
-    text-transform: capitalize;
-    letter-spacing: 0.04em;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
 }
 
 .genFooterBottomNav ul {
-    padding: 0;
-    margin: 15px 0 0;
+  padding: 0;
+  margin: 15px 0 0;
 }
 
 .genFooterBottomNav ul li {
-    list-style: none;
-    margin: 5px 0;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 30px;
-    text-transform: capitalize;
-    padding-left: 0;
-    letter-spacing: 0.04em;
+  list-style: none;
+  margin: 5px 0;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  text-transform: capitalize;
+  padding-left: 0;
+  letter-spacing: 0.04em;
 }
 
 .genFooterBottomNav ul li a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .genFooterBottomNav ul li a:hover {
-    color: #6FA73D;
+  color: #6fa73d;
 }
 
 .genFooterSocials ul {
-    padding: 0;
-    list-style: none;
-    margin: 10px 0 30px;
-
+  padding: 0;
+  list-style: none;
+  margin: 10px 0 30px;
 }
 
 .genFooterSocials ul li {
-    display: inline-block;
-    margin-right: 30px;
-    margin-bottom: 10px;
-    padding-left: 0;
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  padding-left: 0;
 }
 
 .genFooterSocials li a {
-    background: #fff;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    display: block;
-    padding: 0.2rem 0;
-    border-radius: 50%;
-    box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.04);
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: block;
+  padding: 0.2rem 0;
+  border-radius: 50%;
+  box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.04);
 }
 
 .genFooterSocials li a:hover {
-    background: #6FA73D;
+  background: #6fa73d;
 }
 
 .genFooterSocials li a.socials {
-    color: #3E3E3E !important;
+  color: #3e3e3e !important;
 }
 
 .genFooterSocials li a.socials:hover {
-    color: #fff !important;
+  color: #fff !important;
 }
 
 .genFooter .genFooterBottomWrapper {
-    border-top: 1px solid rgba(135, 146, 161, 0.08);
-    padding: 1.5rem 0 0.5rem;
-    margin-top: 3rem;
+  border-top: 1px solid rgba(135, 146, 161, 0.08);
+  padding: 1.5rem 0 0.5rem;
+  margin-top: 3rem;
 }
 
 .genFooterBottomWrapper .copyrights {
-    text-align: center;
+  text-align: center;
 }
 
 .genFooterBottomWrapper p {
-    font-weight: 500;
-    font-size: 15px !important;
-    line-height: 27px;
-    color: #fff;
-    text-align: center;
-    letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: 15px !important;
+  line-height: 27px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
 }
-
-
 
 /* Responsive Queries */
-@media only screen and (min-device-width: 800px) and (max-device-width: 1440px) {}
-
-@media screen and (max-width: 991px) {}
-
-@media screen and (max-width: 770px) {}
-
-@media screen and (max-width: 767px) {}
-
-@media screen and (max-width: 414px) {
-    .genFooterTopWrapper .footer-subscriber-form {
-        padding: 0;
-    }
-
-    .footer-subscriber-form h2 {
-        font-weight: 600;
-        font-size: 20px;
-    }
-
-    .footer-subscriber-form-content input[type="email"] {
-        min-width: 0;
-    }
-
-    .footer-subscriber-form-content input[type="email"]::placeholder {
-        font-size: 11px;
-    }
-
-    .genFooterBottomNav {
-        text-align: center;
-    }
-
-    .footer-subscriber-form p {
-        font-size: 13px !important;
-        line-height: 26px !important;
-    }
-
-    footer .container-fluid {
-        padding-right: 15px !important;
-    }
+@media only screen and (min-device-width: 800px) and (max-device-width: 1440px) {
 }
 
-@media screen and (max-width: 375px) {}
+@media screen and (max-width: 991px) {
+}
+
+@media screen and (max-width: 770px) {
+}
+
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 414px) {
+  .genFooterTopWrapper .footer-subscriber-form {
+    padding: 0;
+  }
+
+  .footer-subscriber-form h2 {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .footer-subscriber-form-content input[type="email"] {
+    min-width: 0;
+  }
+
+  .footer-subscriber-form-content input[type="email"]::placeholder {
+    font-size: 11px;
+  }
+
+  .genFooterBottomNav {
+    text-align: center;
+  }
+
+  .footer-subscriber-form p {
+    font-size: 13px !important;
+    line-height: 26px !important;
+  }
+
+  footer .container-fluid {
+    padding-right: 15px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+}
 
 @media screen and (max-width: 320px) {
-    footer {
-        padding: 3rem 0;
-    }
+  footer {
+    padding: 3rem 0;
+  }
 }

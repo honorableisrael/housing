@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Forms.css";
 import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
+import Axios from "axios";
+import { API } from "../../config";
 
 const AfordabilityFormStepOne = (props) => {
   const [state, setState] = useState({
@@ -85,6 +87,16 @@ const AfordabilityFormStepOne = (props) => {
         [e.target.name]: 0,
       });
     }
+  };
+  const submitAffordabilityTestStage1 = () => {
+    Axios.post(`${API}/general/affordability-test`)
+      .then((resp) => {
+
+        console.log(resp);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   let {
     volume,
@@ -342,8 +354,8 @@ const AfordabilityFormStepOne = (props) => {
               </label>
               <Slider
                 value={volume}
-                min={0}
-                max={100}
+                min={1}
+                max={period.max_loan_period}
                 title={volume}
                 orientation="horizontal"
                 onChange={handleOnChange}

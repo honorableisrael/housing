@@ -118,12 +118,7 @@ const MortgageApplicationFifthStep = (props) => {
   }, []);
   const notify = (message) => toast(message, { containerId: "t" });
   const notifyFailed = (message) => toast(message, { containerId: "f" });
-  const FormatAmount = (amount) => {
-    if (amount) {
-      return amount?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-  };
-
+ 
   const submitForm = () => {
     const userToken = localStorage.getItem("jwtToken");
     const userData = localStorage.getItem("loggedInDetails");
@@ -285,6 +280,11 @@ const MortgageApplicationFifthStep = (props) => {
         notifyFailed("Failed to save");
         console.log(err.response);
       });
+  };
+  const FormatAmount = (amount) => {
+    if (amount) {
+      return amount?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
   };
 
   const onInputChange = (e) => {
