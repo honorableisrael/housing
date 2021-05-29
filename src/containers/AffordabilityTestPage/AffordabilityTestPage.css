@@ -1,0 +1,42 @@
+.affordability-form {
+    padding: 3rem 0;
+}
+
+.affordability-form-top-content {
+    text-align: center;
+}
+
+.affordability-form-top-content h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: #16465c;
+}
+
+.affordability-form-top-content p {
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 25px !important;
+    color: #4E4B66;
+    margin-top: 1rem;
+}
+
+.affordability-form-wrapper .form-progress-wrapper {
+    padding: 1rem 0 !important;
+}
+
+
+.affordability-form-wrapper.standalone .progress-bar .step .bullet::before,
+.progress-bar .step .bullet::after {
+    position: absolute;
+    content: '';
+    top: 18px;
+    left: 37.7px;
+    height: 5px;
+    width: 250px !important;
+    /* background: #6FA73D; */
+}
+
+.affordability-form-wrapper.standalone {
+    padding: 0;
+}

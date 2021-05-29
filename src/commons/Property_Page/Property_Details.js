@@ -111,8 +111,8 @@ const Property_Details = (props) => {
   };
   const scheduleTour = () => {
     if (!name || !email || !phone || !preferred_year || !preferred_time) {
-      return  notify("Please enter all fields");  
-      };
+      return notify("Please enter all fields");
+    }
     setState({
       ...state,
       isloading: true,
@@ -269,7 +269,9 @@ const Property_Details = (props) => {
                     <div className="boldtxt1">
                       $ {FormatAmount(property_details?.property_price)}{" "}
                     </div>
-                    <div className="search_a llm">Get prequalified</div>
+                    <div className="search_a llm">
+                      <Link to="/affordability-test">Get prequalified</Link>
+                    </div>
                   </div>
                 </div>
                 <Col md={8} className="crd23">
