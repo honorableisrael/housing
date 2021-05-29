@@ -64,6 +64,7 @@
     border-top: none;
     margin-top: -50px;
     padding: 2rem;
+    flex-wrap: nowrap;
 }
 
 .modal-footer .other-action-cta-btn {
@@ -92,4 +93,40 @@
     border-radius: 12px;
     width: 50%;
     font-family: "Airbnb Cereal App Light";
+}
+
+
+/* congratulation modal */
+
+.congratulation-wrapper {
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem 3rem;
+}
+
+.congratulation-wrapper figure {
+    margin: 0;
+}
+
+.congratulation-wrapper figure img {
+    width: 280px;
+    height: 230px;
+    margin-top: -20px;
+}
+
+.congratulation-wrapper h3 {
+    font-size: 18px;
+    margin-top: 10px !important;
+    margin-bottom: 0;
+}
+
+.congratulation .modal-footer {
+    margin-top: -70px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.modal-footer .proceed-cta-btn.congratulation-btn {
+    display: block;
+    margin: auto;
 }

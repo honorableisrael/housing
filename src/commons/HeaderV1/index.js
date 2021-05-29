@@ -89,7 +89,7 @@ const main_header_page = () => {
                 window.location.pathname == "/" ? "nav-item active" : "nav-item"
               }
             >
-              <Link className='nav-link' to='/'>
+              <Link className='nav-link' to='/auth/login'>
                 Login
               </Link>
             </li>

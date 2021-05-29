@@ -4,6 +4,8 @@ import MainHeader from "../../commons/HeaderV1";
 import GeneralFooter from "../../commons/GeneralFooter";
 import ProgressSlider from "../../commons/ProgressSlider";
 import AfordabilityFormStepThree from "../../commons/Forms/AfordabilityFormStepThree";
+import CongratulationModal from "../../commons/Modals/congratulationsModal";
+
 import "./AffordabilityTestConfirmation.css";
 
 const AffordabilityTestConfirmation = () => {
@@ -18,36 +20,6 @@ const AffordabilityTestConfirmation = () => {
         <link rel='canonical' href='' />
       </Helmet>
       <MainHeader />
-      {/* <section className='affordability-result-page'>
-        <div className='container'>
-          <div className='affordability-result-top-content'>
-            <div className='row'>
-              <div className='col-lg-12'>
-                <div className='affordability-result-card'>
-                  <div className='maximum-loan-amount-card w30'>
-                    <h4>Your Maximum Loanable Amount</h4>
-                    <h2>
-                      $ 68,000,000.<small>00</small>
-                    </h2>
-                  </div>
-
-                  <div className='monthly-repayment-card w30'>
-                    <h4>Estimated Monthly Repayment</h4>
-                    <h2>
-                      $ 68,000,000.<small>00</small>
-                    </h2>
-                  </div>
-
-                  <div className='maximum-tenure-card w30'>
-                    <h4>Maximum Tenure</h4>
-                    <h2>20 Years</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       <section className='property-info-selected'>
         <div className='container'>
@@ -79,24 +51,6 @@ const AffordabilityTestConfirmation = () => {
                     </tbody>
                   </table>
                 </div>
-                {/* <table className='table'>
-                  <thead>
-                    <tr>
-                      <th scope='col'>#</th>
-                      <th scope='col'>First</th>
-                      <th scope='col'>Last</th>
-                      <th scope='col'>Handle</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope='row'>1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                  </tbody>
-                </table> */}
               </div>
             </div>
           </div>
@@ -123,6 +77,7 @@ const AffordabilityTestConfirmation = () => {
           </div>
         </div>
       </section>
+      <CongratulationModal />
       <GeneralFooter />
     </main>
   );

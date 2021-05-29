@@ -59,6 +59,7 @@ import Affordability_test_page from "./containers/AffordabilityTestPage";
 import Affordability_result_page from "./containers/AffordabilityResultPage";
 import Affordability_test_down_payment from "./containers/AffordabilityTestDownPayment";
 import Affordability_test_confirmation from "./containers/AffordabilityTestConfirmation";
+import Auth_page from "./containers/Auth";
 // Added Routes by Biodun
 
 //check for token
@@ -123,6 +124,7 @@ class Routes extends Component {
               path='/affordability-test/confirmation'
               component={Affordability_test_confirmation}
             />
+            <Route exact path='/auth/login' component={Auth_page} />
             {/* Added Routes by Biodun */}
 
             {/* AUTH Routes */}

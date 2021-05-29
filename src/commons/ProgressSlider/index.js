@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProgressSlider.css";
 
-const progress_slider = (props) => {
+const Progress_slider = (props) => {
   const StepOneSlider = (
     <div className='progress-bar'>
       <div className='step'>
@@ -91,4 +91,4 @@ const progress_slider = (props) => {
     </div>
   );
 };
-export default progress_slider;
+export default Progress_slider;

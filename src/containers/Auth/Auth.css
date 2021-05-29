@@ -1,0 +1,132 @@
+.auth-page {
+    background-image: url('../../assets/authbg.png');
+    background-position: 50%;
+    background-size: cover;
+    padding: 5rem 3rem 0;
+    height: 100vh;
+}
+
+.auth-wrapper {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px);
+    border-radius: 12px;
+    padding: 2rem 0 0;
+}
+
+.divider::before {
+    border-top: 1px solid #6E7191;
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 55px;
+    top: 17%;
+    width: 101px;
+}
+
+.divider::after {
+    border-top: 1px solid #6E7191;
+    content: "";
+    height: 1px;
+    position: absolute;
+    right: 55px;
+    top: 17%;
+    width: 101px;
+}
+
+.auth-wrapper .form-wrapper {
+    border-radius: 0;
+    border: none;
+    padding: 1rem 2rem;
+}
+
+.auth-wrapper .form-wrapper input {
+    background: #ffffff;
+    height: 3.3rem;
+    padding: 0 54px;
+    box-shadow: none;
+}
+
+.auth-wrapper input:focus,
+.auth-wrapper textarea:focus {
+    color: #163e57;
+    background-color: #fff;
+    border-color: #16465C;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.auth-wrapper .form-wrapper .auth-input-icon.user {
+    position: absolute;
+    top: 12px;
+    left: 25px;
+    display: flex;
+}
+
+.auth-input-icon.user img {
+    width: 30px;
+    height: 30px;
+}
+
+.auth-wrapper .form-wrapper .auth-input-icon.email {
+    position: absolute;
+    top: 17px;
+    left: 30px;
+    display: flex;
+}
+
+.auth-input-icon.email img {
+    width: 23px;
+    height: 20px;
+}
+
+.auth-wrapper .form-wrapper .auth-input-icon.password {
+    position: absolute;
+    top: 11px;
+    left: 25px;
+    display: flex;
+}
+
+.auth-input-icon.password img {
+    width: 33px;
+    height: 33px;
+}
+
+.auth-password-show-hide-icon {
+    position: absolute;
+    top: 17px;
+    right: 25px;
+    display: flex;
+}
+
+.auth-wrapper p {
+    color: #16465C;
+    line-height: 20px !important;
+    font-size: 14px !important;
+    margin-top: -5px;
+}
+
+.auth-wrapper p:last-child {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.site-link-btn {
+    font-family: "Airbnb Cereal App Bold";
+    letter-spacing: 0.05em;
+}
+
+.auth-wrapper .auth-btn {
+    color: #ffffff;
+    padding: 17px 30px;
+    background: #16465C;
+    border: 1px solid #16465C;
+    color: #ffffff;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.auth-wrapper .auth-btn:hover {
+    background: #6FA73D;
+    border: 1px solid #6FA73D;
+}

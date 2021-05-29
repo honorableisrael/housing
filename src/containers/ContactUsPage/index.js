@@ -140,7 +140,6 @@ const Contact_us_page = () => {
           </div>
         </div>
       </section>
-
       <GeneralFooter />
     </main>
   );

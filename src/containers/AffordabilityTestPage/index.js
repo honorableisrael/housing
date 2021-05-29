@@ -7,7 +7,7 @@ import AfordabilityFormStepOne from "../../commons/Forms/AforadabilityFormStepOn
 
 import "./AffordabilityTestPage.css";
 
-const affordabilityTestPage = () => {
+const AffordabilityTestPage = () => {
   return (
     <main className='theme-bg'>
       <Helmet>
@@ -19,7 +19,6 @@ const affordabilityTestPage = () => {
         <link rel='canonical' href='' />
       </Helmet>
       <MainHeader />
-
       <section className='affordability-form'>
         <div className='container'>
           <div className='row'>
@@ -45,4 +44,4 @@ const affordabilityTestPage = () => {
     </main>
   );
 };
-export default affordabilityTestPage;
+export default AffordabilityTestPage;

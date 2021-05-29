@@ -76,7 +76,12 @@ const afordabilityFormStepThree = () => {
       </div>
       <div className='form-group row'>
         <div className='offset-lg-3 col-lg-6'>
-          <button type='submit' className='affordability-form-btn'>
+          <button
+            type='button'
+            className='affordability-form-btn'
+            data-toggle='modal'
+            data-target='#congratulationModal'
+          >
             Continue
           </button>
         </div>
