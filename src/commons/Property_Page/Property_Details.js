@@ -54,6 +54,7 @@ const Property_Details = (props) => {
                 property_details: res.data.data,
                 isloading: false,
               });
+              localStorage.setItem("property_details",JSON.stringify(res.data.data))
             }
           })
         )

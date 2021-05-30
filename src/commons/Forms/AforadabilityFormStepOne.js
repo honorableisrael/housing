@@ -5,6 +5,11 @@ import "react-rangeslider/lib/index.css";
 import Axios from "axios";
 import { API } from "../../config";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+import successfullysaved from "../../assets/successfullysaved.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Modal from "react-modal";
 
 const AfordabilityFormStepOne = withRouter((props) => {
   const [state, setState] = useState({
@@ -17,12 +22,13 @@ const AfordabilityFormStepOne = withRouter((props) => {
     have_other_loan: false,
     additonalIncome: false,
     borrowType: "",
-    borrowed_from_partner: false,
+    partner_income: "",
     date_of_birth: "",
     loan_period: "",
     location: "",
     retirement_age: 55,
   });
+
   const [period, setPeriod] = useState({
     max_loan_period: 30,
     min_loan_period: 1,
@@ -32,6 +38,19 @@ const AfordabilityFormStepOne = withRouter((props) => {
       ...state,
       volume: value,
     });
+  };
+  const customStyles = {
+    content: {
+      top: "56%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      padding: "3rem 2rem",
+      borderRadius: "20px",
+      zIndex: "3333",
+    },
   };
   // const history = useHistory();
   // const navigateTo = () => history.push("/componentURL");
@@ -54,6 +73,12 @@ const AfordabilityFormStepOne = withRouter((props) => {
     const thisyear = today.getFullYear();
     const user_age = thisyear - parseInt(x.split("-")[0]);
     console.log(retirement_age - user_age);
+    if (user_age > retirement_age) {
+      return setState({
+        ...state,
+
+      });
+    }
     if (retirement_age - user_age < 30) {
       console.log("lower");
       return setPeriod({
@@ -88,7 +113,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
         ...state,
         [e.target.name]: 0,
       });
-    } 
+    }
   };
   const submitAffordabilityTestStage1 = () => {
     const today = new Date();
@@ -110,7 +135,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
       .then((resp) => {
         props.history.push("/affordability-test/down-payment");
         console.log(resp.data.data);
-        localStorage.setItem("loan_result",JSON.stringify(resp.data.data))
+        localStorage.setItem("loan_result", JSON.stringify(resp.data.data));
         setState({
           ...state,
           isloading: false,
@@ -124,11 +149,18 @@ const AfordabilityFormStepOne = withRouter((props) => {
         });
       });
   };
+  const closeModal = () => {
+    setState({
+      ...state,
+      modalIsOpen: false,
+    });
+  };
   let {
     volume,
     date_of_birth,
     retirement_age,
     net_monthly,
+    partner_income,
     location,
     additonalIncome,
     isloading,
@@ -136,11 +168,33 @@ const AfordabilityFormStepOne = withRouter((props) => {
     loanObligations,
     monthly_repayment,
     borrowType,
+    modalIsOpen,
   } = state;
 
   console.log(monthly_repayment);
   return (
     <>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className="schcc12">
+          <img
+            src={successfullysaved}
+            className="successfullysaved"
+            alt="successfullysaved"
+          />
+        </div>
+        <div className="schcc">Date of birth has passed retirement age</div>
+        <div className="schcc2">
+          {" "}
+
+        </div>
+        <div className="text-center">
+        </div>
+      </Modal>
       <form>
         <div className="form-wrapper step-one-form">
           <div className="form-group row">
@@ -344,7 +398,9 @@ const AfordabilityFormStepOne = withRouter((props) => {
                   </div>
                   <input
                     type="text"
-                    name="title"
+                    name="partner_income"
+                    value={FormatAmount(partner_income)}
+                    onChange={onInputChange}
                     className="form-control "
                     placeholder="What is your Current Partner’s Net Monthly Income?"
                   />
@@ -367,6 +423,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
                   name="date_of_birth"
                   value={date_of_birth}
                   onChange={onchange}
+                  onKeyPress={onchange}
                   min={"1966-01-01"}
                   max={"2000-01-01"}
                   className="form-control "
