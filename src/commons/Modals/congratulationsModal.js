@@ -3,7 +3,7 @@ import * as Icons from "react-feather";
 import CongratsIcon from "../../assets/congratsIcon.png";
 import "./Modals.css";
 
-const congratulationModal = () => {
+const CongratulationModal = () => {
   return (
     <div
       className='modal fade'
@@ -57,4 +57,4 @@ const congratulationModal = () => {
     </div>
   );
 };
-export default congratulationModal;
+export default CongratulationModal;

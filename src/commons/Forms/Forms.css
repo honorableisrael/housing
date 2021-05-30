@@ -301,7 +301,7 @@ input[type="range"]::-moz-range-progress {
     content: '';
     position: absolute;
     top: -8px;
-    left: 14px;
+    left: 19px;
     border-bottom: 10px solid #CDD8C3;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;

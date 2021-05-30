@@ -130,3 +130,12 @@
     display: block;
     margin: auto;
 }
+
+
+.modal-dialog.modal-affordability-test {
+    max-width: 750px !important;
+}
+
+.modal-content.modal-affordability-test {
+    padding: 2rem;
+}

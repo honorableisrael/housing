@@ -7,6 +7,7 @@ import FooterSection from "./redesignFooter";
 import FeaturedProperties from "./FeaturedProperties";
 import PropertyListing from "./PropertyListing";
 import RealEstateDevelopers from "./RealEstateDevelopers";
+import AffordablityTestModal from "../Modals/affordabilityTestModal";
 
 const Landing_page = () => {
   return (
@@ -17,7 +18,8 @@ const Landing_page = () => {
       <HowItWorks />
       <PropertyListing />
       <RealEstateDevelopers />
-      <FooterSection/>
+      <AffordablityTestModal />
+      <FooterSection />
     </div>
   );
 };

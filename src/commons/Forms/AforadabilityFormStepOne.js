@@ -1,9 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Forms.css";
 
-const afordabilityFormStepOne = (props) => {
-  // const history = useHistory();
-  // const navigateTo = () => history.push("/componentURL");
+const AfordabilityFormStepOne = (props) => {
+  let maxTenure = 100,
+    minTenure = 10;
+
+  const [rangeval, setRangeval] = useState(null);
+
+  // handleSliderChange = (e) => {
+  //   var value = e.target.value;
+
+  //   const [slidersLabels, setsslidersLabels] = useState(slidersLabels);
+  // };
+
+  // onChangeHandler = (e) => {
+  //   const initValue = e.target.value;
+  //   const min = e.target.min;
+  //   const max = e.target.max;
+
+  //   let value = (initValue - min) / (max - min);
+  //   console.log(value);
+  // };
   return (
     <form>
       <div className='form-wrapper step-one-form'>
@@ -196,19 +213,29 @@ const afordabilityFormStepOne = (props) => {
               <span className='text-danger'>*</span>
             </label>
             <div className='range'>
-              <input type='range' min='10' max='100' value='60' />
+              <input
+                type='range'
+                defaultValue='0'
+                min={minTenure}
+                max={maxTenure}
+                value={props.tenure}
+                onChange={(event) => setRangeval(event.target.value)}
+              />
               <div className='d-flex justify-content-between'>
-                <span>10%</span>
-                <span>100%</span>
+                <span>{minTenure}%</span>
+                <span>{maxTenure}%</span>
               </div>
               <div className='range-output'>
                 <output
                   className='output'
                   name='output'
                   for='range'
-                  style={{transform: "translate(389px, 25px)"}}
+                  // style={{transform: "translate(389px, 25px)"}}
+                  style={{
+                    transform: "translate(" + rangeval * 1.5 + "px, 25px)",
+                  }}
                 >
-                  60%
+                  {rangeval}%
                 </output>
               </div>
             </div>
@@ -251,4 +278,4 @@ const afordabilityFormStepOne = (props) => {
     </form>
   );
 };
-export default afordabilityFormStepOne;
+export default AfordabilityFormStepOne;

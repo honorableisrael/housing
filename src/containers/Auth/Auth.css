@@ -2,8 +2,12 @@
     background-image: url('../../assets/authbg.png');
     background-position: 50%;
     background-size: cover;
-    padding: 5rem 3rem 0;
+    padding: 6rem 3rem 0;
     height: 100vh;
+}
+
+.auth-page.login {
+    padding: 8rem 3rem 0;
 }
 
 .auth-wrapper {
@@ -31,6 +35,11 @@
     right: 55px;
     top: 17%;
     width: 101px;
+}
+
+.divider.login::before,
+.divider.login::after {
+    top: 22%;
 }
 
 .auth-wrapper .form-wrapper {

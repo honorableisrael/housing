@@ -3,7 +3,7 @@ import * as Icons from "react-feather";
 import QuestionIcon from "../../assets/questionImg.png";
 import "./Modals.css";
 
-const confirmationModal = () => {
+const ConfirmationModal = () => {
   return (
     <div
       className='modal fade'
@@ -69,4 +69,4 @@ const confirmationModal = () => {
     </div>
   );
 };
-export default confirmationModal;
+export default ConfirmationModal;
