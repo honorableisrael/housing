@@ -4,14 +4,16 @@ import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
 import Axios from "axios";
 import { API } from "../../config";
+import { withRouter } from "react-router";
 
-const AfordabilityFormStepOne = (props) => {
+const AfordabilityFormStepOne = withRouter((props) => {
   const [state, setState] = useState({
     monthly_income: "",
     net_monthly: "",
     loanObligations: "",
     additional_income: "",
     monthly_repayment: "",
+    isloading: "",
     have_other_loan: false,
     additonalIncome: false,
     borrowType: "",
@@ -86,16 +88,40 @@ const AfordabilityFormStepOne = (props) => {
         ...state,
         [e.target.name]: 0,
       });
-    }
+    } 
   };
   const submitAffordabilityTestStage1 = () => {
-    Axios.post(`${API}/general/affordability-test`)
+    const today = new Date();
+    const thisyear = today.getFullYear();
+    const user_age = thisyear - parseInt(date_of_birth.split("-")[0]);
+    setState({
+      ...state,
+      isloading: true,
+    });
+    const data = {
+      monthly_net_pay: net_monthly,
+      monthly_expenses: 0,
+      loan_obligation: monthly_repayment,
+      age: user_age,
+      dob: date_of_birth,
+      loan_tenure: volume,
+    };
+    Axios.post(`${API}/general/affordability-test`, data)
       .then((resp) => {
-
-        console.log(resp);
+        props.history.push("/affordability-test/down-payment");
+        console.log(resp.data.data);
+        localStorage.setItem("loan_result",JSON.stringify(resp.data.data))
+        setState({
+          ...state,
+          isloading: false,
+        });
       })
       .catch((err) => {
         console.log(err);
+        setState({
+          ...state,
+          isloading: false,
+        });
       });
   };
   let {
@@ -105,6 +131,7 @@ const AfordabilityFormStepOne = (props) => {
     net_monthly,
     location,
     additonalIncome,
+    isloading,
     additional_income,
     loanObligations,
     monthly_repayment,
@@ -240,6 +267,8 @@ const AfordabilityFormStepOne = (props) => {
                     type="text"
                     value={monthly_repayment}
                     name="monthly_repayment"
+                    value={FormatAmount(monthly_repayment)}
+                    onChange={onInputChange}
                     className="form-control "
                     placeholder="Currently Monthly Loan Repayments (If Any)"
                   />
@@ -394,16 +423,14 @@ const AfordabilityFormStepOne = (props) => {
             <button
               type="button"
               className="affordability-form-btn"
-              onClick={() =>
-                (window.location.href = "/affordability-test/result")
-              }
+              onClick={submitAffordabilityTestStage1}
             >
-              Continue
+              {!isloading ? "Continue" : "Loading"}
             </button>
           </div>
         </div>
       </form>
     </>
   );
-};
+});
 export default AfordabilityFormStepOne;
