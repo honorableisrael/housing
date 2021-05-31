@@ -27,6 +27,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
     loan_period: "",
     modalIsOpen: "",
     location: "",
+    errorMessage: "",
     retirement_age: 55,
   });
 
@@ -130,16 +131,25 @@ const AfordabilityFormStepOne = withRouter((props) => {
     const today = new Date();
     const thisyear = today.getFullYear();
     const user_age = thisyear - parseInt(date_of_birth.split("-")[0]);
-    if(!user_age){
+    if (!user_age) {
+      return setState({
+        ...state,
+        errorMessage: "Invalid date of birth",
+        modalIsOpen: true,
+      });
+    }
+    if (user_age < 21) {
       return setState({
         ...state,
         modalIsOpen: true,
+        errorMessage: "The minimum age is 21",
       });
     }
     if (user_age > 55) {
       return setState({
         ...state,
         modalIsOpen: true,
+        errorMessage: "The minimum age is 21",
       });
     }
     setState({
@@ -176,8 +186,10 @@ const AfordabilityFormStepOne = withRouter((props) => {
     setState({
       ...state,
       modalIsOpen: false,
+      errorMessage:
+        "Age validation failed user cannot apply for loan after the retirement age of 55",
     });
-    window.location.reload()
+    window.location.reload();
   };
   let {
     volume,
@@ -193,6 +205,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
     monthly_repayment,
     borrowType,
     modalIsOpen,
+    errorMessage,
   } = state;
 
   console.log(monthly_repayment);
@@ -205,15 +218,13 @@ const AfordabilityFormStepOne = withRouter((props) => {
         contentLabel="Example Modal"
       >
         <div className="schcc12 retirmt">
-            {/* <img
+          {/* <img
               src={successfullysaved}
               className="successfullysaved"
               alt="successfullysaved"
             /> */}
         </div>
-        <div className="schcc">
-          Age validation failed user cannot apply for loan after the retirement age of 55
-        </div>
+        <div className="schcc">{errorMessage}</div>
         <div className="schcc2"> </div>
         <div className="text-center"></div>
       </Modal>
