@@ -1,6 +1,5 @@
 import React from "react";
 import * as Icons from "react-feather";
-import {Link} from "react-router-dom";
 import logofooter from "../../assets/HSF-LOGO-01.png";
 import ShelterAfrique from "../../assets/shelterAfrice.png";
 import InfraCredit from "../../assets/infacredit.png";

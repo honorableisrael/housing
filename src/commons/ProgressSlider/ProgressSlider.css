@@ -72,8 +72,8 @@
     top: 18px;
     left: 37.7px;
     height: 5px;
-    width: 380px;
-    background: #6FA73D;
+    width: 350px;
+    background: #BDBDBD;
 }
 
 .progress-bar .step .bullet.active:after {
@@ -82,6 +82,15 @@
     transform-origin: left;
     animation: animate 0.3s linear forwards;
 }
+
+.progress-bar .step .bullet.completed:after,
+.progress-bar .step .bullet.completed:before {
+    background: #6FA73D;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
+}
+
 
 @keyframes animate {
     100% {
@@ -118,11 +127,6 @@
     top: -15px;
     font-size: 20px;
     transform: translate(-50%, -50%);
-    z-index: 10;
-    color: #6FA73D;
+    /* z-index: 10; */
+    /* color: #6FA73D; */
 }
-
-/* .progress-bar .step .check.active {
-    display: block;
-    color: #f00;
-} */

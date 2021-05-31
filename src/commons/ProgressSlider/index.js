@@ -1,4 +1,5 @@
 import React from "react";
+import * as Icons from "react-feather";
 import "./ProgressSlider.css";
 
 const Progress_slider = (props) => {
@@ -6,6 +7,9 @@ const Progress_slider = (props) => {
     <div className='progress-bar'>
       <div className='step'>
         <div className='check fas fa-chevron-down active'></div>
+        {/* <div className='check active'>
+          <Icons.ChevronDown size='20px' />
+        </div> */}
         <div className='bullet active'>
           <span>1</span>
         </div>
