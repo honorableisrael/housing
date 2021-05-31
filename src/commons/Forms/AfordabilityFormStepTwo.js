@@ -11,7 +11,7 @@ const AfordabilityFormStepTwo = () => {
     loanable_amount: "",
     property_value: "",
     expected_equity_contribution: "",
-    max_down_payment: 30,
+    volume:10
   });
   const [period, setPeriod] = useState({
     max_loan_period: 99,
@@ -22,7 +22,7 @@ const AfordabilityFormStepTwo = () => {
     const loan_info = JSON.parse(loan_);
     const property_details_ = localStorage.getItem("property_details");
     const property_details = JSON.parse(property_details_);
-    console.log(loan_info)
+    console.log(loan_info);
     setState({
       ...state,
       loaninformation: loan_info,
@@ -43,8 +43,10 @@ const AfordabilityFormStepTwo = () => {
     console.log(loanable_amount);
     console.log(property_value_);
     let p = (loanable_amount_ / property_value_) * 100;
+    console.log(p)
     if (p > 100) {
-      const expectedEquityContributionPercent = 10;
+      console.log("step1");
+      const expectedEquityContributionPercent = volume;
       const equity_contribution_value =
         (expectedEquityContributionPercent / 100) * property_value_;
       console.log(equity_contribution_value);
@@ -55,8 +57,22 @@ const AfordabilityFormStepTwo = () => {
         newloanableamount,
       };
     }
+    if (p < 10) {
+      console.log("step2a");
+      const expectedEquityContributionPercent = volume;
+      console.log(expectedEquityContributionPercent);
+      const equity_contribution_value =
+        (expectedEquityContributionPercent / 100) * property_value_;
+      const newloanableamount = property_value_ - newloanableamount;
+      return {
+        equity_contribution_value,
+        expectedEquityContributionPercent,
+        newloanableamount,
+      };
+    }
     if (p !== 100) {
-      const expectedEquityContributionPercent = 100 - p;
+      console.log("step2");
+      const expectedEquityContributionPercent = volume;
       console.log(expectedEquityContributionPercent);
       const equity_contribution_value =
         (expectedEquityContributionPercent / 100) * property_value_;
@@ -64,6 +80,7 @@ const AfordabilityFormStepTwo = () => {
       return { equity_contribution_value, expectedEquityContributionPercent };
     }
     if (p == 100 || p > 100) {
+      console.log("step3");
       let p = 90;
       loanable_amount_ = (p / 100) * property_value_;
       console.log(loanable_amount_);
@@ -77,14 +94,13 @@ const AfordabilityFormStepTwo = () => {
   };
   const {
     volume,
-    max_down_payment,
     loaninformation,
     down_payment,
     loanable_amount,
     property_value,
     expected_equity_contribution,
   } = state;
-  console.log(property_value);
+  console.log(calculator());
   return (
     <form>
       <div className="form-wrapper down-payment">
@@ -124,7 +140,10 @@ const AfordabilityFormStepTwo = () => {
                 placeholder=""
                 value={
                   property_value - down_payment > 0
-                    ? FormatAmount(property_value - calculator()?.equity_contribution_value?.toFixed(2))
+                    ? FormatAmount(
+                        property_value -
+                          calculator()?.equity_contribution_value?.toFixed(2)
+                      )
                     : 0
                 }
                 readOnly
@@ -154,16 +173,18 @@ const AfordabilityFormStepTwo = () => {
               </div>
             </div> */}
             <Slider
-              value={calculator().expectedEquityContributionPercent}
+              value={volume}
               min={10}
-              max={calculator().expectedEquityContributionPercent}
+              max={period.max_loan_period}
               title={calculator().expectedEquityContributionPercent}
               orientation="horizontal"
               onChange={handleOnChange}
             />
             <div className="amountwrap">
               <div className="amountwrap2">{period.min_loan_period}</div>
-              <div className="amountwrap2">{period.max_loan_period}</div>
+              <div className="amountwrap2">
+                {period.max_loan_period}
+              </div>
             </div>
           </div>
 
