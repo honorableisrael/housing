@@ -3,15 +3,16 @@ import "./Forms.css";
 import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
 import { FormatAmount } from "../User_Dashboard/controller";
+import { withRouter } from "react-router";
 
-const AfordabilityFormStepTwo = () => {
+const AfordabilityFormStepTwo = withRouter((props) => {
   const [state, setState] = useState({
     loaninformation: {},
     down_payment: "",
     loanable_amount: "",
     property_value: "",
     expected_equity_contribution: "",
-    volume:10
+    volume: 10,
   });
   const [period, setPeriod] = useState({
     max_loan_period: 99,
@@ -36,14 +37,26 @@ const AfordabilityFormStepTwo = () => {
       volume: value,
     });
   };
-
+  const handleSubmit = () => {
+    localStorage.setItem(
+      "downpayment_summary",
+      JSON.stringify({
+        property_value,
+        loanable_amount: (
+          property_value - calculator()?.equity_contribution_value?.toFixed(2)
+        ),
+        equity_contribution_value: calculator()?.equity_contribution_value?.toFixed(2),
+      })
+    );
+    props.history.push("/affordability-test/confirmation");
+  };
   const calculator = () => {
     let loanable_amount_ = parseInt(loanable_amount);
     let property_value_ = parseInt(property_value);
     console.log(loanable_amount);
     console.log(property_value_);
     let p = (loanable_amount_ / property_value_) * 100;
-    console.log(p)
+    console.log(p);
     if (p > 100) {
       console.log("step1");
       const expectedEquityContributionPercent = volume;
@@ -183,9 +196,7 @@ const AfordabilityFormStepTwo = () => {
             />
             <div className="amountwrap">
               <div className="amountwrap2">{period.min_loan_period}</div>
-              <div className="amountwrap2">
-                {period.max_loan_period}
-              </div>
+              <div className="amountwrap2">{period.max_loan_period}</div>
             </div>
           </div>
 
@@ -217,8 +228,9 @@ const AfordabilityFormStepTwo = () => {
           <button
             type="button"
             className="affordability-form-btn"
-            data-toggle="modal"
-            data-target="#confirmationModal"
+            // data-toggle="modal"
+            // data-target="#confirmationModal"
+            onClick={handleSubmit}
           >
             Continue
           </button>
@@ -226,5 +238,5 @@ const AfordabilityFormStepTwo = () => {
       </div>
     </form>
   );
-};
+});
 export default AfordabilityFormStepTwo;
