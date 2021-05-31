@@ -166,13 +166,13 @@ const AfordabilityFormStepOne = withRouter((props) => {
     };
     Axios.post(`${API}/general/affordability-test`, data)
       .then((resp) => {
-        props.history.push("/affordability-test/down-payment");
         console.log(resp.data.data);
         localStorage.setItem("loan_result", JSON.stringify(resp.data.data));
         setState({
           ...state,
           isloading: false,
         });
+        props.history.push("/affordability-test/down-payment");
       })
       .catch((err) => {
         console.log(err);
