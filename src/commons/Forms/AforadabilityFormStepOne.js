@@ -25,6 +25,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
     partner_income: "",
     date_of_birth: "",
     loan_period: "",
+    modalIsOpen: "",
     location: "",
     retirement_age: 55,
   });
@@ -69,29 +70,39 @@ const AfordabilityFormStepOne = withRouter((props) => {
     }
   };
   const calculate_period = (x) => {
-    const today = new Date();
-    const thisyear = today.getFullYear();
-    const user_age = thisyear - parseInt(x.split("-")[0]);
-    console.log(retirement_age - user_age);
-    if (user_age > retirement_age) {
-      return setState({
-        ...state,
-
-      });
-    }
-    if (retirement_age - user_age < 30) {
-      console.log("lower");
-      return setPeriod({
-        ...period,
-        max_loan_period: retirement_age - user_age,
-      });
-    }
-    if (retirement_age - user_age >= 30) {
-      console.log("higher");
-      return setPeriod({
-        ...period,
-        max_loan_period: 30,
-      });
+    if (parseInt(x.split("-")[0])) {
+      const today = new Date();
+      const thisyear = today.getFullYear();
+      const user_age = thisyear - parseInt(x.split("-")[0]);
+      console.log(user_age);
+      if (retirement_age - user_age < 30 && retirement_age - user_age > 0) {
+        console.log("lower");
+        return setPeriod({
+          ...period,
+          max_loan_period: retirement_age - user_age,
+        });
+      }
+      if (user_age >= 55 && user_age < 1400) {
+        setTimeout(() => {
+          setState({
+            ...state,
+            modalIsOpen: true,
+          });
+        }, 2000);
+      }
+      if (retirement_age - user_age < 0) {
+        return setState({
+          ...period,
+          max_loan_period: 0,
+        });
+      }
+      if (retirement_age - user_age >= 30) {
+        console.log("higher");
+        return setPeriod({
+          ...period,
+          max_loan_period: 30,
+        });
+      }
     }
   };
   const onInputChange = (e) => {
@@ -119,6 +130,18 @@ const AfordabilityFormStepOne = withRouter((props) => {
     const today = new Date();
     const thisyear = today.getFullYear();
     const user_age = thisyear - parseInt(date_of_birth.split("-")[0]);
+    if(!user_age){
+      return setState({
+        ...state,
+        modalIsOpen: true,
+      });
+    }
+    if (user_age > 55) {
+      return setState({
+        ...state,
+        modalIsOpen: true,
+      });
+    }
     setState({
       ...state,
       isloading: true,
@@ -154,6 +177,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
       ...state,
       modalIsOpen: false,
     });
+    window.location.reload()
   };
   let {
     volume,
@@ -180,20 +204,18 @@ const AfordabilityFormStepOne = withRouter((props) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="schcc12">
-          <img
-            src={successfullysaved}
-            className="successfullysaved"
-            alt="successfullysaved"
-          />
+        <div className="schcc12 retirmt">
+            {/* <img
+              src={successfullysaved}
+              className="successfullysaved"
+              alt="successfullysaved"
+            /> */}
         </div>
-        <div className="schcc">Date of birth has passed retirement age</div>
-        <div className="schcc2">
-          {" "}
-
+        <div className="schcc">
+          Age validation failed user cannot apply for loan after the retirement age of 55
         </div>
-        <div className="text-center">
-        </div>
+        <div className="schcc2"> </div>
+        <div className="text-center"></div>
       </Modal>
       <form>
         <div className="form-wrapper step-one-form">
@@ -424,7 +446,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
                   value={date_of_birth}
                   onChange={onchange}
                   onKeyPress={onchange}
-                  min={"1966-01-01"}
+                  min={"1967-01-01"}
                   max={"2000-01-01"}
                   className="form-control "
                   placeholder="Date of Birth"
