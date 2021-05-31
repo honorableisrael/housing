@@ -88,6 +88,8 @@ const AfordabilityFormStepOne = withRouter((props) => {
           setState({
             ...state,
             modalIsOpen: true,
+            errorMessage:
+            "Age validation failed user cannot apply for loan after the retirement age of 55",
           });
         }, 2000);
       }
@@ -188,8 +190,6 @@ const AfordabilityFormStepOne = withRouter((props) => {
     setState({
       ...state,
       modalIsOpen: false,
-      errorMessage:
-        "Age validation failed user cannot apply for loan after the retirement age of 55",
     });
     window.location.reload();
   };
