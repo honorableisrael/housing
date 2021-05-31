@@ -23,13 +23,13 @@ const ResultHeader = (props) => {
                   <div className="maximum-loan-amount-card w30">
                     <h4>Your Maximum Loanable Amount</h4>
                     <h2>
-                      $ {FormatAmount(props?.loandetails?.loanable_amount)}<small></small>
+                      ₦ {FormatAmount(props?.loandetails?.loanable_amount)}<small></small>
                     </h2>
                   </div>
                   <div className="monthly-repayment-card w30">
                     <h4>Estimated Monthly Repayment</h4>
                     <h2>
-                      $ {FormatAmount(props?.loandetails?.monthly_payment)}<small></small>
+                      ₦ {FormatAmount(props?.loandetails?.monthly_payment)}<small></small>
                     </h2>
                   </div>
                   <div className="maximum-tenure-card w30">

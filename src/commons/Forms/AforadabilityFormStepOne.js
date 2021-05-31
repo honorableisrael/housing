@@ -172,7 +172,9 @@ const AfordabilityFormStepOne = withRouter((props) => {
           ...state,
           isloading: false,
         });
-        props.history.push("/affordability-test/down-payment");
+        setTimeout(()=>{
+          props.history.push("/affordability-test/down-payment");
+        },1000)
       })
       .catch((err) => {
         console.log(err);
