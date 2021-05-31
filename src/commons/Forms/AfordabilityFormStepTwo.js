@@ -26,7 +26,7 @@ const AfordabilityFormStepTwo = () => {
     setState({
       ...state,
       loaninformation: loan_info,
-      loanable_amount: loan_info.loanable_amount,
+      loanable_amount: loan_info?.loanable_amount,
       property_value: property_details.property_price,
     });
   }, []);
@@ -178,6 +178,7 @@ const AfordabilityFormStepTwo = () => {
               max={period.max_loan_period}
               title={calculator().expectedEquityContributionPercent}
               orientation="horizontal"
+              labels={calculator().expectedEquityContributionPercent}
               onChange={handleOnChange}
             />
             <div className="amountwrap">
