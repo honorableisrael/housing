@@ -40,7 +40,7 @@ const Contact_us_page = () => {
                           <input
                             type='text'
                             className='form-control'
-                            placeholder='Your Name'
+                            placeholder='Name'
                           />
                         </div>
                       </div>
@@ -50,7 +50,7 @@ const Contact_us_page = () => {
                           <input
                             type='text'
                             className='form-control'
-                            placeholder='Your Email'
+                            placeholder='Email'
                           />
                         </div>
                       </div>
@@ -76,7 +76,7 @@ const Contact_us_page = () => {
                     </form>
 
                     <div className='contact-us-page-social'>
-                      <p>Or Reach us on our socials</p>
+                      <h2>Or Reach us on our socials</h2>
 
                       <ul className='social-link'>
                         <li>

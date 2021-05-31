@@ -207,7 +207,7 @@ footer {
 
     .footer-subscriber-form h2 {
         font-weight: 600;
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .footer-subscriber-form-content input[type="email"] {
@@ -229,6 +229,16 @@ footer {
 
     footer .container-fluid {
         padding-right: 15px !important;
+    }
+
+    .genFooterSocials ul {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .genFooterSocials ul li {
+        margin-right: 22px;
     }
 }
 

@@ -46,9 +46,9 @@ const footer_page = () => {
                   <img src={logofooter} alt='Infra Credit' />
                 </figure>
                 <p>
-                  Housing Solution Fund has gone above and beyond in helping is
-                  with our first home. From advice and working around our
-                  schedules to sending us assistance and minor renovations
+                  <b>Housing Solution Fund</b> has gone above and beyond in
+                  helping is with our first home. From advice and working around
+                  our schedules to sending us assistance and minor renovations
                 </p>
               </div>
             </div>
@@ -163,10 +163,11 @@ const footer_page = () => {
 
                 <h4>Our Partners</h4>
                 <figure>
-                  <img src={InfraCredit} alt='Infra Credit' />
-                </figure>
-                <figure>
                   <img src={ShelterAfrique} alt='Shelter Afrique' />
+                </figure>
+
+                <figure>
+                  <img src={InfraCredit} alt='Infra Credit' />
                 </figure>
               </div>
             </div>

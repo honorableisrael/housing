@@ -33,7 +33,14 @@ const AffordablityTestModal = () => {
           </div>
           <div className='modal-body'>
             <div className='affordability-test-wrapper'>
-              {/* <ProgressSlider stage='stepOne' /> */}
+              <div class='affordability-form-top-content'>
+                <h2>How much can i Afford</h2>
+                <p>
+                  Calculate the home loan you qualify for, and how much you can
+                  expect to pay monthly on your home loan repayments.
+                </p>
+              </div>
+              <ProgressSlider stage='stepOne' />
               <AfordabilityFormStepOne />
             </div>
           </div>

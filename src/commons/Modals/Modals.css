@@ -139,3 +139,23 @@
 .modal-content.modal-affordability-test {
     padding: 2rem;
 }
+
+/* Other Css */
+/* .modal-body .affordability-test-wrapper .affordability-form-top-content {
+    padding-bottom: 0rem;
+} */
+
+.modal-affordability-test .modal-header {
+    padding: 0;
+}
+
+.modal-body .affordability-form-wrapper.standalone .progress-bar .step .bullet::before,
+.modal-body .progress-bar .step .bullet::after {
+    width: 180px !important;
+}
+
+
+.modal-body .progress-bar .step .bullet::before,
+.modal-body .progress-bar .step .bullet::after {
+    width: 80px;
+}

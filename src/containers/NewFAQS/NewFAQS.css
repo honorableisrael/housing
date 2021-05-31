@@ -110,7 +110,11 @@
 /* Responsive Queries */
 @media only screen and (min-device-width: 800px) and (max-device-width: 1440px) {}
 
-@media screen and (max-width: 991px) {}
+@media screen and (max-width: 991px) {
+    .faqs-page-top-content h2 {
+        font-size: 17px;
+    }
+}
 
 @media screen and (max-width: 770px) {}
 
