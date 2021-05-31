@@ -25,7 +25,7 @@ const affordabilityTestPage = () => {
           <div className='row'>
             <div className='offset-lg-2 col-lg-8'>
               <div className='affordability-form-top-content'>
-                <h2>How much can i Afford</h2>
+                <h2>How much can I Afford</h2>
                 <p>
                   Calculate the home loan you qualify for, and how much you can
                   expect to pay monthly on your home loan repayments.

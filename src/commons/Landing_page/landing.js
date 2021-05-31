@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeNav from "../HomeNavbar/HomeNav";
 import Herosection from "./redeherosection";
 import HowItWorks from "./HowItWorks";
@@ -9,6 +9,9 @@ import PropertyListing from "./PropertyListing";
 import RealEstateDevelopers from "./RealEstateDevelopers";
 
 const Landing_page = () => {
+  useEffect(()=>{
+    window.scrollTo(-0,-0)
+  },[])
   return (
     <div>
       <HomeNav />

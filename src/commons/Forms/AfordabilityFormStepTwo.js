@@ -5,6 +5,8 @@ import "react-rangeslider/lib/index.css";
 import { FormatAmount } from "../User_Dashboard/controller";
 import { withRouter } from "react-router";
 
+
+
 const AfordabilityFormStepTwo = withRouter((props) => {
   const [state, setState] = useState({
     loaninformation: {},
@@ -19,6 +21,7 @@ const AfordabilityFormStepTwo = withRouter((props) => {
     min_loan_period: 10,
   });
   useEffect(() => {
+    window.scrollTo(-0,-0)
     const loan_ = localStorage.getItem("loan_result");
     const loan_info = JSON.parse(loan_);
     const property_details_ = localStorage.getItem("property_details");
@@ -164,7 +167,6 @@ const AfordabilityFormStepTwo = withRouter((props) => {
             </div>
           </div>
         </div>
-
         <div className="form-group row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <label className="form-control-label">Equity Contribution</label>

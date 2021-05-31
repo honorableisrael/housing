@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Stanbic from "../../containers/Resource/new-stanbic-bank.png";
 import AccessBank from "../../containers/Resource/new-access-bank.png";
@@ -12,7 +12,7 @@ import FederalMortgage from "../../containers/Resource/federal.png";
 import "./landing.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import {Tab, Tabs, Row} from "react-bootstrap";
+import { Tab, Tabs, Row } from "react-bootstrap";
 import FeaturedPropertyTabContent from "./FeaturedPropertyTabContent";
 import searchimg from "../../assets/search_icon.png";
 import union from "../../assets/Union.png";
@@ -42,7 +42,7 @@ const PropertyCard = ({ submit_title, property_details }) => {
         </div>
         <div className="card_second_area">
           <div className="pricea">
-            $ {FormatAmount(property_details?.property_price)}
+            ₦ {FormatAmount(property_details?.property_price)}
           </div>
           <div className="locationtext">
             <img src={Location} alt="Location" className="Location1" />
@@ -73,7 +73,7 @@ const PropertyCard = ({ submit_title, property_details }) => {
               </div>
             </div>
           </div>
-          <div className='fin_sec_card'>
+          <div className="fin_sec_card">
             <div>
               <div className="fin_stats">
                 {property_details?.finance_options && "Financial Status"}

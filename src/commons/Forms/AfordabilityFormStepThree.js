@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Forms.css";
 import { Link } from "react-router-dom";
 
-const afordabilityFormStepThree = () => {
+const AfordabilityFormStepThree = () => {
+  const [state, setState] = useState({
+    first_name: "",
+    last_name: "",
+    email_address: "",
+    date_of_birth: "",
+    phone_number: "",
+    employment: "",
+    address: "",
+  });
+  useEffect(() => {
+    window.scrollTo(-0, -0);
+    const property_details_ = localStorage.getItem("property_details");
+    const property_details = JSON.parse(property_details_);
+    console.log(property_details);
+  }, []);
+  const onchange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const {
+    first_name,
+    last_name,
+    email_address,
+    date_of_birth,
+    phone_number,
+    employment,
+    address,
+  } = state;
   return (
     <form>
       <div className="form-wrapper">
@@ -10,7 +40,9 @@ const afordabilityFormStepThree = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
               type="text"
-              name="title"
+              name="first_name"
+              value={first_name}
+              onChange={onchange}
               className="form-control "
               placeholder="First Name"
             />
@@ -19,7 +51,9 @@ const afordabilityFormStepThree = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
               type="text"
-              name="title"
+              name="last_name"
+              value={last_name}
+              onChange={onchange}
               className="form-control "
               placeholder="Last Name"
             />
@@ -27,8 +61,10 @@ const afordabilityFormStepThree = () => {
 
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
-              type="text"
-              name="title"
+              type="email"
+              name="email_address"
+              value={email_address}
+              onChange={onchange}
               className="form-control "
               placeholder="Email Address"
             />
@@ -39,7 +75,9 @@ const afordabilityFormStepThree = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
               type="text"
-              name="title"
+              name="date_of_birth"
+              value={date_of_birth}
+              onChange={onchange}
               className="form-control "
               placeholder="Date of Birth"
             />
@@ -48,7 +86,9 @@ const afordabilityFormStepThree = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
               type="text"
-              name="title"
+              name="phone_number"
+              value={phone_number}
+              onChange={onchange}
               className="form-control "
               placeholder="phone number"
             />
@@ -57,7 +97,9 @@ const afordabilityFormStepThree = () => {
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
               type="text"
-              name="title"
+              name="employment"
+              value={employment}
+              onChange={onchange}
               className="form-control "
               placeholder="Employment"
             />
@@ -69,6 +111,8 @@ const afordabilityFormStepThree = () => {
             <textarea
               className="form-control"
               name="address"
+              value={address}
+              onChange={onchange}
               placeholder="Address"
               required=""
             ></textarea>
@@ -87,4 +131,4 @@ const afordabilityFormStepThree = () => {
     </form>
   );
 };
-export default afordabilityFormStepThree;
+export default AfordabilityFormStepThree;

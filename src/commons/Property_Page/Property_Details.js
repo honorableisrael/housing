@@ -40,6 +40,7 @@ const Property_Details = (props) => {
   });
 
   React.useEffect(() => {
+    window.scrollTo(-0,-0)
     try {
       axios
         .all([
@@ -184,6 +185,7 @@ const Property_Details = (props) => {
       modalIsOpen: true,
     });
   };
+
   return (
     <>
       <ToastContainer

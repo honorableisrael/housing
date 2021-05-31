@@ -1,21 +1,36 @@
-import React from "react";
-import {Helmet} from "react-helmet";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import MainHeader from "../../commons/HeaderV1";
 import GeneralFooter from "../../commons/GeneralFooter";
 import ProgressSlider from "../../commons/ProgressSlider";
 import AfordabilityFormStepThree from "../../commons/Forms/AfordabilityFormStepThree";
 import "./AffordabilityTestConfirmation.css";
+import { FormatAmount } from "../../commons/User_Dashboard/controller";
 
 const AffordabilityTestConfirmation = () => {
+  const [state, setState] = useState({
+    property_details: {},
+  });
+  useEffect(() => {
+    window.scrollTo(-0, -0);
+    const property_details_ = localStorage.getItem("property_details");
+    const property_details = JSON.parse(property_details_);
+    console.log(property_details);
+    setState({
+      ...state,
+      property_details,
+    });
+  }, []);
+  const { property_details } = state;
   return (
-    <main className='theme-bg'>
+    <main className="theme-bg">
       <Helmet>
-        <meta charSet='utf-8' />
+        <meta charSet="utf-8" />
         <title>
           Basic Information | Affordability Result - Housing Solution Fund |
           Real Estate, NHF, Mortgages &amp; Home Loans
         </title>
-        <link rel='canonical' href='' />
+        <link rel="canonical" href="" />
       </Helmet>
       <MainHeader />
       {/* <section className='affordability-result-page'>
@@ -48,32 +63,31 @@ const AffordabilityTestConfirmation = () => {
           </div>
         </div>
       </section> */}
-
-      <section className='property-info-selected'>
-        <div className='container'>
-          <div className='property-info-selected-wrapper'>
-            <div className='row'>
-              <div className='col-lg-12'>
-                <div className='table-responsive'>
-                  <table className='table align-items-center table-flush'>
-                    <thead className='thead-light'>
+      <section className="property-info-selected">
+        <div className="container">
+          <div className="property-info-selected-wrapper">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="table-responsive">
+                  <table className="table align-items-center table-flush">
+                    <thead className="thead-light">
                       <tr>
-                        <th scope='col'>Property Name</th>
-                        <th scope='col'>Type</th>
-                        <th scope='col'>Location</th>
-                        <th scope='col'>Developer</th>
-                        <th scope='col'>Price</th>
+                        <th scope="col">Property Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Developer</th>
+                        <th scope="col">Price</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Lekki pearl estateII</td>
-                        <td>Bungalow</td>
-                        <td>Lekki, Lagos</td>
+                        <td>{property_details?.property_name}</td>
+                        <td>{property_details?.property_type}</td>
+                        <td>{property_details?.property_full_address}</td>
                         <td>Brains &amp; Hammers</td>
                         <td>
-                          $27,000,000.00
-                          <a className='table-view-btn'>View</a>
+                          ₦{FormatAmount(property_details?.property_price)}
+                          <a className="table-view-btn">View</a>
                         </td>
                       </tr>
                     </tbody>
@@ -103,11 +117,11 @@ const AffordabilityTestConfirmation = () => {
         </div>
       </section>
 
-      <section className='affordability-form'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-12'>
-              <div className='affordability-form-top-content'>
+      <section className="affordability-form">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="affordability-form-top-content">
                 <h2>You are almost there</h2>
                 <p>
                   These steps are necessary to complete your mortgage
@@ -115,8 +129,8 @@ const AffordabilityTestConfirmation = () => {
                 </p>
               </div>
 
-              <div className='affordability-form-wrapper'>
-                <ProgressSlider stage='stepThree' />
+              <div className="affordability-form-wrapper">
+                <ProgressSlider stage="stepThree" />
                 <AfordabilityFormStepThree />
               </div>
             </div>
