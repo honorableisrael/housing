@@ -84,7 +84,7 @@ const AffordabilityTestConfirmation = () => {
                         <td>{property_details?.property_name}</td>
                         <td>{property_details?.property_type}</td>
                         <td>{property_details?.property_full_address}</td>
-                        <td>Brains &amp; Hammers</td>
+                        <td>{property_details?.developer?.developer_name}</td>
                         <td>
                           ₦{FormatAmount(property_details?.property_price)}
                           <a className="table-view-btn">View</a>
@@ -116,7 +116,6 @@ const AffordabilityTestConfirmation = () => {
           </div>
         </div>
       </section>
-
       <section className="affordability-form">
         <div className="container">
           <div className="row">

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Forms.css";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import { API } from "../../config";
 
 const AfordabilityFormStepThree = () => {
   const [state, setState] = useState({
@@ -33,6 +35,44 @@ const AfordabilityFormStepThree = () => {
     employment,
     address,
   } = state;
+  const submitForm = () => {
+    const data = {
+      age: 25,
+      tenure: 5,
+      firstname: "Oba",
+      lastname: "SDQ",
+      middlename: "I",
+      sex: "male",
+      dob: "1990/03/04",
+      phone: "0987654567",
+      email: "user2@test.com",
+      total_annual_pay: 3500000,
+      monthly_net_pay: 350000,
+      outstanding_loans: 10000,
+      monthly_expenses: 50000,
+      have_existing_obligation: 0,
+      additional_income: 0,
+      down_payment: 30000000,
+      loan_amount: 12000000,
+      max_loan_amount: 20000000,
+      loan_tenure: 5,
+      state_id: 0,
+      city_id: 0,
+      property_value: 50000000,
+      property_type_id: 0,
+      property_bedroom: 5,
+      property_bathroom: 6,
+      property_id: 10,
+      found_property: 1,
+    };
+    Axios.post(`${API}/general/profile-request`,data)
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  };
   return (
     <form>
       <div className="form-wrapper">
@@ -74,7 +114,7 @@ const AfordabilityFormStepThree = () => {
         <div className="form-group row">
           <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <input
-              type="text"
+              type="date"
               name="date_of_birth"
               value={date_of_birth}
               onChange={onchange}
