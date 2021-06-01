@@ -3,8 +3,11 @@ import "./Forms.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { API } from "../../config";
+import SweetAlert from "react-bootstrap-sweetalert";
+import Modal from "react-modal";
+import successfullysaved from "../../assets/successfullysaved.png";
 
-const AfordabilityFormStepThree = () => {
+const AfordabilityFormStepThree = (props) => {
   const [state, setState] = useState({
     first_name: "",
     last_name: "",
@@ -13,29 +16,80 @@ const AfordabilityFormStepThree = () => {
     phone_number: "",
     employment: "",
     address: "",
+    modalIsOpen: "",
+    isloading:false,
+    errorMessage: "",
   });
+
   useEffect(() => {
     window.scrollTo(-0, -0);
     const property_details_ = localStorage.getItem("property_details");
     const property_details = JSON.parse(property_details_);
     console.log(property_details);
   }, []);
+
   const onchange = (e) => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
     });
   };
+
   const {
     first_name,
     last_name,
     email_address,
+    isloading,
+    errorMessage,
     date_of_birth,
     phone_number,
     employment,
     address,
+    modalIsOpen,
   } = state;
-  const submitForm = () => {
+
+  const validateForm = () => {
+    if (
+      first_name ||
+      last_name ||
+      email_address ||
+      date_of_birth ||
+      phone_number ||
+      employment ||
+      address
+    ) {
+      return setState({
+        ...state,
+        modalIsOpen: true,
+      });
+    }
+  };
+
+  const closeModal = () => {
+    setState({
+      ...state,
+      modalIsOpen: false,
+    });
+  };
+  const onConfirm = () => {
+    setState({
+      ...state,
+      show: false,
+    });
+  };
+  const onCancel = () => {
+    setState({
+      ...state,
+      show: false,
+    });
+  props.history.push("/signup")
+  };
+  const submitForm = (e) => {
+    setState({
+      ...state,
+      isloading:true
+    })
+    e.preventDefault()
     const data = {
       age: 25,
       tenure: 5,
@@ -65,110 +119,169 @@ const AfordabilityFormStepThree = () => {
       property_id: 10,
       found_property: 1,
     };
-    Axios.post(`${API}/general/profile-request`,data)
-    .then(res=>{
-      console.log(res)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
+    Axios.post(`${API}/general/profile-request`, data)
+      .then((res) => {
+        console.log(res);
+        setState({
+          ...state,
+          show:true,
+          isloading:false
+        })
+      })
+      .catch((err) => {
+        setState({
+          ...state,
+          show:false,
+          isloading:false
+        })
+        console.log(err);
+      });
+  };
+  const customStyles = {
+    content: {
+      top: "56%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      padding: "3rem 2rem",
+      borderRadius: "20px",
+      zIndex: "3333",
+    },
   };
   return (
-    <form>
-      <div className="form-wrapper">
-        <div className="form-group row">
-          <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <input
-              type="text"
-              name="first_name"
-              value={first_name}
-              onChange={onchange}
-              className="form-control "
-              placeholder="First Name"
-            />
+    <>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className="schcc12 retirmt">
+          {/* <img
+              src={successfullysaved}
+              className="successfullysaved"
+              alt="successfullysaved"
+            /> */}
+        </div>
+        <div className="schcc">{errorMessage}</div>
+        <div className="schcc2"> </div>
+        <div className="text-center"></div>
+      </Modal>
+      <form>
+        <div className="form-wrapper">
+          <div className="form-group row">
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <input
+                type="text"
+                name="first_name"
+                value={first_name}
+                onChange={onchange}
+                className="form-control "
+                placeholder="First Name"
+              />
+            </div>
+
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <input
+                type="text"
+                name="last_name"
+                value={last_name}
+                onChange={onchange}
+                className="form-control "
+                placeholder="Last Name"
+              />
+            </div>
+
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <input
+                type="email"
+                name="email_address"
+                value={email_address}
+                onChange={onchange}
+                className="form-control "
+                placeholder="Email Address"
+              />
+            </div>
           </div>
 
-          <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <input
-              type="text"
-              name="last_name"
-              value={last_name}
-              onChange={onchange}
-              className="form-control "
-              placeholder="Last Name"
-            />
+          <div className="form-group row">
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <input
+                type="date"
+                name="date_of_birth"
+                value={date_of_birth}
+                onChange={onchange}
+                className="form-control "
+                placeholder="Date of Birth"
+              />
+            </div>
+
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <input
+                type="text"
+                name="phone_number"
+                value={phone_number}
+                onChange={onchange}
+                className="form-control "
+                placeholder="phone number"
+              />
+            </div>
+
+            <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <input
+                type="text"
+                name="employment"
+                value={employment}
+                onChange={onchange}
+                className="form-control "
+                placeholder="Employment"
+              />
+            </div>
           </div>
 
-          <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <input
-              type="email"
-              name="email_address"
-              value={email_address}
-              onChange={onchange}
-              className="form-control "
-              placeholder="Email Address"
-            />
+          <div className="form-group row">
+            <div className="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+              <textarea
+                className="form-control"
+                name="address"
+                value={address}
+                onChange={onchange}
+                placeholder="Address"
+                required=""
+              ></textarea>
+            </div>
           </div>
         </div>
-
         <div className="form-group row">
-          <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <input
-              type="date"
-              name="date_of_birth"
-              value={date_of_birth}
-              onChange={onchange}
-              className="form-control "
-              placeholder="Date of Birth"
-            />
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <input
-              type="text"
-              name="phone_number"
-              value={phone_number}
-              onChange={onchange}
-              className="form-control "
-              placeholder="phone number"
-            />
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <input
-              type="text"
-              name="employment"
-              value={employment}
-              onChange={onchange}
-              className="form-control "
-              placeholder="Employment"
-            />
-          </div>
-        </div>
-
-        <div className="form-group row">
-          <div className="col-lg-12 col-md-6 col-sm-12 col-xs-12">
-            <textarea
-              className="form-control"
-              name="address"
-              value={address}
-              onChange={onchange}
-              placeholder="Address"
-              required=""
-            ></textarea>
-          </div>
-        </div>
-      </div>
-      <div className="form-group row">
-        <div className="offset-lg-3 col-lg-6">
-          <Link to={"/signup"}>
-            <button type="submit" className="affordability-form-btn">
-              Continue
+          <div className="offset-lg-3 col-lg-6">
+            <button
+              type="submit"
+              className="affordability-form-btn"
+              onClick={submitForm}
+            >
+              {!isloading?"Continue":"loading..."}
             </button>
-          </Link>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+      <SweetAlert
+        title={"Successfully submitted"}
+        // onConfirm={onCancel}
+        onCancel={onCancel}
+        show={false}
+      >
+        <div className="text-center">
+           <img
+              src={successfullysaved}
+              className="successfullysaved"
+              alt="successfullysaved"
+            />
+        </div>
+        <p>Proceed to signup</p>
+      </SweetAlert>
+    </>
   );
 };
 export default AfordabilityFormStepThree;
