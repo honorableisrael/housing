@@ -17,7 +17,7 @@ const AfordabilityFormStepThree = (props) => {
     employment: "",
     address: "",
     modalIsOpen: "",
-    isloading:false,
+    isloading: false,
     errorMessage: "",
   });
 
@@ -82,14 +82,15 @@ const AfordabilityFormStepThree = (props) => {
       ...state,
       show: false,
     });
-  props.history.push("/signup")
+    props.history.push("/signup");
   };
   const submitForm = (e) => {
-    setState({
+    return setState({
       ...state,
-      isloading:true
-    })
-    e.preventDefault()
+      isloading: true,
+      show: true,
+    });
+    e.preventDefault();
     const data = {
       age: 25,
       tenure: 5,
@@ -124,16 +125,16 @@ const AfordabilityFormStepThree = (props) => {
         console.log(res);
         setState({
           ...state,
-          show:true,
-          isloading:false
-        })
+          show: true,
+          isloading: false,
+        });
       })
       .catch((err) => {
         setState({
           ...state,
-          show:false,
-          isloading:false
-        })
+          show: false,
+          isloading: false,
+        });
         console.log(err);
       });
   };
@@ -261,7 +262,7 @@ const AfordabilityFormStepThree = (props) => {
               className="affordability-form-btn"
               onClick={submitForm}
             >
-              {!isloading?"Continue":"loading..."}
+              {!isloading ? "Continue" : "loading..."}
             </button>
           </div>
         </div>
@@ -273,11 +274,11 @@ const AfordabilityFormStepThree = (props) => {
         show={false}
       >
         <div className="text-center">
-           <img
-              src={successfullysaved}
-              className="successfullysaved"
-              alt="successfullysaved"
-            />
+          <img
+            src={successfullysaved}
+            className="successfullysaved"
+            alt="successfullysaved"
+          />
         </div>
         <p>Proceed to signup</p>
       </SweetAlert>
