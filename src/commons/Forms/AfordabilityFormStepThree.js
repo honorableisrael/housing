@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Forms.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Axios from "axios";
 import { API } from "../../config";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Modal from "react-modal";
 import successfullysaved from "../../assets/successfullysaved.png";
 
-const AfordabilityFormStepThree = (props) => {
+const AfordabilityFormStepThree = withRouter((props) => {
   const [state, setState] = useState({
     first_name: "",
     last_name: "",
@@ -17,8 +17,9 @@ const AfordabilityFormStepThree = (props) => {
     employment: "",
     address: "",
     modalIsOpen: "",
-    isloading: false,
+    isloading:false,
     errorMessage: "",
+    show:false,
   });
 
   useEffect(() => {
@@ -44,6 +45,7 @@ const AfordabilityFormStepThree = (props) => {
     date_of_birth,
     phone_number,
     employment,
+    show,
     address,
     modalIsOpen,
   } = state;
@@ -72,25 +74,20 @@ const AfordabilityFormStepThree = (props) => {
     });
   };
   const onConfirm = () => {
-    setState({
-      ...state,
-      show: false,
-    });
+    props.history.push("/signup")
   };
   const onCancel = () => {
     setState({
       ...state,
       show: false,
     });
-    props.history.push("/signup");
   };
   const submitForm = (e) => {
-    return setState({
+    e.preventDefault()
+    setState({
       ...state,
-      isloading: true,
-      show: true,
-    });
-    e.preventDefault();
+      isloading:true
+    })
     const data = {
       age: 25,
       tenure: 5,
@@ -119,22 +116,23 @@ const AfordabilityFormStepThree = (props) => {
       property_bathroom: 6,
       property_id: 10,
       found_property: 1,
+      type:"mortgage"
     };
     Axios.post(`${API}/general/profile-request`, data)
       .then((res) => {
         console.log(res);
         setState({
           ...state,
-          show: true,
-          isloading: false,
-        });
+          show:true,
+          isloading:false
+        })
       })
       .catch((err) => {
         setState({
           ...state,
-          show: false,
-          isloading: false,
-        });
+          show:false,
+          isloading:false
+        })
         console.log(err);
       });
   };
@@ -170,7 +168,7 @@ const AfordabilityFormStepThree = (props) => {
         <div className="schcc2"> </div>
         <div className="text-center"></div>
       </Modal>
-      <form>
+      <form onSubmit={submitForm}>
         <div className="form-wrapper">
           <div className="form-group row">
             <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -262,27 +260,27 @@ const AfordabilityFormStepThree = (props) => {
               className="affordability-form-btn"
               onClick={submitForm}
             >
-              {!isloading ? "Continue" : "loading..."}
+              {!isloading?"Continue":"loading..."}
             </button>
           </div>
         </div>
       </form>
       <SweetAlert
         title={"Successfully submitted"}
-        // onConfirm={onCancel}
+        onConfirm={onConfirm}
         onCancel={onCancel}
-        show={false}
+        show={show}
       >
         <div className="text-center">
-          <img
-            src={successfullysaved}
-            className="successfullysaved"
-            alt="successfullysaved"
-          />
+           <img
+              src={successfullysaved}
+              className="successfullysaved"
+              alt="successfullysaved"
+            />
         </div>
         <p>Proceed to signup</p>
       </SweetAlert>
     </>
   );
-};
+});
 export default AfordabilityFormStepThree;
