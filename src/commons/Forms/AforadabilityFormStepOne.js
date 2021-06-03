@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Forms.css";
 import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
@@ -12,12 +12,18 @@ import "react-toastify/dist/ReactToastify.css";
 import Modal from "react-modal";
 
 const AfordabilityFormStepOne = withRouter((props) => {
+  const inputEl = React.useRef("");
+  const inputE2 = React.useRef("");
+  const inputE3 = React.useRef("");
+  const inputE4 = React.useRef("");
+  const inputE5 = React.useRef("");
+  const inputE6 = React.useRef("");
   const [state, setState] = useState({
     monthly_income: "",
     net_monthly: "",
     loanObligations: "",
     additional_income: "",
-    monthly_repayment: "",
+    monthly_repayment: "0",
     isloading: "",
     have_other_loan: false,
     additonalIncome: false,
@@ -27,8 +33,8 @@ const AfordabilityFormStepOne = withRouter((props) => {
     loan_period: "",
     modalIsOpen: "",
     location: "",
+    condition: false,
     errorMessage: "",
-    retirement_age: 55,
   });
 
   const [period, setPeriod] = useState({
@@ -66,16 +72,28 @@ const AfordabilityFormStepOne = withRouter((props) => {
       ...state,
       [e.target.name]: e.target.value,
     });
+  };
+  const changeHandler = (e) => {
+    const inputValdate = inputEl.current.value;
+    console.log(inputValdate);
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
     if (e.target.name == "date_of_birth") {
-      calculate_period(e.target.value);
+      calculate_period(inputValdate.toString());
     }
   };
   const calculate_period = (x) => {
+    console.log(x);
     if (parseInt(x.split("-")[0])) {
+      console.log("Condition 1");
       const today = new Date();
       const thisyear = today.getFullYear();
       const user_age = thisyear - parseInt(x.split("-")[0]);
       console.log(user_age);
+      const retirement_age = 55;
+      console.log(retirement_age - user_age);
       if (retirement_age - user_age < 30 && retirement_age - user_age > 0) {
         console.log("lower");
         return setPeriod({
@@ -89,17 +107,19 @@ const AfordabilityFormStepOne = withRouter((props) => {
             ...state,
             modalIsOpen: true,
             errorMessage:
-            "Age validation failed user cannot apply for loan after the retirement age of 55",
+              "Age validation failed user cannot apply for loan after the retirement age of 55",
           });
         }, 2000);
       }
       if (retirement_age - user_age < 0) {
-        return setState({
+        console.log("Condition 3");
+        return setPeriod({
           ...period,
           max_loan_period: 0,
         });
       }
       if (retirement_age - user_age >= 30) {
+        console.log("Condition 4");
         console.log("higher");
         return setPeriod({
           ...period,
@@ -166,6 +186,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
       dob: date_of_birth,
       loan_tenure: volume,
     };
+    console.log(data);
     Axios.post(`${API}/general/affordability-test`, data)
       .then((resp) => {
         console.log(resp.data.data);
@@ -174,9 +195,13 @@ const AfordabilityFormStepOne = withRouter((props) => {
           ...state,
           isloading: false,
         });
-        setTimeout(()=>{
-          props.history.push("/affordability-test/down-payment");
-        },1000)
+        !state.condition
+          ? setTimeout(() => {
+              props.history.push("/affordability-test/down-payment");
+            }, 1000)
+          : setTimeout(() => {
+              props.history.push("/affordability-test/result");
+            }, 1000);
       })
       .catch((err) => {
         console.log(err);
@@ -209,8 +234,18 @@ const AfordabilityFormStepOne = withRouter((props) => {
     modalIsOpen,
     errorMessage,
   } = state;
-
-  console.log(monthly_repayment);
+  useEffect(() => {
+    const query = new URLSearchParams(props.location.search);
+    const condition = query.get("noselection");
+    console.log(condition);
+    if (condition == "true") {
+      setState({
+        ...state,
+        condition: true,
+      });
+    }
+  }, []);
+  console.log(net_monthly);
   return (
     <>
       <Modal
@@ -457,8 +492,8 @@ const AfordabilityFormStepOne = withRouter((props) => {
                   type="date"
                   name="date_of_birth"
                   value={date_of_birth}
-                  onChange={onchange}
-                  onKeyPress={onchange}
+                  onChange={changeHandler}
+                  ref={inputEl}
                   min={"1967-01-01"}
                   max={"2000-01-01"}
                   className="form-control "

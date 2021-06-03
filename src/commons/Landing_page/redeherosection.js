@@ -31,7 +31,10 @@ const HeroSection = () => {
                   </b>
                 </p>
                 <div>
-                  <Link className="btn-gtstrted" to="/">
+                  <Link
+                    className="btn-gtstrted"
+                    to="/affordability-test?noselection=true"
+                  >
                     Apply for a Home
                   </Link>
                 </div>

@@ -53,7 +53,7 @@ const Property_Page = () => {
   const searchProperty = () => {
     const mypayload = {
       location,
-      bedrooms:no_of_bedrooms,
+      bedrooms: no_of_bedrooms,
       bathrooms: "",
       price,
     };
@@ -88,7 +88,12 @@ const Property_Page = () => {
     location,
   } = state;
   console.log(ListOfHomeTypes);
-
+  const onchange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <>
       <HomeNav />
@@ -106,6 +111,7 @@ const Property_Page = () => {
                     className="home_input home12"
                     value={location}
                     name="location"
+                    onChange={onchange}
                     placeholder="Name, State, City ..."
                   />
                 </div>
@@ -130,6 +136,7 @@ const Property_Page = () => {
                     type="text"
                     className="home_input home12"
                     value={price}
+                    onChange={onchange}
                     name="price"
                     placeholder="Maximum price"
                   />
@@ -143,6 +150,7 @@ const Property_Page = () => {
                     className="home_input home12"
                     value={no_of_bedrooms}
                     name="no_of_bedrooms"
+                    onChange={onchange}
                     placeholder="Property Bedrooms"
                   />
                 </span>

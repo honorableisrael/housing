@@ -27,19 +27,58 @@ import axios from "axios";
 const FeaturedProperties = () => {
   const [state, setState] = React.useState({
     propertyList: [],
+    location: "",
+    bedrooms: "",
+    bathrooms: "",
+    price: "",
     error: "",
+    ListOfHomeTypes: [],
   });
 
-  React.useEffect(() => {
+  const searchProperty = () => {
+    const mypayload = {
+      location,
+      bedrooms: no_of_bedrooms,
+      bathrooms: "",
+      price,
+    };
     axios
-      .all([axios.get(`${API}/general/featured-properties`)])
+      .all([axios.post(`${API}/general/search-properties`, mypayload)])
       .then(
         axios.spread((res) => {
           console.log(res.data.data);
           if (res.status === 200) {
             setState({
               ...state,
+              propertyList: res.data.data.data,
+              isloading: false,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  };
+  React.useEffect(() => {
+    window.scrollTo(-0, -0);
+    axios
+      .all([
+        axios.get(`${API}/general/featured-properties`),
+        axios.get(`${API}/general/all-general-properties-types`),
+      ])
+      .then(
+        axios.spread((res, res2) => {
+          console.log(res2.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
               propertyList: res.data.data,
+              ListOfHomeTypes: res2.data.data,
               isloading: false,
             });
           }
@@ -54,7 +93,7 @@ const FeaturedProperties = () => {
       });
   }, []);
 
-  const { propertyList, error } = state;
+  const { propertyList, error, ListOfHomeTypes,no_of_bedrooms, price, location } = state;
   console.log(propertyList);
   return (
     <>
@@ -82,6 +121,9 @@ const FeaturedProperties = () => {
                 </span>
                 <select className="home_input">
                   <option className="home_input">Property Type</option>
+                  {ListOfHomeTypes.map((data, i) => (
+                    <option value={data.property_class_id}>{data.name}</option>
+                  ))}
                 </select>
               </div>
               <div className="flex-w2 w21">
@@ -95,7 +137,9 @@ const FeaturedProperties = () => {
                 />
               </div>
               <div className="flex-w2 w21 hon">
-                <div className="search_a">Search</div>
+                <div className="search_a" onClick={searchProperty}>
+                  Search
+                </div>
               </div>
             </div>
           </Tab>
@@ -106,10 +150,10 @@ const FeaturedProperties = () => {
         <div className="featured_properties_wrapper">
           <div className="featured_properties fl-a1">
             <span>Featured Properties</span>
-            <span className="prp12">
+            {/* <span className="prp12">
               <span className="property19">Properties</span>
               <span className="property19 property19active">Rent to own</span>
-            </span>
+            </span> */}
           </div>
           <Carousel
             additionalTransfrom={0}

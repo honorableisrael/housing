@@ -31,7 +31,6 @@ const affordabilityTestPage = () => {
                   expect to pay monthly on your home loan repayments.
                 </p>
               </div>
-
               <div className='affordability-form-wrapper standalone'>
                 <ProgressSlider stage='stepOne' />
                 <AfordabilityFormStepOne />

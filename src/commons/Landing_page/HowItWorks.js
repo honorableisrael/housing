@@ -11,7 +11,6 @@ import RectangleHandshake from "../../assets/RectangleHandshake.png";
 import greenbg from "../../assets/greenbg.png";
 import spiralline from "../../assets/spiralline.png";
 
-
 const HowItWorks = () => {
   return (
     <div className="howitworks_container container-fluid">
@@ -74,22 +73,23 @@ const HowItWorks = () => {
                 Searching for a home? get help finding and financing your dream
                 home today all commision free on HSF
               </div>
-              <div className="afftest">Take the Affordability Test</div>
+              <div className="afftest">
+                <Link to="/affordability-test?noselection=true">
+                  Take the Affordability Test
+                </Link>
+              </div>
               <div className="paginationwrapper">
-                <span className="pagination_1_active">
-                </span>
-                <span className="pagination_inactive">
-                </span>
-                <span className="pagination_inactive">
-                </span>
+                <span className="pagination_1_active"></span>
+                <span className="pagination_inactive"></span>
+                <span className="pagination_inactive"></span>
               </div>
               <div className="textdst">
-                <img src={greenbg} className="affdd"/>
+                <img src={greenbg} className="affdd" />
               </div>
             </Col>
             <Col md={1} className="spiralwrapper12">
               <div className={"spiralwrapper"}>
-                <img src={spiralline} className="spiralline" alt={""}/>
+                <img src={spiralline} className="spiralline" alt={""} />
               </div>
             </Col>
           </Row>
