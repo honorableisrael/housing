@@ -325,3 +325,6 @@ th {
     margin: 0 auto;
     display: block;
 }
+.pagination{
+    margin-bottom: 3rem;
+}

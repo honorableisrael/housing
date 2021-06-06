@@ -14,21 +14,153 @@ import AfordabilityFormStepTwo from "../../commons/Forms/AfordabilityFormStepTwo
 
 import "./AffordabilityResultPage.css";
 import ResultHeader from "../AffordabilityTestDownPayment/Resultheader";
+import axios from "axios";
+import { API } from "../../config";
+import PropertyCard2 from "../../commons/Landing_page/PropertyCard2";
+
 
 const AffordabilityResultPage = () => {
   const [state, setState] = useState({
     loaninformation: {},
     max_down_payment: 30,
+    propertyList: [],
+    ListOfHomeTypes: [],
+    isloading: false,
+    nextpageurl: "",
+    prev_page_url:"",
+    allinfo: {},
   });
   useEffect(() => {
     const loan_ = localStorage.getItem("loan_result");
     const loan_info = JSON.parse(loan_);
+    const location_ = localStorage.getItem("location");
+    const location = JSON.parse(location_);
+    console.log(location?.location);
     setState({
       ...state,
       loaninformation: loan_info,
     });
+    console.log(loan_info);
+    window.scrollTo(-0, -0);
+    axios
+      .all([
+        axios.get(`${API}/general/featured-properties`),
+        axios.get(
+          `${API}/general/property-affordability/${loan_info.loanable_amount}/${location?.location}`
+        ),
+      ])
+      .then(
+        axios.spread((res, res2) => {
+          console.log(res2.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              ListOfHomeTypes: res2.data.data,
+              loaninformation: loan_info,
+              isloading: false,
+              allinfo: res2.data.data,
+              next_page_url:res2.data.data.next_page_url,
+              prev_page_url:res2.data.data.prev_page_url,
+              
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
   }, []);
-  const { volume, max_down_payment, loaninformation } = state;
+
+  const moveToNext = () => {
+    const loan_ = localStorage.getItem("loan_result");
+    const loan_info = JSON.parse(loan_);
+    const location_ = localStorage.getItem("location");
+    const location = JSON.parse(location_);
+    console.log(location?.location);
+    setState({
+      ...state,
+      loaninformation: loan_info,
+    });
+    console.log(loan_info);
+    window.scrollTo(-0, -0);
+    axios
+      .all([
+        axios.get(`${API}/general/featured-properties`),
+        axios.get(`${nextpageurl}`),
+      ])
+      .then(
+        axios.spread((res, res2) => {
+          console.log(res2.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              ListOfHomeTypes: res2.data.data,
+              loaninformation: loan_info,
+              isloading: false,
+              allinfo: res2.data.data,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  };
+
+  const prevPageUrl = () => {
+    const loan_ = localStorage.getItem("loan_result");
+    const loan_info = JSON.parse(loan_);
+    const location_ = localStorage.getItem("location");
+    const location = JSON.parse(location_);
+    console.log(location?.location);
+    setState({
+      ...state,
+      loaninformation: loan_info,
+    });
+    console.log(loan_info);
+    window.scrollTo(-0, -0);
+    axios
+      .all([
+        axios.get(`${API}/general/featured-properties`),
+        axios.get(`${prev_page_url}`),
+      ])
+      .then(
+        axios.spread((res, res2) => {
+          console.log(res2.data);
+          if (res.status === 200) {
+            setState({
+              ...state,
+              propertyList: res.data.data,
+              ListOfHomeTypes: res2.data.data,
+              loaninformation: loan_info,
+              isloading: false,
+              allinfo: res2.data.data,
+            });
+          }
+        })
+      )
+      .catch((err) => {
+        console.log(err.response);
+        setState({
+          ...state,
+          isloading: false,
+        });
+      });
+  };
+
+  const { volume, propertyList,prev_page_url,nextpageurl, allinfo, loaninformation } = state;
+  console.log(allinfo);
+
   return (
     <main className="theme-bg">
       <Helmet>
@@ -56,335 +188,35 @@ const AffordabilityResultPage = () => {
                 </p>
               </div>
             </div>
-
             <div className="col-lg-12">
               <div className="property-cards-wrapper">
                 <div className="row">
-                  <div className="col-lg-4">
-                    <div className="property-cards">
-                      <div
-                        className="property-img"
-                        style={{
-                          backgroundImage: "url(" + property_sample_img + ")",
-                        }}
-                      ></div>
-                      <div className="property-cards-info">
-                        <div className="price-location">
-                          <h4>$ 27,000,000</h4>
-                          <p>
-                            <Icons.MapPin size="15" />
-                            Lekki pearl estate II, Lagos, Nigeria
-                          </p>
-                        </div>
-                        <div className="amenities">
-                          <div className="bed">
-                            <img src={bed_icon} alt="Beds" />
-                            <span>4 beds</span>
-                          </div>
-                          <div className="bath">
-                            <img src={bath_icon} alt="Baths" />
-                            <span>4 Baths</span>
-                          </div>
-                          <div className="dimension">
-                            <img src={size_icon} alt="sqft" />
-                            <span>2800 sqft</span>
-                          </div>
-                        </div>
-                        <div className="status-cta">
-                          <div className="status">
-                            <h4>Financial Status</h4>
-                            <p>Mortgage</p>
-                          </div>
-                          <div className="cta">
-                            <button
-                              className="cta-btn"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/affordability-test/down-payment")
-                              }
-                            >
-                              Choose Me
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+                  <div className="col-md-12">
+                    <div className="flex12a">
+                      {
+                      propertyList?.map((data) => (
+                        <PropertyCard2
+                          submit_title={"Choose me"}
+                          property_details={data}
+                        />
+                      ))}
                     </div>
                   </div>
-
-                  <div className="col-lg-4">
-                    <div className="property-cards">
-                      <div
-                        className="property-img"
-                        style={{
-                          backgroundImage: "url(" + property_sample_img + ")",
-                        }}
-                      ></div>
-                      <div className="property-cards-info">
-                        <div className="price-location">
-                          <h4>$ 27,000,000</h4>
-                          <p>
-                            <Icons.MapPin size="15" />
-                            Lekki pearl estate II, Lagos, Nigeria
-                          </p>
-                        </div>
-                        <div className="amenities">
-                          <div className="bed">
-                            <img src={bed_icon} alt="Beds" />
-                            <span>4 beds</span>
-                          </div>
-                          <div className="bath">
-                            <img src={bath_icon} alt="Baths" />
-                            <span>4 Baths</span>
-                          </div>
-                          <div className="dimension">
-                            <img src={size_icon} alt="sqft" />
-                            <span>2800 sqft</span>
-                          </div>
-                        </div>
-                        <div className="status-cta">
-                          <div className="status">
-                            <h4>Financial Status</h4>
-                            <p>Mortgage</p>
-                          </div>
-                          <div className="cta">
-                            <button
-                              className="cta-btn"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/affordability-test/down-payment")
-                              }
-                            >
-                              Choose Me
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4">
-                    <div className="property-cards">
-                      <div
-                        className="property-img"
-                        style={{
-                          backgroundImage: "url(" + property_sample_img + ")",
-                        }}
-                      ></div>
-                      <div className="property-cards-info">
-                        <div className="price-location">
-                          <h4>$ 27,000,000</h4>
-                          <p>
-                            <Icons.MapPin size="15" />
-                            Lekki pearl estate II, Lagos, Nigeria
-                          </p>
-                        </div>
-                        <div className="amenities">
-                          <div className="bed">
-                            <img src={bed_icon} alt="Beds" />
-                            <span>4 beds</span>
-                          </div>
-                          <div className="bath">
-                            <img src={bath_icon} alt="Baths" />
-                            <span>4 Baths</span>
-                          </div>
-                          <div className="dimension">
-                            <img src={size_icon} alt="sqft" />
-                            <span>2800 sqft</span>
-                          </div>
-                        </div>
-                        <div className="status-cta">
-                          <div className="status">
-                            <h4>Financial Status</h4>
-                            <p>Mortgage</p>
-                          </div>
-                          <div className="cta">
-                            <button
-                              className="cta-btn"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/affordability-test/down-payment")
-                              }
-                            >
-                              Choose Me
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4">
-                    <div className="property-cards">
-                      <div
-                        className="property-img"
-                        style={{
-                          backgroundImage: "url(" + property_sample_img + ")",
-                        }}
-                      ></div>
-                      <div className="property-cards-info">
-                        <div className="price-location">
-                          <h4>$ 27,000,000</h4>
-                          <p>
-                            <Icons.MapPin size="15" />
-                            Lekki pearl estate II, Lagos, Nigeria
-                          </p>
-                        </div>
-                        <div className="amenities">
-                          <div className="bed">
-                            <img src={bed_icon} alt="Beds" />
-                            <span>4 beds</span>
-                          </div>
-                          <div className="bath">
-                            <img src={bath_icon} alt="Baths" />
-                            <span>4 Baths</span>
-                          </div>
-                          <div className="dimension">
-                            <img src={size_icon} alt="sqft" />
-                            <span>2800 sqft</span>
-                          </div>
-                        </div>
-                        <div className="status-cta">
-                          <div className="status">
-                            <h4>Financial Status</h4>
-                            <p>Mortgage</p>
-                          </div>
-                          <div className="cta">
-                            <button
-                              className="cta-btn"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/affordability-test/down-payment")
-                              }
-                            >
-                              Choose Me
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4">
-                    <div className="property-cards">
-                      <div
-                        className="property-img"
-                        style={{
-                          backgroundImage: "url(" + property_sample_img + ")",
-                        }}
-                      ></div>
-                      <div className="property-cards-info">
-                        <div className="price-location">
-                          <h4>$ 27,000,000</h4>
-                          <p>
-                            <Icons.MapPin size="15" />
-                            Lekki pearl estate II, Lagos, Nigeria
-                          </p>
-                        </div>
-                        <div className="amenities">
-                          <div className="bed">
-                            <img src={bed_icon} alt="Beds" />
-                            <span>4 beds</span>
-                          </div>
-                          <div className="bath">
-                            <img src={bath_icon} alt="Baths" />
-                            <span>4 Baths</span>
-                          </div>
-                          <div className="dimension">
-                            <img src={size_icon} alt="sqft" />
-                            <span>2800 sqft</span>
-                          </div>
-                        </div>
-                        <div className="status-cta">
-                          <div className="status">
-                            <h4>Financial Status</h4>
-                            <p>Mortgage</p>
-                          </div>
-                          <div className="cta">
-                            <button
-                              className="cta-btn"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/affordability-test/down-payment")
-                              }
-                            >
-                              Choose Me
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4">
-                    <div className="property-cards">
-                      <div
-                        className="property-img"
-                        style={{
-                          backgroundImage: "url(" + property_sample_img + ")",
-                        }}
-                      ></div>
-                      <div className="property-cards-info">
-                        <div className="price-location">
-                          <h4>$ 27,000,000</h4>
-                          <p>
-                            <Icons.MapPin size="15" />
-                            Lekki pearl estate II, Lagos, Nigeria
-                          </p>
-                        </div>
-                        <div className="amenities">
-                          <div className="bed">
-                            <img src={bed_icon} alt="Beds" />
-                            <span>4 beds</span>
-                          </div>
-                          <div className="bath">
-                            <img src={bath_icon} alt="Baths" />
-                            <span>4 Baths</span>
-                          </div>
-                          <div className="dimension">
-                            <img src={size_icon} alt="sqft" />
-                            <span>2800 sqft</span>
-                          </div>
-                        </div>
-                        <div className="status-cta">
-                          <div className="status">
-                            <h4>Financial Status</h4>
-                            <p>Mortgage</p>
-                          </div>
-                          <div className="cta">
-                            <button
-                              className="cta-btn"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/affordability-test/down-payment")
-                              }
-                            >
-                              Choose Me
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   <div className="col-lg-12">
                     <div className="pagination-counter">
                       <ul className="pagination">
                         <li className="page-item">
                           <a
-                            className="page-link disable icons"
+                            className="page-link icons"
                             href="#"
                             aria-label="Previous"
                           >
-                            <Icons.ChevronLeft size="15" />
+                            <Icons.ChevronLeft size="15" 
+                                onClick={prevPageUrl}
+                            />
                           </a>
                         </li>
-                        <li className="page-item">
+                        {/* <li className="page-item">
                           <a className="page-link" href="#">
                             1
                           </a>
@@ -408,21 +240,25 @@ const AffordabilityResultPage = () => {
                           <a className="page-link" href="#">
                             10
                           </a>
-                        </li>
+                        </li> */}
                         <li className="page-item">
                           <a
                             className="page-link icons"
-                            href="#"
                             aria-label="Next"
+                            onClick={moveToNext}
                           >
-                            <Icons.ChevronRight size="15" />
+                            <Icons.ChevronRight
+                              size="15"
+                            />
                           </a>
                         </li>
                       </ul>
                     </div>
                     <p className="pagination-result-counter">
-                      <strong>6 of 30</strong> showing based on Affordability
-                      Test
+                      <strong>
+                        {allinfo?.current_page} of {allinfo.total}
+                      </strong>{" "}
+                      showing based on Affordability Test
                     </p>
                   </div>
                 </div>

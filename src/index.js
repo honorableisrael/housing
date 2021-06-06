@@ -16,6 +16,8 @@ import CircularLoader from "./containers/CircularLoader";
 import "./normalize.css";
 import "./App.css";
 
+
+window.scrollTo(-0, -0);
 ReactDOM.render(
   // <CookiesProvider>
   <Provider store={store}>

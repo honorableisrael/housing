@@ -32,6 +32,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
     date_of_birth: "",
     loan_period: "",
     modalIsOpen: "",
+    modalIsOpen1: "",
     location: "",
     condition: false,
     errorMessage: "",
@@ -174,6 +175,12 @@ const AfordabilityFormStepOne = withRouter((props) => {
         errorMessage: "The minimum age is 21",
       });
     }
+    if (!location) {
+      return setState({
+        ...state,
+        modalIsOpen1: true,
+      });
+    }
     setState({
       ...state,
       isloading: true,
@@ -191,6 +198,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
       .then((resp) => {
         console.log(resp.data.data);
         localStorage.setItem("loan_result", JSON.stringify(resp.data.data));
+        localStorage.setItem("location", JSON.stringify({location}));
         setState({
           ...state,
           isloading: false,
@@ -218,10 +226,16 @@ const AfordabilityFormStepOne = withRouter((props) => {
     });
     window.location.reload();
   };
+  const closeModal1 = () => {
+    setState({
+      ...state,
+      modalIsOpen1: false,
+    });
+  };
   let {
     volume,
     date_of_birth,
-    retirement_age,
+    modalIsOpen1,
     net_monthly,
     partner_income,
     location,
@@ -234,9 +248,11 @@ const AfordabilityFormStepOne = withRouter((props) => {
     modalIsOpen,
     errorMessage,
   } = state;
+  
   useEffect(() => {
     const query = new URLSearchParams(props.location.search);
     const condition = query.get("noselection");
+    window.scrollTo(-0, -0);
     console.log(condition);
     if (condition == "true") {
       setState({
@@ -262,6 +278,23 @@ const AfordabilityFormStepOne = withRouter((props) => {
             /> */}
         </div>
         <div className="schcc">{errorMessage}</div>
+        <div className="schcc2"> </div>
+        <div className="text-center"></div>
+      </Modal>
+      <Modal
+        isOpen={modalIsOpen1}
+        onRequestClose={closeModal1}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className="schcc12 retirmt">
+          {/* <img
+              src={successfullysaved}
+              className="successfullysaved"
+              alt="successfullysaved"
+            /> */}
+        </div>
+        <div className="schcc">Location is required</div>
         <div className="schcc2"> </div>
         <div className="text-center"></div>
       </Modal>
@@ -538,6 +571,7 @@ const AfordabilityFormStepOne = withRouter((props) => {
                   name="location"
                   className="form-control "
                   value={location}
+                  required={true}
                   onChange={onchange}
                   placeholder="Where is your preferred Location (Eg. Lagos, Abuja)"
                 />

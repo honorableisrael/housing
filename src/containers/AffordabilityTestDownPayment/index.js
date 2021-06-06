@@ -22,6 +22,7 @@ const AffordabilityTestDownPayment = () => {
       ...state,
       loaninformation: loan_info,
     });
+    
   }, []);
   const { volume,max_down_payment,loaninformation } = state;
   console.log(loaninformation);
