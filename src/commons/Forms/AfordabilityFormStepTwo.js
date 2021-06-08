@@ -4,8 +4,7 @@ import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
 import { FormatAmount } from "../User_Dashboard/controller";
 import { withRouter } from "react-router";
-
-
+import ConfirmationModal from "../Modals/confirmationModal";
 
 const AfordabilityFormStepTwo = withRouter((props) => {
   const [state, setState] = useState({
@@ -15,13 +14,14 @@ const AfordabilityFormStepTwo = withRouter((props) => {
     property_value: "",
     expected_equity_contribution: "",
     volume: 10,
+    show: false,
   });
   const [period, setPeriod] = useState({
     max_loan_period: 99,
     min_loan_period: 10,
   });
   useEffect(() => {
-    window.scrollTo(-0,-0)
+    window.scrollTo(-0, -0);
     const loan_ = localStorage.getItem("loan_result");
     const loan_info = JSON.parse(loan_);
     const property_details_ = localStorage.getItem("property_details");
@@ -45,13 +45,18 @@ const AfordabilityFormStepTwo = withRouter((props) => {
       "downpayment_summary",
       JSON.stringify({
         property_value,
-        loanable_amount: (
-          property_value - calculator()?.equity_contribution_value?.toFixed(2)
-        ),
-        equity_contribution_value: calculator()?.equity_contribution_value?.toFixed(2),
+        loanable_amount:
+          property_value - calculator()?.equity_contribution_value?.toFixed(2),
+        equity_contribution_value:
+          calculator()?.equity_contribution_value?.toFixed(2),
       })
     );
-    props.history.push("/affordability-test/confirmation");
+    setState({
+      ...state,
+      show: true,
+    });
+
+    // props.history.push("/affordability-test/confirmation");
   };
   const calculator = () => {
     let loanable_amount_ = parseInt(loanable_amount);
@@ -59,14 +64,17 @@ const AfordabilityFormStepTwo = withRouter((props) => {
     console.log(loanable_amount);
     console.log(property_value_);
     let p = (loanable_amount_ / property_value_) * 100;
-    console.log(p);
+    console.log(loanable_amount);
     if (p > 100) {
       console.log("step1");
       const expectedEquityContributionPercent = volume;
       const equity_contribution_value =
         (expectedEquityContributionPercent / 100) * property_value_;
       console.log(equity_contribution_value);
-      const newloanableamount = (90 / 100) * property_value;
+      const newloanableamount =
+        (90 / 100) * property_value < loanable_amount
+          ? (90 / 100) * property_value
+          : loanable_amount;
       return {
         equity_contribution_value,
         expectedEquityContributionPercent,
@@ -79,7 +87,10 @@ const AfordabilityFormStepTwo = withRouter((props) => {
       console.log(expectedEquityContributionPercent);
       const equity_contribution_value =
         (expectedEquityContributionPercent / 100) * property_value_;
-      const newloanableamount = property_value_ - newloanableamount;
+      const newloanableamount =
+        property_value_ - newloanableamount < loanable_amount
+          ? property_value_ - newloanableamount
+          : loanable_amount;
       return {
         equity_contribution_value,
         expectedEquityContributionPercent,
@@ -105,7 +116,15 @@ const AfordabilityFormStepTwo = withRouter((props) => {
       const equity_contribution_value =
         (expectedEquityContributionPercent / 100) * property_value_;
       console.log(equity_contribution_value);
-      return { equity_contribution_value, expectedEquityContributionPercent };
+      const newloanableamount =
+        property_value_ - newloanableamount < loanable_amount
+          ? property_value_ - newloanableamount
+          : loanable_amount;
+      return {
+        equity_contribution_value,
+        newloanableamount,
+        expectedEquityContributionPercent,
+      };
     }
   };
   const {
@@ -116,7 +135,7 @@ const AfordabilityFormStepTwo = withRouter((props) => {
     property_value,
     expected_equity_contribution,
   } = state;
-  console.log(calculator());
+  console.log(property_value-loanable_amount);
   return (
     <form>
       <div className="form-wrapper down-payment">
@@ -155,12 +174,13 @@ const AfordabilityFormStepTwo = withRouter((props) => {
                 className="form-control "
                 placeholder=""
                 value={
-                  property_value - down_payment > 0
+                  property_value - calculator()?.equity_contribution_value <
+                  loanable_amount
                     ? FormatAmount(
                         property_value -
                           calculator()?.equity_contribution_value?.toFixed(2)
                       )
-                    : 0
+                    : FormatAmount  (loanable_amount)
                 }
                 readOnly
               />
@@ -216,15 +236,26 @@ const AfordabilityFormStepTwo = withRouter((props) => {
                 name="title"
                 className="form-control"
                 placeholder=""
-                value={FormatAmount(
-                  calculator()?.equity_contribution_value?.toFixed(2)
-                )}
+                value={property_value - calculator()?.equity_contribution_value <
+                  loanable_amount
+                    ? FormatAmount(
+                          calculator()?.equity_contribution_value?.toFixed(2)
+                      )
+                    : FormatAmount  (parseInt(property_value) - parseInt(calculator()?.equity_contribution_value))}
                 readOnly
               />
             </div>
           </div>
         </div>
       </div>
+      <ConfirmationModal
+        show=""
+        display=""
+        equity_percent={calculator().expectedEquityContributionPercent}
+        equity_contribution={FormatAmount(
+          calculator()?.equity_contribution_value?.toFixed(2)
+        )}
+      />
       <div className="form-group row">
         <div className="offset-lg-3 col-lg-6">
           <button
@@ -236,6 +267,16 @@ const AfordabilityFormStepTwo = withRouter((props) => {
           >
             Continue
           </button>
+          {state.show && (
+            <ConfirmationModal
+              show=""
+              display="block"
+              equity_percent={calculator().expectedEquityContributionPercent}
+              equity_contribution={FormatAmount(
+                calculator()?.equity_contribution_value?.toFixed(2)
+              )}
+            />
+          )}
         </div>
       </div>
     </form>

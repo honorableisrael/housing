@@ -3,15 +3,16 @@ import * as Icons from "react-feather";
 import QuestionIcon from "../../assets/questionImg.png";
 import "./Modals.css";
 
-const confirmationModal = () => {
+const ConfirmationModal = (props) => {
   return (
     <div
-      className='modal fade'
+      className='modal fade show'
       id='confirmationModal'
       tabindex='-1'
       role='dialog'
       aria-labelledby='confirmationModalTitle'
       aria-hidden='true'
+      style={{display:props.display}}
     >
       <div className='modal-dialog modal-dialog-centered' role='document'>
         <div className='modal-content'>
@@ -22,7 +23,7 @@ const confirmationModal = () => {
               data-dismiss='modal'
               aria-label='Close'
             >
-              <span aria-hidden='true'>
+              <span aria-hidden='true' onClick={()=>window.location.reload()}>
                 <Icons.X size='25' />
               </span>
             </button>
@@ -36,10 +37,10 @@ const confirmationModal = () => {
 
               <div className='equity-content-wrapper'>
                 <h3>
-                  Your Equity Contribution is <strong>60%</strong>
+                  Your Equity Contribution is <strong>{props.equity_percent}%</strong>
                 </h3>
                 <h2>
-                  ₦ 18,000,000. <small>00</small>
+                  ₦ {props.equity_contribution} <small></small>
                 </h2>
               </div>
             </div>
@@ -69,4 +70,4 @@ const confirmationModal = () => {
     </div>
   );
 };
-export default confirmationModal;
+export default ConfirmationModal;
